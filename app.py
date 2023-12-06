@@ -422,7 +422,7 @@ elif st.session_state['page'] == 'Analyse':
         
         # Charger le fichier CSV dans un DataFrame
         chemin_fichier_csv = "data/data_APL.csv"
-        df_data_APL = pd.read_csv(chemin_fichier_csv, sep=';', error_bad_lines=False)
+        df_data_APL = pd.read_csv(chemin_fichier_csv, sep=';', on_bad_lines='skip')
         
         st.write(
             '''
