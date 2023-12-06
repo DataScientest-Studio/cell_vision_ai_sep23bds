@@ -17,6 +17,11 @@ Structure du dépôt :
 │   └── DL
 └── streamlit
 ```
+Les datasets utilisés sont présents aux adresses suivantes :
+
+- [Dataset PBC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7182702/)
+- [Dataset APL](https://www.kaggle.com/eugeneshenderov/acute-promyelocytic-leukemia-apl)
+- [Dataset ALL_IDB](https://www.kaggle.com/nikhilsharma00/leukemia-dataset)
 
 Le projet a été développé par :
 
