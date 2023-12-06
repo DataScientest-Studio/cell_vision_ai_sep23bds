@@ -20,7 +20,7 @@ Structure du dépôt :
 
 Le projet a été développé par :
 
-- Wilfried Condemine ([GitHub]((https://github.com/wilfried1ier) / [LinkedIn](https://www.linkedin.com/in/wilfried-condemine-85065a54/))
+- Wilfried Condemine ([GitHub](https://github.com/wilfried1ier) / [LinkedIn](https://www.linkedin.com/in/wilfried-condemine-85065a54/))
 - Michael Deroche ([GitHub](https://github.com/miklderoche) / [LinkedIn](https://www.linkedin.com/in/michaelderoche/))
 - Claudia Mattei  ([GitHub](https://github.com/Claudia-Mattei) / [LinkedIn](www.linkedin.com/in/claudia-mattei))
 - Charles Sallard ([GitHub](https://github.com/CharlesSALLARD) / [LinkedIn](https://www.linkedin.com/in/charles-sallard/))
