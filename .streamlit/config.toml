@@ -1,0 +1,15 @@
+[theme]
+base="light"
+primaryColor="#9894ff"
+secondaryBackgroundColor="#f0f0f5"
+textColor="#262730"
+font = "sans serif"
+
+[layout]
+initial_sidebar_state = "expanded"
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false
