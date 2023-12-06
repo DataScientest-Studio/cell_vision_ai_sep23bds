@@ -421,8 +421,8 @@ elif st.session_state['page'] == 'Analyse':
         st.header("Acute Promyelocytic Leukemia (APL)")
         
         # Charger le fichier CSV dans un DataFrame
-        chemin_fichier_csv = "data/data_APL.csv"
-        df_data_APL = pd.read_csv(chemin_fichier_csv, sep=';', encoding='utf-8', on_bad_lines='skip')
+        chemin_fichier_csv = "data/data_APL copie.csv"
+        df_data_APL = pd.read_csv(chemin_fichier_csv)
         
         st.write(
             '''
