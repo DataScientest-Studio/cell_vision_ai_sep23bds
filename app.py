@@ -450,6 +450,8 @@ elif st.session_state['page'] == 'Analyse':
             )
         st.write(df_data_APL)
         
+        st.write(
+                '''
             **Analyse**
             
             - **Conditions d'Acquisition :** 
