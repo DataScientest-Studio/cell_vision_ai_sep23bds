@@ -1,44 +1,31 @@
 # ProjectTemplate
 
-## Explanations and Instructions
+## Presentation et Installation
 
-This repository contains the files needed to initialize a project for your [DataScientest](https://datascientest.com/) training.
+Ce dépôt contient les codes pour le projet **BLOOD CELLS CLASSIFICATION**, développé durant le parcours [Data Scientist training](https://datascientest.com/en/data-scientist-course) de [DataScientest](https://datascientest.com/).
 
-It contains mainly the present README.md file and an application template [Streamlit](https://streamlit.io/).
+Le but de ce projet est de reconnaître et classifier des cellules du sang grâce à des algorithmes de machine learning et de deep learning. Les modèles développés pourront également aider à faciliter le diagnostic de la leucémie par la reconnaissance de blastes (cellules immatures fortement présentes chez les malades).
 
-**README**
+Structure du dépôt :
+```bash
+├── data (contient les dataframes répertoriant les images traîtées et leurs propriétés)
+├── images (servant au streamlit
+├── model (modèles de ML utilisés)
+├── notebooks
+│   ├── DataViz
+│   └── ML
+│   └── DL
+└── streamlit
+```
 
-The README.md file is a central element of any git repository. It allows you to present your project, its objectives, and to explain how to install and launch the project, or even how to contribute to it.
+Le projet a été développé par :
 
-You will have to modify different sections of this README.md to include the necessary informations.
+- Wilfried Condemine ([GitHub]((https://github.com/wilfried1ier) / [LinkedIn](https://www.linkedin.com/in/wilfried-condemine-85065a54/))
+- Michael Deroche ([GitHub](https://github.com/miklderoche) / [LinkedIn](https://www.linkedin.com/in/michaelderoche/))
+- Claudia Mattei  ([GitHub](https://github.com/Claudia-Mattei) / [LinkedIn](www.linkedin.com/in/claudia-mattei))
+- Charles Sallard ([GitHub](https://github.com/CharlesSALLARD) / [LinkedIn](https://www.linkedin.com/in/charles-sallard/))
 
-- Complete the sections (`## Presentation and Installation` `## Streamlit App`) following the instructions in these sections.
-- Delete this section (`## Explanations and Instructions`)
-
-**Streamlit Application**
-
-A [Streamlit] application template (https://streamlit.io/) is available in the [streamlit_app](streamlit_app) folder. You can use this template to start with your project.
-
-## Presentation and Installation
-
-Complete this section with a brief description of your project, the context (including a link to the DataScientest course), and the objectives.
-
-You can also add a brief presentation of the team members with links to your respective networks (GitHub and/or LinkedIn for example).
-
-**Example:**
-
-This repository contains the code for our project **PROJECT_NAME**, developed during our [Data Scientist training](https://datascientest.com/en/data-scientist-course) at [DataScientest](https://datascientest.com/).
-
-The goal of this project is to **...**
-
-This project was developed by the following team :
-
-- John Doe ([GitHub](https://github.com/) / [LinkedIn](http://linkedin.com/))
-- Martin Dupont ([GitHub](https://github.com/) / [LinkedIn](http://linkedin.com/))
-
-You can browse and run the [notebooks](./notebooks). 
-
-You will need to install the dependencies (in a dedicated environment) :
+Il faut installer les dépendances suivantes :
 
 ```
 pip install -r requirements.txt
