@@ -9,13 +9,13 @@ Le but de ce projet est de reconnaître et classifier des cellules du sang grâc
 Structure du dépôt :
 ```bash
 ├── data (contient les dataframes répertoriant les images traîtées et leurs propriétés)
-├── images (servant au streamlit
+├── images (images utiles au stramlit
 ├── model (modèles de ML utilisés)
 ├── notebooks
 │   ├── DataViz
 │   └── ML
 │   └── DL
-└── streamlit
+└── app.py (application streamlit)
 ```
 Les datasets utilisés sont présents aux adresses suivantes :
 
