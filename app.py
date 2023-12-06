@@ -72,7 +72,7 @@ elif st.session_state['page'] == 'Analyse':
     chemin_fichier_csv = "data/data_PBC.csv"
     df_data_PBC = pd.read_csv(chemin_fichier_csv)
 
-    st.image('images/bandeau_analyse_1.jpg')
+    st.image('images/bandeau_analyse_5.jpg')
 
     tab1, tab2, tab3, tab4 = st.tabs(["PBC Dataset Normal DIB", "Leukemia Dataset", "Acute Promyelocytic Leukemia (APL)", "Recommandations"])
 
