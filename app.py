@@ -420,6 +420,10 @@ elif st.session_state['page'] == 'Analyse':
     with tab3:
         st.header("Acute Promyelocytic Leukemia (APL)")
         
+        # Charger le fichier CSV dans un DataFrame
+        chemin_fichier_csv = "data/data_APL.csv"
+        df_data_APL = pd.read_csv(chemin_fichier_csv)
+        
         st.write(
             '''
             Le dataset est composé d'images de cellules sanguines classées de patients atteints de différentes formes de leucémie. 
@@ -433,7 +437,18 @@ elif st.session_state['page'] == 'Analyse':
             - Origine : Cellules de 106 patients de l’Hôpital Johns Hopkins, atteints de Leucémie Myéloïde Aiguë (AML) ou de Leucémie Aiguë Promyélocytaire (APL)
             
             Ce jeu de données contient des images de cellules de patients atteints de deux types de leucémie. Les cellules sont classées dans des dossiers par catégorie, et il existe également un dossier pour les cellules non classées.
+            '''
+        
+            # Afficher df_data_APL
+        st.write(
+            '''
+            Afin de faciliter l'analyse, un dataset a été créé à partir des différentes informations disponibles à partir des images. 
             
+            **data_APL.csv :**
+            '''
+            )
+        st.write(df_data_APL)
+        
             **Analyse**
             
             - **Conditions d'Acquisition :** 
