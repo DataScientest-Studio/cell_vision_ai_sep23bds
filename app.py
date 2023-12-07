@@ -673,8 +673,10 @@ elif st.session_state['page'] == 'Machine learning':
         Visualisation des étapes de segmentation initiale :
         """)
 
-        st.image('images/M2_1.jpg')
-        st.image('images/M2_2.jpg')
+        st.image('images/M2_6.jpg', width=150)
+        st.image('images/M2_7.jpg', width=150)
+        st.image('images/M2_8.jpg', width=150)
+        st.image('images/M2_9.jpg', width=150)
         
         # 2ème étape
         st.subheader("Extraction des caractéristiques à partir des boîtes encadrantes")
