@@ -742,8 +742,6 @@ elif st.session_state['page'] == 'Machine learning':
         st.image('images/M2_5.jpg')
         
     with tab6:
-        
-        import streamlit as st
 
         # Titre
         st.title("Analyse des Algorithmes de Classification")
@@ -818,8 +816,6 @@ elif st.session_state['page'] == 'Machine learning':
         - Le meilleur score est atteint avec un réseau de neurones dense avec Keras après élimination des classes extrêmement sous-représentées.
         - Il existe des limitations à l'obtention d'un score élevé en raison de la complexité des images cellulaires.
         """)
-
-
 
 ## %%% PAGE DEEP LEARNING %%% ##
 
