@@ -924,7 +924,7 @@ elif st.session_state['page'] == 'Deep learning':
         """)
 
         text = """
-        ---------------------------- precision    recall  f1-score   support
+        ----------------------- precision    recall  f1-score   support
                       Basophil       0.82      0.91      0.86       127
         Blast, no lineage spec       0.81      0.87      0.84       329
                     Eosinophil       1.00      0.94      0.97       322
