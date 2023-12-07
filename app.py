@@ -831,7 +831,7 @@ elif st.session_state['page'] == 'Machine learning':
         weighted avg       0.73      0.73      0.72      4543
         """
         
-        st.write(text)
+        st.text(text)
 
         st.image('images/ML_Keras.jpg')
         
