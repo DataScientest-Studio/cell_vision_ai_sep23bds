@@ -743,85 +743,82 @@ elif st.session_state['page'] == 'Machine learning':
         
     with tab6:
         
+        import streamlit as st
+
+        # Titre
+        st.title("Analyse des Algorithmes de Classification")
+        
         # Standardisation des données et séparation en ensembles d'entraînement et de test
-        st.subheader("Standardisation des données et Séparation des ensembles")
+        st.header("Standardisation des Données et Séparation en Ensembles")
         st.markdown("""
-        Nous réalisons d'abord une standardisation des données pour que les algorithmes sensibles aux échelles n'en soient pas affectés. Ensuite, nous séparons les données en ensembles d'entraînement et de test pour évaluer la performance des algorithmes.
+        - Standardisation des données pour préparer les algorithmes sensibles aux échelles.
+        - Séparation des données en ensembles d'entraînement et de test.
         """)
         
-        # Résultats des algorithmes
-        st.subheader("Résultats des Algorithmes")
-        
-        # RandomForest
+        # Résultats de l'algorithme RandomForest
+        st.header("RandomForest")
         st.markdown("""
-        **RandomForest**
+        - Accuracy sur l'ensemble de test : 0,70.
+        - Rapport de classification pour chaque classe.
         
-        Le premier algorithme testé est le RandomForest, pour lequel nous obtenons une accuracy de 0.70 sur l'ensemble de test. Le rapport de classification montre les performances par classe.
+        Optimisation des hyperparamètres avec GridSearchCV, mais pas d'amélioration significative.
+        L'observation montre que les classes sous-représentées sont mal prédites. Le sur-échantillonnage avec SMOTE ne fait que baisser les performances.
         
-        *Note : Une optimisation des hyperparamètres avec GridSearchCV n'a pas permis d'améliorer ce score.*
-        """)
-        # Insérer ici la représentation du rapport de classification pour RandomForest
+        Classes mal prédites : "erythroblast", "monocyte", "ig", "basophil".
         
-        # Commentaire sur les résultats de RandomForest
-        st.markdown("""
-        Nous observons que les classes sous-représentées sont très mal prédites, et un sur-échantillonnage avec SMOTE fait même baisser les performances de 2%. Parmi les classes moins bien prédites, on retrouve les cellules de type "erythroblast", "monocyte" et "ig", qui semblent présenter une variabilité accrue en termes de formes et tailles, ainsi que la classe "basophil", dont le noyau est difficilement reconnaissable par rapport au cytoplasme.
-        
-        Une autre raison de ces mauvaises classifications est la ressemblance morphologique entre certaines cellules. La classe "platelet" est la mieux prédite, car les cellules sont bien plus petites que les autres, ce qui permet de les différencier facilement.
         """)
         
-        # XGBoost
+        # Résultats de l'algorithme XGBoost
+        st.header("XGBoost")
         st.markdown("""
-        **XGBoost**
+        - Accuracy sur l'ensemble de test : 0,71.
         
-        Avec XGBoost, nous obtenons une accuracy de 0.71 sur l'ensemble de test. Nous avons utilisé l'objectif 'multi:softmax' pour la classification multiclasse.
-        """)
-        # Insérer ici la représentation des performances pour XGBoost
-        
-        # KNN
-        st.markdown("""
-        **KNN**
-        
-        Avec l'algorithme KNN (avec n_neighbors=13), nous obtenons une accuracy de 0.68 sur l'ensemble de test.
-        """)
-        # Insérer ici la représentation des performances pour KNN
-        
-        # Commentaires sur les résultats de XGBoost et KNN
-        st.markdown("""
-        Avec XGBoost, on peut relever l'importance des features pour savoir si certaines peuvent ne pas être prises en compte. En essayant d'éliminer les features moins importantes, comme par exemple la hauteur et largeur du rectangle minimal, nous n'obtenons pas de meilleurs résultats. Nous avons également tenté d'introduire de nouvelles features, par exemple en multipliant des features déjà présentes entre elles, mais cela n'a pas été concluant.
-        
-        Nous obtenons des améliorations notables avec l'algorithme SVM après optimisation des hyperparamètres (C=100, gamma=0.01, kernel='rbf'). Nous atteignons une accuracy de 0.73 sur l'ensemble de test.
-        """)
-        # Insérer ici la représentation du rapport de classification et de la matrice de classification pour SVM
-        
-        # Commentaires sur les résultats de SVM
-        st.markdown("""
-        Parmi les classes mal prédites, on confond souvent les "erythroblast" avec les "lymphocytes", ce qui est problématique vu qu'ils appartiennent à deux lignées hématopoïétiques (respectivement myéloïde et lymphoïde) ou bien les "monocyte" et "basophil" avec les "ig" (moins surprenant car tous appartiennent à la lignée myéloïde).
-        
-        Les images montrent des ressemblances entre certaines photographies, ce qui peut expliquer ces confusions. Gardons à l'esprit que notre algorithme de segmentation des noyaux ne se concentre que sur la forme et la taille de ces derniers lorsqu'ils sont assez reconnaissables par rapport au cytoplasme. D'autres caractéristiques importantes comme l'aspect granuleux ou la couleur du noyau et du cytoplasme ne sont pas prises en compte et sont des limitations à l'obtention d'un score élevé.
         """)
         
-        # Réseau de Neurones Dense avec Keras
+        # Résultats de l'algorithme KNN
+        st.header("K-Nearest Neighbors (KNN)")
         st.markdown("""
-        **Réseau de Neurones Dense avec Keras**
+        - Accuracy sur l'ensemble de test : 0,68.
         
-        Les meilleurs scores sont atteints avec un réseau de neurones dense avec Keras. Nous avons réalisé un modèle séquentiel avec 3 couches :
+        """)
+        
+        # Résultats de l'algorithme SVM
+        st.header("Support Vector Machine (SVM)")
+        st.markdown("""
+        - Accuracy sur l'ensemble de test : 0,73 (après optimisation des hyperparamètres : C=100, gamma=0,01, kernel='rbf').
+        - Pas de sur-apprentissage (accuracy sur l'ensemble d'entraînement : 0,72).
+        
+        Classes mal prédites : "erythroblast" confondue avec "lymphocyte", "monocyte" et "basophil" confondus avec "ig".
+        
+        """)
+        
+        # Résultats du réseau de neurones avec Keras
+        st.header("Réseau de Neurones avec Keras")
+        st.markdown("""
+        - Accuracy sur l'ensemble de test : 0,73.
+        - Augmentation de l'accuracy en éliminant les cellules des 4 classes extrêmement sous-représentées.
+        
+        Meilleurs scores obtenus avec un réseau de neurones dense avec Keras. Architecture du modèle :
         - Couche Dense à 64 neurones, fonction d'activation 'relu'.
         - Couche Dense à 32 neurones, fonction d'activation 'relu'.
         - Couche Dense à 13 neurones, fonction d'activation 'softmax'.
+        - Optimiseur : 'adam'.
+        - Fonction de perte : 'sparse_categorical_crossentropy'.
+        - Entraînement sur 100 époques avec un batch_size=128.
         
-        L'optimiseur est 'adam' et la fonction de perte 'sparse_categorical_crossentropy'. Le modèle est entraîné sur 100 époques avec un batch_size=128. On obtient une accuracy de 0.73.
+        Classes mal prédites : "erythroblast" confondue avec "lymphocyte", "monocyte" et "basophil" confondus avec "ig".
         
-        En éliminant les cellules des 4 classes extrêmement sous-représentées, nous avons à présent 9 classes possibles et obtenons une accuracy de 0.75 sur les ensembles d'entraînement et de test.
         """)
-        # Insérer ici la représentation du rapport de classification et de la matrice de classification pour le Réseau de Neurones Dense
         
         # Conclusion
-        st.subheader("Conclusion")
+        st.header("Conclusion")
         st.markdown("""
-        Ces résultats montrent que la classification des cellules sanguines à partir de données de segmentation de noyaux est un défi complexe en raison de la variabilité morphologique et de la ressemblance entre certaines cellules. Malgré les limitations de l'algorithme de segmentation, certaines méthodes, comme le SVM et le réseau de neurones dense, permettent d'atteindre des performances acceptables.
-        
-        Il reste des possibilités d'amélioration en explorant de nouvelles caractéristiques et en développant des approches plus sophistiquées de segmentation et de classification.
+        - Les performances de classification sont affectées par les classes sous-représentées et la ressemblance morphologique entre certaines cellules.
+        - L'algorithme de segmentation des noyaux se concentre sur la forme et la taille, ne prenant pas en compte d'autres caractéristiques importantes.
+        - Le meilleur score est atteint avec un réseau de neurones dense avec Keras après élimination des classes extrêmement sous-représentées.
+        - Il existe des limitations à l'obtention d'un score élevé en raison de la complexité des images cellulaires.
         """)
+
 
 
 ## %%% PAGE DEEP LEARNING %%% ##
