@@ -908,7 +908,6 @@ elif st.session_state['page'] == 'Deep learning':
         
         # Étape 8 : Carte d’Activation Grad-CAM
         st.markdown("<h4>Carte d’Activation Grad-CAM</h4>", unsafe_allow_html=True)
-        image = st.image("BA_47.jpg", caption="Image: BA_47.jpg (basophil)", use_column_width=True)
         
         # Paramètres Grad-CAM ici si nécessaire
 
