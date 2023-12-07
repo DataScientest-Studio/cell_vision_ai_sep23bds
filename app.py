@@ -611,7 +611,7 @@ elif st.session_state['page'] == 'Analyse':
             Une stratégie d'intégration et de normalisation doit être développée pour gérer ces différences.
             Le manque de classification des cellules dans le Dataset 2 et les incertitudes dans le Dataset 3 nécessitent des stratégies spécifiques pour gérer et, si possible, minimiser ces limitations.
 
-            - ** Utilisation du dataset 1 et 2 :**
+            - **Utilisation du dataset 1 et 2 :**
             Nous avons besoin d'images annotées pour ce projet. Nous utiliserons les datasets 1 et 2 qui disposent d'images annotées. Le dataset nécessitera l'exclusion de près de 10 000 d'images (Unsigned slides) qui ne sont pas annotées.
             '''
             )
