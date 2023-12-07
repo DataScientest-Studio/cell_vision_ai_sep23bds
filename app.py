@@ -623,24 +623,24 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
             '''
             )
 
-            # Définir le texte avec une couleur de fond transparente
-            texte_formatte = """
-            <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
-            <p><strong>Analyse</strong></p>
-            <p>            
-            **Choix :**
-            - Utiliser principalement le dataset 1 pour un modèle de classification des cellules sanguines normales. 
-            Le dataset 3 viendrait compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, 
-            caractéristiques de patients atteints de leucémie.<br>
-            - Dataset 2 sera mis de côté pour les raisons citées précédemment.<br>
-            - Mettre en place des techniques de prétraitement d'images, de segmentation, d'apprentissage machine et d’apprentissage profond 
-            pour extraire des caractéristiques pertinentes à partir des images.<br>
-            </p>
-            </div>
-            """
-        
-            # Afficher le texte formaté avec le fond transparent
-            st.markdown(texte_formatte, unsafe_allow_html=True)
+        # Définir le texte avec une couleur de fond transparente
+        texte_formatte = """
+        <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
+        <p><strong>Choix</strong></p>
+        <p>            
+        **Choix :**
+        - Utiliser principalement le dataset 1 pour un modèle de classification des cellules sanguines normales. 
+        Le dataset 3 viendrait compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, 
+        caractéristiques de patients atteints de leucémie.<br>
+        - Dataset 2 sera mis de côté pour les raisons citées précédemment.<br>
+        - Mettre en place des techniques de prétraitement d'images, de segmentation, d'apprentissage machine et d’apprentissage profond 
+        pour extraire des caractéristiques pertinentes à partir des images.<br>
+        </p>
+        </div>
+        """
+    
+        # Afficher le texte formaté avec le fond transparent
+        st.markdown(texte_formatte, unsafe_allow_html=True)
 
 ## %%% PAGE MACHINE LEARNING %%% ##
 
