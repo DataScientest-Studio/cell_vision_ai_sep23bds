@@ -853,27 +853,45 @@ elif st.session_state['page'] == 'Machine learning':
         st.markdown(texte_formatte, unsafe_allow_html=True)
 
 ## %%% PAGE DEEP LEARNING %%% ##
-
+    
 elif st.session_state['page'] == 'Deep learning':
     st.title("Deep learning")
-    st.header('Objectif des résultats')
 
+    tab7, tab8 = st.tabs(["Modèle de Deep learning", "Application"])
+
+    with tab7:
     st.write(
-        '''
-        Les résultats du projet **CellVisionAI** sont encore en cours d'évaluation. Cependant, les premiers résultats sont prometteurs. L'outil est capable de reconnaître et de classifier avec précision les cellules du sang présentes dans les frottis sanguins.
-        '''
+    '''
+    blabla
+    '''
+    )
+        
+    with tab8:
+    st.write(
+    '''
+    blabla
+    '''
     )
 
 ## %%% PAGE DEEP LEARNING %%% ##
 
 elif st.session_state['page'] == 'Transfer learning':
     st.title("Transfer learning")
-    st.header('Objectif des résultats')
+    
+    tab9, tab10 = st.tabs(["Modèle de Transfer learning", "Application"])
 
+    with tab9:
     st.write(
-        '''
-        Les résultats du projet **CellVisionAI** sont encore en cours d'évaluation. Cependant, les premiers résultats sont prometteurs. L'outil est capable de reconnaître et de classifier avec précision les cellules du sang présentes dans les frottis sanguins.
-        '''
+    '''
+    blabla
+    '''
+    )
+        
+    with tab10:
+    st.write(
+    '''
+    blabla
+    '''
     )
 
 ## %%% PAGE DOCUMENTATION %%% ##
