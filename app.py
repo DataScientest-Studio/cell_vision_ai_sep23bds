@@ -941,6 +941,8 @@ elif st.session_state['page'] == 'Deep learning':
         """
         
         st.text(text)
+        
+        st.markdown("")
 
         # Charger les images
         image1 = Image.open('images/Accuracy_CNN_2.png')
