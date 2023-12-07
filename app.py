@@ -15,8 +15,8 @@ st.sidebar.image('images/logo_VisionCellAI.png', width=150)
 # Menu latéral avec des boutons
 if st.sidebar.button('Accueil'):
     st.session_state['page'] = 'Accueil'
-if st.sidebar.button('Analyse'):
-    st.session_state['page'] = 'Analyse'
+if st.sidebar.button('Analyse des jeux de données'):
+    st.session_state['page'] = 'Analyse des jeux de données'
 if st.sidebar.button('Machine learning'):
     st.session_state['page'] = 'Machine learning'
 if st.sidebar.button('Deep learning'):
