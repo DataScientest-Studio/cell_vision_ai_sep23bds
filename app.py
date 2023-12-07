@@ -584,8 +584,14 @@ elif st.session_state['page'] == 'Analyse':
         # Afficher le graphique de teinte
         st.plotly_chart(fig_teinte)
 
+        
+######################################
+       # Nos Recommandations #
+######################################
+
+    
     with tab4:
-        st.header("Recommandations pour le traitement des données")
+        st.header("Nos recommandations")
 
         st.write(
             '''
@@ -606,6 +612,7 @@ elif st.session_state['page'] == 'Analyse':
             Le manque de classification des cellules dans le Dataset 2 et les incertitudes dans le Dataset 3 nécessitent des stratégies spécifiques pour gérer et, si possible, minimiser ces limitations.
             '''
             )
+
 ## %%% PAGE DEMONSTRATION %%% ##
 
 elif st.session_state['page'] == 'Démonstration':
