@@ -674,8 +674,8 @@ elif st.session_state['page'] == 'Machine learning':
         """)
 
         st.image('images/M2_6.jpg')
-        st.image('images/M2_7.jpg')
         st.image('images/M2_8.jpg')
+        st.image('images/M2_7.jpg')
         st.image('images/M2_9.jpg')
         
         # 2ème étape
