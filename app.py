@@ -459,8 +459,7 @@ elif st.session_state['page'] == 'Analyse':
         - Plus de 15 000 images sont classées (Signed slides) selon le type de cellules, mais environ 10 000 images (Unsigned slides) ne sont pas classées.<br>
         - Certains types de cellules, tels que les "smudge cells", contiennent de nombreux outliers et pourraient ne pas être utiles pour l'analyse.<br>
         - Des variations de taille plus importantes sont observées par rapport au Dataset 1, sans dépendance apparente avec les classes de cellules.<br>
-        - Un fichier master.csv contient les diagnostics et quelques informations sur les patients. Il y a une répartition équilibrée des données entre les sexes et les tranches d'âge,
-        avec une prédominance masculine conforme à la prévalence de la maladie.
+        - Un fichier master.csv contient les diagnostics et quelques informations sur les patients. Il y a une répartition équilibrée des données entre les sexes et les tranches d'âge,avec une prédominance masculine conforme à la prévalence de la maladie.
         </p>
         </div>
         """
@@ -470,9 +469,11 @@ elif st.session_state['page'] == 'Analyse':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Analyse</strong></p>
         <p>            
-        - Une limitation est l'absence de classification des cellules, rendant difficile la vérification de la performance des modèles.<br>
-        - Les coordonnées des centroïdes des cellules sont fournies pour les images ALL_IDB1.<br>
-        - Diversité des données pour construire un modèle robuste.
+        - Les conditions d'acquisition des images semblent similaires à celles du Dataset 1.<br>
+        - Plus de 15 000 images sont classées (Signed slides) selon le type de cellules, mais environ 10 000 images (Unsigned slides) ne sont pas classées.<br>
+        - Certains types de cellules, tels que les "smudge cells", contiennent de nombreux outliers et pourraient ne pas être utiles pour l'analyse.<br>
+        - Des variations de taille plus importantes sont observées par rapport au Dataset 1, sans dépendance apparente avec les classes de cellules.<br>
+        - Un fichier master.csv contient les diagnostics et quelques informations sur les patients. Il y a une répartition équilibrée des données entre les sexes et les tranches d'âge,avec une prédominance masculine conforme à la prévalence de la maladie.
         </p>
         </div>
         """
