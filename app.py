@@ -659,12 +659,9 @@ elif st.session_state['page'] == 'Machine learning':
         Nous présentons ici la 2e méthode qui a extrait les caractéristiques les plus optimisées :
         '''
     )
-
-        # Méthode 2 de sélection des noyaux des cellules
-        st.header("Méthode 2 de sélection des noyaux des cellules")
         
         # 1ère étape
-        st.subheader("1ère étape - Préparation des données et degmentation initiale")
+        st.subheader("1ère étape - Préparation des données et segmentation initiale")
         st.markdown("""
         - Importation des bibliothèques nécessaires au traitement d'images, à la gestion de données et à la visualisation.
         - Extraction des chemins des images pour simplifier l'accès aux données.
