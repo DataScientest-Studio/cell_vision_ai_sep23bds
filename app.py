@@ -483,12 +483,11 @@ elif st.session_state['page'] == 'Analyse':
         st.markdown(texte_formatte, unsafe_allow_html=True)
 
 ###@@@ GRAPHIQUES @@@###
+
+# Répartition des classes
         
         # Charger les données
         df_data_APL = pd.read_csv("data/data_APL_streamlit_4.csv") 
-
-        # Titre de l'application Streamlit
-        st.title("Répartition des classes")
         
         # Créer un graphique de répartition des classes
         fig = px.histogram(df_data_APL, x="Classe", title="Répartition des classes")
@@ -501,6 +500,32 @@ elif st.session_state['page'] == 'Analyse':
 
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
+
+        
+# Répartition des classes du Patient_00 au Patient_105
+        
+        # Créer un graphique à barres empilées vertical en utilisant la fonction count()
+        fig = px.bar(df_data_APL.groupby(['Nom du patient', 'Classe']).size().reset_index(name='Nombre d\'images'), 
+                     x="Nom du patient", y="Nombre d'images", color="Classe",
+                     title="Répartition des classes du Patient_00 au Patient_105", orientation='v')
+        
+        # Personnaliser le graphique
+        fig.update_layout(xaxis_title="Nom du patient", yaxis_title="Nombre d'images")
+        fig.update_traces(marker=dict(line=dict(width=0)))  # Supprimer les contours des barres
+        
+        # Mettre à jour les étiquettes de l'axe x avec les noms des patients
+        noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
+        noms_des_patients.sort()
+        fig.update_xaxes(tickvals=noms_des_patients, ticktext=[f"Patient_{str(p).zfill(2)}" for p in noms_des_patients])
+        fig.update_layout(height=600, width=1000)
+        
+        # Faire pivoter les légendes de l'axe x à 45 degrés
+        fig.update_xaxes(tickangle=45)
+        
+        # Afficher le graphique dans Streamlit
+        st.plotly_chart(fig)
+
+# Répartition des classes du Patient_00 au Patient_105
 
     
     with tab4:
