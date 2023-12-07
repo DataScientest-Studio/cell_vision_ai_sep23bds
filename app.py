@@ -747,7 +747,7 @@ elif st.session_state['page'] == 'Machine learning':
         st.header("Analyse des Algorithmes de Classification")
         
         # Standardisation des données et séparation en ensembles d'entraînement et de test
-        st.write("**Première étape**")
+        st.write("<h2>**Première étape**</h2>")
         st.markdown("""
         - Standardisation des données pour préparer les algorithmes sensibles aux échelles.
         - Séparation des données en ensembles d'entraînement et de test.
