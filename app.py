@@ -812,7 +812,7 @@ elif st.session_state['page'] == 'Machine learning':
         # conclusion
         texte_formatte = """
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
-        <p><strong>Conclusion</strong></p>
+        <p><h3>Conclusion</h3></p>
         <p>            
         - Les performances de classification sont affectées par les classes sous-représentées et la ressemblance morphologique entre certaines cellules.<br>
         - L'algorithme de segmentation des noyaux se concentre sur la forme et la taille, ne prenant pas en compte d'autres caractéristiques importantes.<br>
