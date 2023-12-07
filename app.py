@@ -673,8 +673,8 @@ elif st.session_state['page'] == 'Machine learning':
         Visualisation des étapes de segmentation initiale :
         """)
 
-        st.image('images/M2_1.png')
-        st.image('images/M2_2.png')
+        st.image('images/M2_1.jpg')
+        st.image('images/M2_2.jpg')
         
         # 2ème étape
         st.subheader("Extraction des caractéristiques à partir des boîtes encadrantes")
@@ -688,7 +688,7 @@ elif st.session_state['page'] == 'Machine learning':
         Visualisation des noyaux des cellules d'intérêt et des caractéristiques extraites à partir des boîtes encadrantes :
         """)
 
-        st.image('images/M2_3.png')
+        st.image('images/M2_3.jpg')
         
         # 3ème étape
         st.subheader("Traitement global et stockage des caractéristiques")
@@ -701,7 +701,7 @@ elif st.session_state['page'] == 'Machine learning':
         Visualisation des données traitées et enregistrées :
         """)
 
-        st.image('images/M2_4.png')
+        st.image('images/M2_4.jpg')
         
         # Conclusion
         st.subheader("Conclusion")
@@ -714,7 +714,7 @@ elif st.session_state['page'] == 'Machine learning':
         Ces étapes préparent les données de manière efficace pour une future classification des cellules sanguines.
         """)
 
-        st.image('images/M2_5.png')
+        st.image('images/M2_5.jpg')
         
     with tab6:
         st.write(
