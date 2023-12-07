@@ -76,6 +76,11 @@ elif st.session_state['page'] == 'Analyse':
 
     tab1, tab2, tab3, tab4 = st.tabs(["PBC Dataset Normal DIB", "Leukemia Dataset", "Acute Promyelocytic Leukemia (APL)", "Recommandations"])
 
+    
+######################################
+      # PBC Dataset Normal DIB #
+######################################   
+    
     with tab1:
         st.header("PBC Dataset Normal DIB")
     
@@ -337,7 +342,12 @@ elif st.session_state['page'] == 'Analyse':
             showlegend=False  # Ne pas afficher la légende
         )
         st.plotly_chart(fig_brightness_box)
-            
+
+    
+######################################
+        # Leukemia Dataset #
+######################################      
+
     with tab2:
         st.header("Leukemia Dataset")
 
@@ -417,6 +427,11 @@ elif st.session_state['page'] == 'Analyse':
         fig5.update_layout(title={'text': 'Distribution de la teinte pour les classes ALL_IDB1 et ALL_IDB2', 'x':0.5, 'xanchor': 'center'})
         st.plotly_chart(fig5)
 
+    
+######################################
+# Acute Promyelocytic Leukemia (APL) #
+######################################
+    
     with tab3:
         st.header("Acute Promyelocytic Leukemia (APL)")
         
@@ -466,7 +481,25 @@ elif st.session_state['page'] == 'Analyse':
         
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
+
+###@@@ GRAPHIQUES @@@###
+        # Titre de l'application Streamlit
+        st.title("Répartition des classes")
         
+        # Créer un graphique de répartition des classes
+        fig = px.histogram(df_data_APL, x="Classe", title="Répartition des classes")
+        
+        # Personnalisation du graphique
+        fig.update_traces(marker=dict(color=px.colors.qualitative.Set3))  # Couleurs différentes pour chaque classe
+        fig.update_xaxes(categoryorder="total descending")  # Tri des classes par ordre décroissant
+        fig.update_layout(height=600)  # Réglage de la hauteur du graphique
+        
+        # Afficher le graphique dans Streamlit
+        st.plotly_chart(fig)
+
+
+
+    
     with tab4:
         st.header("Recommandations pour le traitement des données")
 
