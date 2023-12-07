@@ -517,7 +517,7 @@ elif st.session_state['page'] == 'Analyse':
         df_data_APL['Patient_number'] = df_data_APL['Nom du patient'].str.extract('(\d+)').astype(int)
         
         # Trier le DataFrame par ordre décroissant des patients
-        df_data_APL = df_data_APL.sort_values(by='Patient_number', ascending=False)
+        df_data_APL = df_data_APL.sort_values(by='Patient_number', ascending=True)
         
         # Mettre à jour les étiquettes de l'axe x avec les noms triés
         noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
