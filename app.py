@@ -879,7 +879,9 @@ elif st.session_state['page'] == 'Deep learning':
         Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. 
         Nous configurons des checkpoints de sauvegarde périodique des modèles pendant l'apprentissage. 
         Cela permet de conserver les meilleures versions du modèle. Les images utilisées sont normalisées avec le choix de définir la dimension sur la dimension moyenne de 256x256. 
-        Les classes sous représentées ne sont pas prises en compte. Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
+        Les classes sous représentées ne sont pas prises en compte. 
+        
+        Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
         """)
 
         st.image('images/CNN_files.png')
