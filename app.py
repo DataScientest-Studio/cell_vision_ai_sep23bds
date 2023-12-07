@@ -947,13 +947,14 @@ elif st.session_state['page'] == 'Deep learning':
         image2 = Image.open('images/CNN_mc.jpg')
         
         # Afficher les images côte à côte dans deux colonnes
-        col1, col2 = st.beta_columns(2)
+        col1, col2 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
         
         with col1:
             st.image(image1, caption="Image 1", use_column_width=True)
         
         with col2:
             st.image(image2, caption="Image 2", use_column_width=True)
+            
         st.image('images/Accuracy_CNN_2.png')
         
         # Étape 8 : Carte d’Activation Grad-CAM
