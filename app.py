@@ -824,7 +824,10 @@ elif st.session_state['page'] == 'Machine learning':
         11      0.00      0.00      0.00         4
         12      0.91      0.79      0.85       421
         13      0.00      0.00      0.00         4
-        accuracy   0.73     4543
+        
+        accuracy                    0.73      4543
+        m. avg  0.47      0.47      0.46      4543
+        w. avg  0.73      0.73      0.72      4543
         """
         
         st.text(text)
