@@ -507,14 +507,6 @@ elif st.session_state['page'] == 'Analyse':
         # Extraire les numéros de patients pour le tri
         df_data_APL['Patient_number'] = df_data_APL['Nom du patient'].str.extract('(\d+)').astype(int)
         
-        # Créer une fonction de tri personnalisée
-        def custom_sort(patient_name):
-            return int(patient_name.split('_')[1])
-        
-        # Trier les patients en utilisant la fonction de tri personnalisée
-        noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
-        noms_des_patients.sort(key=custom_sort, reverse=True)
-        
         # Créer un graphique à barres empilées vertical en utilisant la fonction count()
         fig = px.bar(df_data_APL.groupby(['Nom du patient', 'Classe']).size().reset_index(name='Nombre d\'images'), 
                      x="Nom du patient", y="Nombre d'images", color="Classe",
@@ -524,8 +516,10 @@ elif st.session_state['page'] == 'Analyse':
         fig.update_layout(xaxis_title="Nom du patient", yaxis_title="Nombre d'images")
         fig.update_traces(marker=dict(line=dict(width=0)))  # Supprimer les contours des barres
         
-        # Mettre à jour les étiquettes de l'axe x avec les noms triés
-        fig.update_xaxes(tickvals=noms_des_patients, ticktext=noms_des_patients)
+        # Trier les patients en utilisant le numéro de patient
+        noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
+        noms_des_patients.sort(key=lambda x: int(x.split('_')[1]))  # Tri par numéro de patient
+        fig.update_xaxes(categoryorder="array", categoryarray=noms_des_patients)
         fig.update_layout(height=600, width=1000)
         
         # Faire pivoter les légendes de l'axe x à 45 degrés
