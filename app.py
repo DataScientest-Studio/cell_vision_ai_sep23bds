@@ -832,13 +832,6 @@ elif st.session_state['page'] == 'Machine learning':
         weighted avg       0.73      0.73      0.72      4543
         """
 
-        # Utiliser pandas pour lire le texte en tant que tableau
-        data_keras = [line.split() for line in text.split('\n') if line.strip()]
-        df_keras = pd.DataFrame(data_keras[1:], columns=data_keras[0])
-        
-        # Afficher le tableau dans Streamlit
-        st.write(df_keras)
-
         st.image('images/ML_Keras.jpg')
         
         st.write("")
