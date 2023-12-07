@@ -807,6 +807,40 @@ elif st.session_state['page'] == 'Machine learning':
         Classes mal prédites : "erythroblast" confondue avec "lymphocyte", "monocyte" et "basophil" confondus avec "ig".
         
         """)
+
+        # Texte à afficher
+        text = """
+                      precision    recall  f1-score   support
+        
+                   0       0.00      0.00      0.00        16
+                   1       0.49      0.67      0.57       246
+                   2       0.74      0.84      0.78       341
+                   3       0.79      0.86      0.82       623
+                   4       0.69      0.53      0.60       363
+                   5       0.00      0.00      0.00         6
+                   6       0.67      0.52      0.59       556
+                   7       0.68      0.87      0.76       655
+                   8       0.12      0.02      0.03        58
+                   9       0.62      0.56      0.59       408
+                  10       0.87      0.87      0.87       842
+                  11       0.00      0.00      0.00         4
+                  12       0.91      0.79      0.85       421
+                  13       0.00      0.00      0.00         4
+        
+            accuracy                           0.73      4543
+           macro avg       0.47      0.47      0.46      4543
+        weighted avg       0.73      0.73      0.72      4543
+        """
+
+        # Utiliser pandas pour lire le texte en tant que tableau
+        data_keras = [line.split() for line in text.split('\n') if line.strip()]
+        df_keras = pd.DataFrame(data_keras[1:], columns=data_keras[0])
+        
+        # Afficher le tableau dans Streamlit
+        st.write(df_keras)
+
+        st.image('images/ML_Keras.jpg')
+        
         st.write("")
         
         # conclusion
