@@ -670,8 +670,11 @@ elif st.session_state['page'] == 'Machine learning':
         - Utilisation de la méthode d'Otsu pour choisir automatiquement le seuil de segmentation.
         - Amélioration de la segmentation par des opérations morphologiques telles que la fermeture et l'ouverture.
         
-        Visualisation des étapes de segmentation initiale.
+        Visualisation des étapes de segmentation initiale :
         """)
+
+        st.image('images/M2_1.png')
+        st.image('images/M2_2.png')
         
         # 2ème étape
         st.subheader("Extraction des caractéristiques à partir des boîtes encadrantes")
@@ -682,8 +685,10 @@ elif st.session_state['page'] == 'Machine learning':
         - Analyse individuelle de chaque cellule pour calculer ces caractéristiques.
         - Stockage des caractéristiques dans une structure de données optimale pour l'entraînement de modèles de machine learning.
         
-        Visualisation des noyaux des cellules d'intérêt et des caractéristiques extraites à partir des boîtes encadrantes.
+        Visualisation des noyaux des cellules d'intérêt et des caractéristiques extraites à partir des boîtes encadrantes :
         """)
+
+        st.image('images/M2_3.png')
         
         # 3ème étape
         st.subheader("Traitement global et stockage des caractéristiques")
@@ -693,8 +698,10 @@ elif st.session_state['page'] == 'Machine learning':
         - Enregistrement de toutes les caractéristiques extraites dans un fichier CSV pour chaque dataset.
         - Concaténation des données en un seul dataset pour la création du modèle de machine learning.
         
-        Visualisation des données traitées et enregistrées.
+        Visualisation des données traitées et enregistrées :
         """)
+
+        st.image('images/M2_4.png')
         
         # Conclusion
         st.subheader("Conclusion")
@@ -707,6 +714,8 @@ elif st.session_state['page'] == 'Machine learning':
         Ces étapes préparent les données de manière efficace pour une future classification des cellules sanguines.
         """)
 
+        st.image('images/M2_5.png')
+        
     with tab6:
         st.write(
         '''
