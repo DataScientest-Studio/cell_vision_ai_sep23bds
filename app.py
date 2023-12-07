@@ -218,6 +218,8 @@ elif st.session_state['page'] == 'Analyse':
         with col2:
             st.plotly_chart(fig_pie)
 
+# Echantillon d'image #
+        
         st.write("Echantillon d'images par type de cellules :")
         st.image('images/PBC_images.png')
 
@@ -501,6 +503,10 @@ elif st.session_state['page'] == 'Analyse':
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
 
+# Echantillon d'images par type de cellules
+
+        st.write("Echantillon d'images par type de cellules :")
+        st.image('images/APL_echantillon.png')
         
 # Répartition des classes du Patient_00 au Patient_105
         
