@@ -808,14 +808,21 @@ elif st.session_state['page'] == 'Machine learning':
         
         """)
         
-        # Conclusion
-        st.markdown("<h4>Conclusion</h4>", unsafe_allow_html=True)
-        st.markdown("""
-        - Les performances de classification sont affectées par les classes sous-représentées et la ressemblance morphologique entre certaines cellules.
-        - L'algorithme de segmentation des noyaux se concentre sur la forme et la taille, ne prenant pas en compte d'autres caractéristiques importantes.
-        - Le meilleur score est atteint avec un réseau de neurones dense avec Keras après élimination des classes extrêmement sous-représentées.
+        # conclusion
+        texte_formatte = """
+        <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
+        <p><strong>Conclusion</strong></p>
+        <p>            
+        - Les performances de classification sont affectées par les classes sous-représentées et la ressemblance morphologique entre certaines cellules.<br>
+        - L'algorithme de segmentation des noyaux se concentre sur la forme et la taille, ne prenant pas en compte d'autres caractéristiques importantes.<br>
+        - Le meilleur score est atteint avec un réseau de neurones dense avec Keras après élimination des classes extrêmement sous-représentées.<br>
         - Il existe des limitations à l'obtention d'un score élevé en raison de la complexité des images cellulaires.
-        """)
+        </p>
+        </div>
+        """
+        
+        # Afficher le texte formaté avec le fond transparent
+        st.markdown(texte_formatte, unsafe_allow_html=True)
 
 ## %%% PAGE DEEP LEARNING %%% ##
 
