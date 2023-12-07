@@ -520,7 +520,7 @@ elif st.session_state['page'] == 'Analyse':
         noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
         noms_des_patients.sort(key=lambda x: int(x.split('_')[1]))  # Tri par numéro de patient
         fig.update_xaxes(categoryorder="array", categoryarray=noms_des_patients)
-        fig.update_layout(height=600, width=1000)
+        fig.update_layout(height=650, width=1000)
         
         # Faire pivoter les légendes de l'axe x à 45 degrés
         fig.update_xaxes(tickangle=45)
@@ -528,9 +528,62 @@ elif st.session_state['page'] == 'Analyse':
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
 
-# Répartition des classes du Patient_00 au Patient_105
+# Distribution des dimensions des images par classe
+        # Créer un graphique d'histogramme de la dimension des images par classe
+        fig = px.histogram(df_data_APL, x="Dimension", color="Classe", title="Distribution des dimensions des images par classe")
+        
+        # Personnaliser le graphique
+        fig.update_layout(xaxis_title="Dimension de l'image", yaxis_title="Nombre d'images")
+        fig.update_xaxes(type="category", tickangle=45)  # Utiliser une échelle catégorielle pour la dimension
+        fig.update_traces(marker=dict(line=dict(width=0)))  # Supprimer les contours des barres
+        fig.update_layout(height=700, width=900)
 
-    
+        # Afficher le graphique dans Streamlit
+        st.plotly_chart(fig)
+
+# Distribution des classes par luminosité et teinte
+
+        # Créer un graphique de nuage de points 2D (scatter plot)
+        fig = px.scatter(df_data_APL, x="Luminosité", y="Teinte", color="Classe",
+                         title="Distribution des classes par luminosité et teinte")
+        
+        # Personnaliser le graphique
+        fig.update_layout(xaxis_title="Luminosité", yaxis_title="Teinte")
+        fig.update_traces(marker=dict(size=6), selector=dict(mode='markers'))
+        fig.update_xaxes(tickangle=45)
+        fig.update_layout(height=700, width=900)
+        # Afficher le graphique
+        st.plotly_chart(fig)
+
+# box plot pour la distribution des classes par luminosité et la teinte
+
+        # Définir une séquence de couleurs personnalisée
+        couleurs_classes = px.colors.qualitative.Plotly[:len(df['Classe'].unique())]
+        
+        # Créer un box plot pour la distribution des classes par luminosité
+        fig_luminosite = px.box(df_data_APL, x="Classe", y="Luminosité", color="Classe", title="Distribution des classes par luminosité",
+                                color_discrete_sequence=couleurs_classes)
+        
+        # Personnaliser le graphique
+        fig_luminosite.update_layout(yaxis_title="Luminosité")
+        fig.update_xaxes(tickangle=45)
+        fig_luminosite.update_layout(height=800, width=900)
+        
+        # Afficher le graphique de luminosité
+        fig_luminosite.show()
+        
+        # Créer un box plot pour la distribution des classes par teinte
+        fig_teinte = px.box(df_data_APL, x="Classe", y="Teinte", color="Classe", title="Distribution des classes par teinte",
+                            color_discrete_sequence=couleurs_classes)
+        
+        # Personnaliser le graphique
+        fig_teinte.update_layout(yaxis_title="Teinte")
+        fig.update_xaxes(tickangle=45)
+        fig_teinte.update_layout(height=800, width=900)
+        
+        # Afficher le graphique de teinte
+        st.plotly_chart(fig)
+
     with tab4:
         st.header("Recommandations pour le traitement des données")
 
