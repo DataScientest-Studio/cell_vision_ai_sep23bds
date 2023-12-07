@@ -704,7 +704,27 @@ elif st.session_state['page'] == 'Machine learning':
         """)
 
         st.image('images/M2_4.jpg')
-        
+
+        # Liste des variables retenues
+        st.subheader("Liste des Variables Retenues")
+        st.markdown("""
+        - **Nom :** nom de l'image initiale.
+        - **Numéro :** si plusieurs cellules sur l'image, numéro de la cellule analysée.
+        - **Aire noyau :** surface occupée par le noyau sur l'image en pixels.
+        - **Périmètre noyau :** longueur du contour occupé par le noyau en pixels.
+        - **Largeur du rectangle minimal :** largeur du rectangle minimal englobant le noyau.
+        - **Hauteur du rectangle minimal :** hauteur du rectangle minimal englobant le noyau.
+        - **Rayon noyau :** rayon du cercle minimal englobant le noyau.
+        - **Petit axe noyau :** petit axe de l'ellipse minimale englobant le noyau.
+        - **Grand axe noyau :** grand axe de l'ellipse minimale englobant le noyau.
+        - **Excentricité noyau :** excentricité de l'ellipse minimale englobant le noyau.
+        - **Périmètre convexe noyau :** périmètre de la forme convexe minimale englobant le noyau.
+        - **Solidité noyau :** rapport de l'aire de l'aire du noyau sur l'aire de la forme convexe.
+        - **Boîte encadrante :** coordonnées de la boîte encadrant le noyau.
+        - **Centre :** 1 si la cellule recouvre le centre de l'image sinon 0 (plusieurs types cellulaires peuvent être présentes sur la même image, ce terme permet de repérer la cellule principale si c'est le cas).
+        - **Classe :** type cellulaire.
+        """)
+
         # Conclusion
         st.subheader("Conclusion")
         st.markdown("""
