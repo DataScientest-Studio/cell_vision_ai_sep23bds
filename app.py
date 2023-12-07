@@ -835,10 +835,10 @@ weighted avg       0.73      0.73      0.72      4543
         lines = text.split("\n")
         
         # Extraire les noms de colonnes (première ligne)
-        columns = lines[1].split()
+        columns = lines[0].split()
         
         # Extraire les données (à partir de la deuxième ligne)
-        data_keras = [line.split() for line in lines[2:]]
+        data_keras = [line.split() for line in lines[1:]]
         
        # Créer un DataFrame pandas
         df_keras = pd.DataFrame(data_keras, columns=columns)
