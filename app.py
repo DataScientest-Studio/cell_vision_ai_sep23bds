@@ -809,7 +809,7 @@ elif st.session_state['page'] == 'Machine learning':
         """)
 
         text = """
-                      precision    recall  f1-score   support
+                                  precision    recall  f1-score   support
         
                    0       0.00      0.00      0.00        16
                    1       0.49      0.67      0.57       246
