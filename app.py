@@ -361,6 +361,10 @@ elif st.session_state['page'] == 'Analyse':
         chemin_fichier_csv = "data/data_leukemia_dataset.csv"
         df_data_leukemia_dataset = pd.read_csv(chemin_fichier_csv)
         
+        # Supprimer la colonne 'Résolution'
+        if 'Résolution' in df_data_leukemia_dataset.columns:
+            df_data_leukemia_dataset = df_data_leukemia_dataset.drop(columns=['Résolution'])    
+        
         st.write(
             '''
              Le dataset contient des images de cellules sanguines de patients sains et de patients atteints de Leucémie Lymphoblastique Aiguë (ALL), avec des informations sur les centroïdes. 
