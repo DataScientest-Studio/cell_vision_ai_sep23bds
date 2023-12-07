@@ -628,7 +628,6 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Choix</strong></p>
         <p>            
-        **Choix :**
         - Utiliser principalement le dataset 1 pour un modèle de classification des cellules sanguines normales. 
         Le dataset 3 viendrait compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, 
         caractéristiques de patients atteints de leucémie.<br>
