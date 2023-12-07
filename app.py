@@ -483,6 +483,10 @@ elif st.session_state['page'] == 'Analyse':
         st.markdown(texte_formatte, unsafe_allow_html=True)
 
 ###@@@ GRAPHIQUES @@@###
+        
+        # Charger les données
+        df_data_APL = pd.read_csv("data/data_APL_streamlit_4.csv") 
+
         # Titre de l'application Streamlit
         st.title("Répartition des classes")
         
