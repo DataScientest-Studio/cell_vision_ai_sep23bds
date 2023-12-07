@@ -513,11 +513,17 @@ elif st.session_state['page'] == 'Analyse':
         fig.update_layout(xaxis_title="Nom du patient", yaxis_title="Nombre d'images")
         fig.update_traces(marker=dict(line=dict(width=0)))  # Supprimer les contours des barres
         
-        # Mettre à jour les étiquettes de l'axe x avec les noms des patients
+        # Extraire les numéros de patients pour le tri
+        df_data_APL['Patient_number'] = df_data_APL['Nom du patient'].str.extract('(\d+)').astype(int)
+        
+        # Trier le DataFrame par ordre décroissant des patients
+        df_data_APL = df_data_APL.sort_values(by='Patient_number', ascending=False)
+        
+        # Mettre à jour les étiquettes de l'axe x avec les noms triés
         noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
-        noms_des_patients.sort()
-        fig.update_xaxes(tickvals=noms_des_patients, ticktext=[f"{str(p).zfill(2)}" for p in noms_des_patients], categoryorder="total descending")
-        fig.update_layout(height=750, width=900)
+        noms_des_patients.sort(key=lambda x: int(x.split('_')[1]))  # Tri par numéro de patient
+        fig.update_xaxes(tickvals=noms_des_patients, ticktext=noms_des_patients)
+        fig.update_layout(height=600, width=1000)
         
         # Faire pivoter les légendes de l'axe x à 45 degrés
         fig.update_xaxes(tickangle=45)
