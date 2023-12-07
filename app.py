@@ -941,26 +941,6 @@ elif st.session_state['page'] == 'Deep learning':
         
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
-
-        st.markdown("""
-        Analyse :
-        Le modèle CNN présente une très bonne performance globale, avec une accuracy de 0.8959 lors de l'évaluation sur l'ensemble de données de test. Cette performance élevée indique que le modèle est capable de classifier avec précision la majorité des échantillons du jeu de données de test. De plus, la perte de test, évaluée à 0,4041, est relativement faible, ce qui suggère que le modèle généralise bien à partir des données d'entraînement vers de nouvelles données.
-        
-        La matrice de confusion fournit des informations plus détaillées sur la performance du modèle pour chaque classe. Par exemple, pour la classe Basophil (127 échantillons), le modèle a correctement identifié 115 échantillons, mais s'est trompé pour 12 d'entre eux.
-        
-        Analyse de la précision et du rappel par classe :
-        - Basophil : Le modèle atteint une précision correcte et un rappel élevé d'environ 91%, ce qui indique une bonne capacité à distinguer cette classe.
-        - Blast, no lineage spec : Cette classe présente une précision de 81% et un rappel de 87%, montrant une performance raisonnable mais avec quelques erreurs.
-        - Eosinophil : Le modèle excelle dans la prédiction des cellules de cette classe.
-        - Erythroblast : Très bonne performance.
-        - Ig : La précision à 78% et le rappel à 77% signifient que cette classe peut être plus difficile à prédire avec précision.
-        - Monocyte : Bons résultats mais un peu plus faibles que pour les autres classes car de fortes variations morphologiques sont présentes dans cette classe.
-        - Neutrophil : Excellentes prédictions.
-        - Platelet : Excellente performance.
-        - Lymphocyte : Excellente performance.
-        
-        Dans l'ensemble, le modèle CNN présente une performance globale solide sur l'ensemble de données de test, avec des performances efficaces pour plusieurs classes. Cependant, certaines classes pourraient bénéficier d'une attention particulière pour améliorer leur précision, en particulier la classe "Ig". 
-        """)
         
     with tab8:
         st.write(
