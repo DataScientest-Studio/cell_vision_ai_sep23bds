@@ -645,14 +645,18 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 
 elif st.session_state['page'] == 'Machine learning':
     st.title("Machine learning")
-    st.header('Objectif de la démonstration')
 
-    tab5, tab6 = st.tabs(["Machine Learning", "Deep Learning"])
+    tab5, tab6 = st.tabs(["Extraction features", "Modèle Machine learning"])
 
     with tab5:
         st.write(
         '''
-        La démonstration du projet **CellVisionAI** consiste en une interface utilisateur permettant à l'utilisateur de charger une image de frottis sanguin. L'outil est ensuite capable de reconnaître et de classifier les cellules du sang présentes dans l'image.
+        l’enjeu de l’extraction des données en vue de leur utilisation pour un modèle de Machine Learning réside dans l’automatisation du processus pour chacun des datasets identifiés.
+        
+        La qualité de la classification dépend en grande partie de la segmentation et de l'extraction des caractéristiques. 
+        Après de multiples itérations, et l’utilisation de différentes bibliothèques d’analyses d’images (OpenCV et skimage), 
+        nous avons établi deux méthodologies qui, malgré leurs imperfections, sont suffisamment solides pour répondre aux besoins de notre modèle de Machine Learning. 
+        Nous présentons ici la 2e méthode qui a extrait les features les plus optimisés.
         '''
     )
     
