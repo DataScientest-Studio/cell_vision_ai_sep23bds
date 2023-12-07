@@ -889,44 +889,6 @@ elif st.session_state['page'] == 'Deep learning':
 
         st.image('images/CNN_neuronal_architecture.jpg')
         
-        # Texte du modèle
-        model_summary = """
-        Model: "sequential_2"
-        _________________________________________________________________
-         Layer (type)                Output Shape              Param #   
-        =================================================================
-         conv2d_6 (Conv2D)           (None, 254, 254, 32)      896       
-                                                                         
-         max_pooling2d_6 (MaxPoolin  (None, 127, 127, 32)      0         
-         g2D)                                                            
-                                                                         
-         conv2d_7 (Conv2D)           (None, 125, 125, 64)      18496     
-                                                                         
-         max_pooling2d_7 (MaxPoolin  (None, 62, 62, 64)        0         
-         g2D)                                                            
-                                                                         
-         conv2d_8 (Conv2D)           (None, 60, 60, 128)       73856     
-                                                                         
-         max_pooling2d_8 (MaxPoolin  (None, 30, 30, 128)       0         
-         g2D)                                                            
-                                                                         
-         flatten_2 (Flatten)         (None, 115200)            0         
-                                                                         
-         dense_4 (Dense)             (None, 512)               58982912  
-                                                                         
-         dropout_2 (Dropout)         (None, 512)               0         
-                                                                         
-         dense_5 (Dense)             (None, 9)                 4617      
-                                                                         
-        =================================================================
-        Total params: 59080777 (225.38 MB)
-        Trainable params: 59080777 (225.38 MB)
-        Non-trainable params: 0 (0.00 Byte)
-        """
-        
-        # Afficher le texte du modèle
-        st.code(model_summary)
-        
         # Étape 5 : Compilation du Modèle Initial
         st.markdown("<h4>Compilation du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
