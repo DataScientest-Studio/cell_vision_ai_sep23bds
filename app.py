@@ -603,24 +603,44 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 
         st.write(
             '''
-            - Le dataset 1 contient des images de cellules sanguines normales provenant d'individus sains, 
+            Le **dataset 1** contient des images de cellules sanguines normales provenant d'individus sains, 
             ce qui en fait une base de données de référence pour entraîner et tester des modèles d'apprentissage automatique 
             et d'apprentissage profond afin de reconnaître différents types de cellules sanguines normales.
 
-            - Le dataset 2 propose des images de cellules sanguines de patients atteints de ALL, avec des informations sur les centroïdes. 
+            Le **dataset 2** propose des images de cellules sanguines de patients atteints de ALL, avec des informations sur les centroïdes. 
             Il peut être utilisé pour tester la capacité de segmentation des algorithmes, ainsi que les méthodes de prétraitement des images. 
             On pourrait penser à une classification des images en cellules sanguines normales et cellules anormales de patients atteints de Leucémie Lymphoblastique Aiguë (ALL).
             
-            - Le dataset 3 est composé d'images de cellules sanguines classées de patients atteints de différentes formes de leucémie (AML ou APL). 
+            Le **dataset 3** est composé d'images de cellules sanguines classées de patients atteints de différentes formes de leucémie (AML ou APL). 
             L'apprentissage en profondeur permettrait de différencier les cellules et diagnostiquer l'APL à partir de la morphologie cellulaire. 
-
             
-            **Choix :**
-            - Utiliser principalement le dataset 1 pour un modèle de classification des cellules sanguines normales. Le dataset 3 viendrait compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, caractéristiques de patients atteints de leucémie.
-            - Dataset 2 sera mis de côté pour les raisons citées précédemment.
-            - Mettre en place des techniques de prétraitement d'images, de segmentation, d'apprentissage machine et d’apprentissage profond pour extraire des caractéristiques pertinentes à partir des images.
-           '''
+            **Limitations par les données :**
+            - Qualité des données : biais engendrés par des erreurs, artefacts, défauts dans les images ou la présence de plusieurs cellules sur la même image.
+            - Taille des données : nombre limité d'images dans ALL_IDB2 du dataset 2.
+            - Manque de classement : pas de classification des cellules dans le dataset 2 ce qui rendra impossible la vérification de la performance de notre modèle sur cet ensemble de données. 
+            De même pour une partie du dataset 3 (‘Unsigned slides’).
+            - Différences entre les jeux de données : en termes de qualité, de format, de zoom sur les cellules, de conditions d’acquisition des images ou de représentativité des catégories de cellules.
+            '''
             )
+
+            # Définir le texte avec une couleur de fond transparente
+            texte_formatte = """
+            <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
+            <p><strong>Analyse</strong></p>
+            <p>            
+            **Choix :**
+            - Utiliser principalement le dataset 1 pour un modèle de classification des cellules sanguines normales. 
+            Le dataset 3 viendrait compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, 
+            caractéristiques de patients atteints de leucémie.<br>
+            - Dataset 2 sera mis de côté pour les raisons citées précédemment.<br>
+            - Mettre en place des techniques de prétraitement d'images, de segmentation, d'apprentissage machine et d’apprentissage profond 
+            pour extraire des caractéristiques pertinentes à partir des images.<br>
+            </p>
+            </div>
+            """
+        
+            # Afficher le texte formaté avec le fond transparent
+            st.markdown(texte_formatte, unsafe_allow_html=True)
 
 ## %%% PAGE MACHINE LEARNING %%% ##
 
