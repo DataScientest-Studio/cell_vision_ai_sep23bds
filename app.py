@@ -752,6 +752,13 @@ elif st.session_state['page'] == 'Machine learning':
         - Standardisation des données pour préparer les algorithmes sensibles aux échelles.
         - Séparation des données en ensembles d'entraînement et de test.
         """)
+
+        # Résultats de l'algorithme KNN
+        st.markdown("<h4>K-Nearest Neighbors (KNN)</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - Accuracy sur l'ensemble de test : 0,68.
+        
+        """)
         
         # Résultats de l'algorithme RandomForest
         st.markdown("<h4>RandomForest</h4>", unsafe_allow_html=True)
@@ -770,13 +777,6 @@ elif st.session_state['page'] == 'Machine learning':
         st.markdown("<h4>XGBoost</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,71.
-        
-        """)
-        
-        # Résultats de l'algorithme KNN
-        st.markdown("<h4>K-Nearest Neighbors (KNN)</h4>", unsafe_allow_html=True)
-        st.markdown("""
-        - Accuracy sur l'ensemble de test : 0,68.
         
         """)
         
