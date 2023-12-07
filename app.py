@@ -809,7 +809,8 @@ elif st.session_state['page'] == 'Machine learning':
         """)
 
         text = """
-                   \t\t\t\tprecision    recall  f1-score   support
+        <pre>
+                        precision    recall  f1-score   support
         
                    0       0.00      0.00      0.00        16
                    1       0.49      0.67      0.57       246
@@ -826,12 +827,11 @@ elif st.session_state['page'] == 'Machine learning':
                   12       0.91      0.79      0.85       421
                   13       0.00      0.00      0.00         4
         
-            accuracy                           0.73      4543
-           macro avg       0.47      0.47      0.46      4543
-        weighted avg       0.73      0.73      0.72      4543
+        accuracy                           0.73      4543
+        </pre>
         """
         
-        st.text(text)
+        st.markdown(text, unsafe_allow_html=True)
 
         st.image('images/ML_Keras.jpg')
         
