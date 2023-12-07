@@ -754,7 +754,7 @@ elif st.session_state['page'] == 'Machine learning':
         """)
         
         # Résultats de l'algorithme RandomForest
-        st.header("RandomForest")
+        st.markdown("<h4>RandomForest</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,70.
         - Rapport de classification pour chaque classe.
@@ -767,21 +767,21 @@ elif st.session_state['page'] == 'Machine learning':
         """)
         
         # Résultats de l'algorithme XGBoost
-        st.header("XGBoost")
+        st.markdown("<h4>XGBoost</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,71.
         
         """)
         
         # Résultats de l'algorithme KNN
-        st.header("K-Nearest Neighbors (KNN)")
+        st.markdown("<h4>K-Nearest Neighbors (KNN)</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,68.
         
         """)
         
         # Résultats de l'algorithme SVM
-        st.header("Support Vector Machine (SVM)")
+        st.markdown("<h4>Support Vector Machine (SVM)</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,73 (après optimisation des hyperparamètres : C=100, gamma=0,01, kernel='rbf').
         - Pas de sur-apprentissage (accuracy sur l'ensemble d'entraînement : 0,72).
@@ -791,7 +791,7 @@ elif st.session_state['page'] == 'Machine learning':
         """)
         
         # Résultats du réseau de neurones avec Keras
-        st.header("Réseau de Neurones avec Keras")
+        st.markdown("<h4>Réseau de Neurones avec Keras</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,73.
         - Augmentation de l'accuracy en éliminant les cellules des 4 classes extrêmement sous-représentées.
@@ -809,7 +809,7 @@ elif st.session_state['page'] == 'Machine learning':
         """)
         
         # Conclusion
-        st.header("Conclusion")
+        st.markdown("<h4>Conclusion</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Les performances de classification sont affectées par les classes sous-représentées et la ressemblance morphologique entre certaines cellules.
         - L'algorithme de segmentation des noyaux se concentre sur la forme et la taille, ne prenant pas en compte d'autres caractéristiques importantes.
