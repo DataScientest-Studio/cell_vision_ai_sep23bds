@@ -67,7 +67,7 @@ if st.session_state['page'] == 'Accueil':
 
 ## %%% PAGE PROJET %%% ##
 
-elif st.session_state['page'] == 'Analyse':
+elif st.session_state['page'] == 'Analyse des jeux de données'':
     st.title("Analyse des jeux de données")
 
     st.image('images/bandeau_analyse_5.jpg')
@@ -624,10 +624,10 @@ elif st.session_state['page'] == 'Analyse':
             '''
             )
 
-## %%% PAGE DEMONSTRATION %%% ##
+## %%% PAGE MACHINE LEARNING %%% ##
 
-elif st.session_state['page'] == 'Démonstration':
-    st.title("Démonstration")
+elif st.session_state['page'] == 'Machine learning':
+    st.title("Machine learning")
     st.header('Objectif de la démonstration')
 
     tab5, tab6 = st.tabs(["Machine Learning", "Deep Learning"])
@@ -646,10 +646,22 @@ elif st.session_state['page'] == 'Démonstration':
         '''
     )
 
-## %%% PAGE RESULTATS %%% ##
+## %%% PAGE DEEP LEARNING %%% ##
 
-elif st.session_state['page'] == 'Résultats':
-    st.title("Résultats")
+elif st.session_state['page'] == 'Deep learning':
+    st.title("Deep learning")
+    st.header('Objectif des résultats')
+
+    st.write(
+        '''
+        Les résultats du projet **CellVisionAI** sont encore en cours d'évaluation. Cependant, les premiers résultats sont prometteurs. L'outil est capable de reconnaître et de classifier avec précision les cellules du sang présentes dans les frottis sanguins.
+        '''
+    )
+
+## %%% PAGE DEEP LEARNING %%% ##
+
+elif st.session_state['page'] == 'Transfer learning':
+    st.title("Transfer learning")
     st.header('Objectif des résultats')
 
     st.write(
