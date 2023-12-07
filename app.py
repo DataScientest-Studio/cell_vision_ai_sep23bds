@@ -923,15 +923,46 @@ elif st.session_state['page'] == 'Deep learning':
         Test Accuracy: 0.8958
         """)
 
+        text = """
+        ---------------------------- precision    recall  f1-score   support
+                      Basophil       0.82      0.91      0.86       127
+        Blast, no lineage spec       0.81      0.87      0.84       329
+                    Eosinophil       1.00      0.94      0.97       322
+                  Erythroblast       0.95      0.87      0.91       207
+                            Ig       0.78      0.77      0.78       383
+                      Monocyte       0.84      0.82      0.83       273
+                    Neutrophil       0.93      0.93      0.93       541
+                      Platelet       0.97      0.98      0.97       234
+                    lymphocyte       0.92      0.95      0.94       464
+        
+                      accuracy                           0.89      2880
+                     macro avg       0.89      0.89      0.89      2880
+                  weighted avg       0.89      0.89      0.89      2880
+        """
+        
+        st.text(text)
+
+        # Charger les images
+        image1 = Image.open('images/Accuracy_CNN_2.png')
+        image2 = Image.open('images/CNN_mc.jpg')
+        
+        # Afficher les images côte à côte dans deux colonnes
+        col1, col2 = st.beta_columns(2)
+        
+        with col1:
+            st.image(image1, caption="Image 1", use_column_width=True)
+        
+        with col2:
+            st.image(image2, caption="Image 2", use_column_width=True)
         st.image('images/Accuracy_CNN_2.png')
         
         # Étape 8 : Carte d’Activation Grad-CAM
         st.markdown("<h4>Carte d’Activation Grad-CAM</h4>", unsafe_allow_html=True)
         
-        st.image('images/CNN_gradcam_1.png')
+        st.image('images/CNN_gradcam_1.jpg')
 
         st.markdown("Avec d'autres paramètres :")
-        st.image('images/CNN_gradcam_2.png')
+        st.image('images/CNN_gradcam_2.jpg')
 
         texte_formatte = """
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
