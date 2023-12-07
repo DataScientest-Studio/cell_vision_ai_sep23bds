@@ -504,6 +504,9 @@ elif st.session_state['page'] == 'Analyse':
         
 # Répartition des classes du Patient_00 au Patient_105
         
+        # Extraire les numéros de patients pour le tri
+        df_data_APL['Patient_number'] = df_data_APL['Nom du patient'].str.extract('(\d+)').astype(int)
+        
         # Créer un graphique à barres empilées vertical en utilisant la fonction count()
         fig = px.bar(df_data_APL.groupby(['Nom du patient', 'Classe']).size().reset_index(name='Nombre d\'images'), 
                      x="Nom du patient", y="Nombre d'images", color="Classe",
@@ -513,11 +516,8 @@ elif st.session_state['page'] == 'Analyse':
         fig.update_layout(xaxis_title="Nom du patient", yaxis_title="Nombre d'images")
         fig.update_traces(marker=dict(line=dict(width=0)))  # Supprimer les contours des barres
         
-        # Extraire les numéros de patients pour le tri
-        df_data_APL['Patient_number'] = df_data_APL['Nom du patient'].str.extract('(\d+)').astype(int)
-        
-        # Trier le DataFrame par ordre décroissant des patients
-        df_data_APL = df_data_APL.sort_values(by='Patient_number', ascending=True)
+        # Trier le DataFrame par ordre décroissant des patients en utilisant le numéro
+        df_data_APL = df_data_APL.sort_values(by='Patient_number', ascending=False)
         
         # Mettre à jour les étiquettes de l'axe x avec les noms triés
         noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
