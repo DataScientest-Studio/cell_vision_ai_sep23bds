@@ -570,7 +570,7 @@ elif st.session_state['page'] == 'Analyse':
         fig_luminosite.update_layout(height=800, width=900)
         
         # Afficher le graphique de luminosité
-        fig_luminosite.show()
+        st.plotly_chart(fig_luminosite)
         
         # Créer un box plot pour la distribution des classes par teinte
         fig_teinte = px.box(df_data_APL, x="Classe", y="Teinte", color="Classe", title="Distribution des classes par teinte",
