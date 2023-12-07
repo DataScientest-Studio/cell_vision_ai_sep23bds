@@ -661,7 +661,8 @@ elif st.session_state['page'] == 'Machine learning':
     )
         
         # 1ère étape
-        st.subheader("1ère étape - Préparation des données et segmentation initiale")
+        st.subheader("1ère étape")
+        st.subheader("Préparation des données et segmentation initiale")
         st.markdown("""
         - Importation des bibliothèques nécessaires au traitement d'images, à la gestion de données et à la visualisation.
         - Extraction des chemins des images pour simplifier l'accès aux données.
@@ -674,7 +675,8 @@ elif st.session_state['page'] == 'Machine learning':
         """)
         
         # 2ème étape
-        st.subheader("2ème étape - Extraction des caractéristiques à partir des boîtes encadrantes")
+        st.subheader("2ème étape")
+        st.subheader("Extraction des caractéristiques à partir des boîtes encadrantes")
         st.markdown("""
         - Identification des boîtes encadrantes des cellules segmentées.
         - Segmentation des noyaux des cellules d'intérêt à partir des boîtes encadrantes.
@@ -686,7 +688,8 @@ elif st.session_state['page'] == 'Machine learning':
         """)
         
         # 3ème étape
-        st.subheader("3ème étape - Traitement global et stockage des caractéristiques")
+        st.subheader("3ème étape")
+        st.subheader("Traitement global et stockage des caractéristiques")
         st.markdown("""
         - Traitement de l'ensemble des images de la base de données, avec extraction systématique des caractéristiques de chaque noyau.
         - Conservation des informations sur les régions des noyaux d'intérêt identifiées par la segmentation.
