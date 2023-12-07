@@ -809,7 +809,7 @@ elif st.session_state['page'] == 'Machine learning':
         """)
 
         # Texte à afficher
-        text = """
+        st.write("""
                       precision    recall  f1-score   support
         
                    0       0.00      0.00      0.00        16
@@ -830,7 +830,7 @@ elif st.session_state['page'] == 'Machine learning':
             accuracy                           0.73      4543
            macro avg       0.47      0.47      0.46      4543
         weighted avg       0.73      0.73      0.72      4543
-        """
+        """)
 
         st.image('images/ML_Keras.jpg')
         
