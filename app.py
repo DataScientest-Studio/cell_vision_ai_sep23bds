@@ -954,8 +954,6 @@ elif st.session_state['page'] == 'Deep learning':
         
         with col2:
             st.image(image2, caption="Image 2", use_column_width=True)
-            
-        st.image('images/Accuracy_CNN_2.png')
         
         # Étape 8 : Carte d’Activation Grad-CAM
         st.markdown("<h4>Carte d’Activation Grad-CAM</h4>", unsafe_allow_html=True)
