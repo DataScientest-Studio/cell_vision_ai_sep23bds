@@ -558,7 +558,7 @@ elif st.session_state['page'] == 'Analyse':
 # box plot pour la distribution des classes par luminosité et la teinte
 
         # Définir une séquence de couleurs personnalisée
-        couleurs_classes = px.colors.qualitative.Plotly[:len(df['Classe'].unique())]
+        couleurs_classes = px.colors.qualitative.Plotly[:len(df_data_APL['Classe'].unique())]
         
         # Créer un box plot pour la distribution des classes par luminosité
         fig_luminosite = px.box(df_data_APL, x="Classe", y="Luminosité", color="Classe", title="Distribution des classes par luminosité",
