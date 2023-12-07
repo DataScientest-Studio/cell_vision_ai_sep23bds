@@ -862,7 +862,7 @@ elif st.session_state['page'] == 'Deep learning':
     with tab7:
         
         # Étapes du projet
-        st.header("Étapes du Projet")
+        st.markdown("<h4>Étapes du Projet</h4>", unsafe_allow_html=True)
         st.markdown("""
         1. **Problème Initial**: La performance des algorithmes est limitée par notre segmentation des noyaux. Par conséquent, nous choisissons de nous tourner pleinement vers le Deep Learning qui permettra d’analyser les images pour y relever automatiquement la zone d’intérêt et ainsi améliorer la classification de nos cellules. Nous utilisons les images du dataset 1 PBC et du dataset 3 APL (images classées dans les dossiers ‘Signed’ et qui ne sont pas sous-représentées) rassemblées en un seul dataset.
         
@@ -872,7 +872,7 @@ elif st.session_state['page'] == 'Deep learning':
         """)
         
         # Modèle CNN Initial
-        st.header("Modèle CNN Initial")
+        st.markdown("<h4>Modèle CNN Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
         Création du modèle initial : 
         Nous définissons l'architecture du modèle de réseau de neurones convolutif (CNN) en empilant différentes couches de convolution, de max-pooling et de couches entièrement connectées.. Le modèle est capable d'apprendre à partir des données d'images en utilisant des opérations de convolution et d'autres opérations.
@@ -882,7 +882,7 @@ elif st.session_state['page'] == 'Deep learning':
         """)
         
         # Entraînement du Modèle
-        st.header("Entraînement du Modèle")
+        st.markdown("<h4>Entraînement du Modèle</h4>", unsafe_allow_html=True)
         st.markdown("""
         Le modèle est entraîné sur un nombre limité d'époques en utilisant les données d'entraînement. Celui-ci est exposé aux données d'entraînement et évalué sur l'ensemble de validation pour mesurer ses performances.
         
@@ -890,14 +890,14 @@ elif st.session_state['page'] == 'Deep learning':
         """)
         
         # Précision Globale du Modèle
-        st.header("Précision Globale du Modèle")
+        st.markdown("<h4>Précision Globale du Modèle</h4>", unsafe_allow_html=True)
         st.markdown("""
         Test Loss: 0.4041
         Test Accuracy: 0.8958
         """)
         
         # Carte d’Activation Grad-CAM
-        st.header("Carte d’Activation Grad-CAM")
+        st.markdown("<h4>Carte d’Activation Grad-CAM</h4>", unsafe_allow_html=True)
         
         # Ajoutez des paramètres Grad-CAM ici si nécessaire
         
