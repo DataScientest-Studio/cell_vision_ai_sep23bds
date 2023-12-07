@@ -2,92 +2,101 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 
+from Streamlit_utils.EfficientNet_model_utils import BloodCellClassifier
+from Streamlit_utils.EfficientNet_gradcam_utils import generate_and_display_gradcam
+from torchvision import transforms
+from PIL import Image
 
 # Initialisation de l'état de la session
-if 'page' not in st.session_state:
-    st.session_state['page'] = 'Accueil'
+if "page" not in st.session_state:
+    st.session_state["page"] = "Accueil"
 
 ## %%% BARE LATERALE %%% ##
 
 # Afficher l'image
-st.sidebar.image('images/logo_VisionCellAI.png', width=150)
+st.sidebar.image("images/logo_VisionCellAI.png", width=150)
 
 # Menu latéral avec des boutons
-if st.sidebar.button('Accueil'):
-    st.session_state['page'] = 'Accueil'
-if st.sidebar.button('Analyse des jeux de données'):
-    st.session_state['page'] = 'Analyse des jeux de données'
-if st.sidebar.button('Machine learning'):
-    st.session_state['page'] = 'Machine learning'
-if st.sidebar.button('Deep learning'):
-    st.session_state['page'] = 'Deep learning'
-if st.sidebar.button('Transfer learning'):
-    st.session_state['page'] = 'Transfer learning'
-if st.sidebar.button('Documentation'):
-    st.session_state['page'] = 'Documentation'
+if st.sidebar.button("Accueil"):
+    st.session_state["page"] = "Accueil"
+if st.sidebar.button("Analyse des jeux de données"):
+    st.session_state["page"] = "Analyse des jeux de données"
+if st.sidebar.button("Machine learning"):
+    st.session_state["page"] = "Machine learning"
+if st.sidebar.button("Deep learning"):
+    st.session_state["page"] = "Deep learning"
+if st.sidebar.button("Transfer learning"):
+    st.session_state["page"] = "Transfer learning"
+if st.sidebar.button("Documentation"):
+    st.session_state["page"] = "Documentation"
 
 ## %%% PAGE ACCUEIL %%% ##
 
 # Affichage de la page en fonction de l'état de la session
-if st.session_state['page'] == 'Accueil':
-
+if st.session_state["page"] == "Accueil":
     # Créer une colonne pour centrer l'image
     col1, col2, col3 = st.columns([1, 2, 1])
 
     # Afficher l'image centrée dans la colonne du milieu (col2)
     with col2:
-        st.image('images/illustration_accueil.png')
-        
-    st.title('Cell Vision AI')
-    
+        st.image("images/illustration_accueil.png")
+
+    st.title("Cell Vision AI")
+
     st.write(
-    '''
+        """
     Dans le domaine de la médecine et de la recherche biomédicale, l'analyse des cellules dans les frottis sanguins 
     est d'une importance cruciale pour le diagnostic et la compréhension de nombreuses pathologies. Cependant, leur 
     analyse manuelle est fastidieuse, sujette à des erreurs humaines, et peut être chronophage. De plus, cela 
     nécessite de nombreux appareils relativement onéreux et l’utilisation de consommables potentiellement dangereux.
-    '''
+    """
     )
 
-    st.header('Objectif du Projet')
+    st.header("Objectif du Projet")
     st.write(
-    '''
+        """
     L’objectif principal du projet **CellVisionAI** est la création d’algorithmes d’apprentissage machine et d’apprentissage profond 
     dédiés à la reconnaissance et la classification de cellules du sang. Cet outil pourrait être utilisé pour 
     faciliter le diagnostic de la leucémie en détectant des leucocytes anormaux.
-    '''
+    """
     )
 
     st.write(
-    '''
+        """
     **Projet réalisé par Wilfried Condemine, Michael Deroche, Claudia Mattei et Charles Sallard**.
     (Promotion sept23_DS Datascientest)
-    '''
+    """
     )
 
 ## %%% PAGE PROJET %%% ##
 
-elif st.session_state['page'] == 'Analyse des jeux de données':
+elif st.session_state["page"] == "Analyse des jeux de données":
     st.title("Analyse des jeux de données")
 
-    st.image('images/bandeau_analyse_5.jpg')
+    st.image("images/bandeau_analyse_5.jpg")
 
-    tab1, tab2, tab3, tab4 = st.tabs(["PBC Dataset Normal DIB", "Leukemia Dataset", "Acute Promyelocytic Leukemia (APL)", "Nos recommandations"])
+    tab1, tab2, tab3, tab4 = st.tabs(
+        [
+            "PBC Dataset Normal DIB",
+            "Leukemia Dataset",
+            "Acute Promyelocytic Leukemia (APL)",
+            "Nos recommandations",
+        ]
+    )
 
-    
-######################################
-      # PBC Dataset Normal DIB #
-######################################   
-    
+    ######################################
+    # PBC Dataset Normal DIB #
+    ######################################
+
     # Charger le fichier CSV dans un DataFrame
     chemin_fichier_csv = "data/data_PBC_1.csv"
     df_data_PBC = pd.read_csv(chemin_fichier_csv)
-    
+
     with tab1:
         st.header("PBC Dataset Normal DIB")
-    
+
         st.write(
-            '''
+            """
             Le dataset contient des images de cellules sanguines normales d'individus sains, servant de base de référence 
             pour l'entraînement des modèles pour reconnaître différents types de cellules sanguines normales.
             
@@ -99,19 +108,19 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
             - Classes : 8
             
             Ce jeu de données contient des images de cellules normales individuelles, classées en huit catégories. Les images ont été acquises à l'Hôpital de Barcelone.
-            '''
-            )
-        
+            """
+        )
+
         # Afficher df_data_PBC
         st.write(
-            '''
+            """
             Afin de faciliter l'analyse, un dataset a été créé à partir des différentes informations disponibles à partir des images. 
             
             **data_PBC.csv :**
-            '''
-            )
+            """
+        )
         st.write(df_data_PBC)
-        
+
         # Définir le texte avec une couleur de fond transparente
         texte_formatte = """
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
@@ -125,90 +134,107 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         </p>
         </div>
         """
-        
+
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
-        
-###@@@ GRAPHIQUES @@@###
-        st.write('')
-                
+
+        ###@@@ GRAPHIQUES @@@###
+        st.write("")
+
         # Grouper par type de cellule et compter le nombre d'images
-        data = df_data_PBC['Classe'].value_counts().reset_index()
-        data.columns = ['Type de cellule', 'Nombre d\'images']
-            
+        data = df_data_PBC["Classe"].value_counts().reset_index()
+        data.columns = ["Type de cellule", "Nombre d'images"]
+
         # Couleurs personnalisées pour les classes
-        colors = ['#5f74f4', '#de5e45', '#57c89a', '#a16cf0', '#f7a460', '#5dcdf2', '#ee7193', '#c1e58d']
+        colors = [
+            "#5f74f4",
+            "#de5e45",
+            "#57c89a",
+            "#a16cf0",
+            "#f7a460",
+            "#5dcdf2",
+            "#ee7193",
+            "#c1e58d",
+        ]
 
         # Créer une palette de couleurs personnalisée pour vos classes
         palette_couleurs = {
-            'neutrophil': '#5f74f4',
-            'eosinophil': '#de5e45',
-            'ig': '#57c89a',
-            'platelet': '#a16cf0',
-            'erythroblast': '#f7a460',
-            'monocyte': '#5dcdf2',
-            'basophil': '#ee7193',
-            'lymphocyte': '#c1e58d'
+            "neutrophil": "#5f74f4",
+            "eosinophil": "#de5e45",
+            "ig": "#57c89a",
+            "platelet": "#a16cf0",
+            "erythroblast": "#f7a460",
+            "monocyte": "#5dcdf2",
+            "basophil": "#ee7193",
+            "lymphocyte": "#c1e58d",
         }
 
-## GRAPHIQUE BARRES #
+        ## GRAPHIQUE BARRES #
         # Créer un graphique à BARRES avec plotly.graph_objects
-        fig_bar = go.Figure(data=[go.Bar(
-            x=data['Type de cellule'], 
-            y=data['Nombre d\'images'], 
-            text=data['Nombre d\'images'], 
-            marker_color=colors[:len(data)],  # Applique les couleurs aux barres
-            textposition='inside',
-        )])
+        fig_bar = go.Figure(
+            data=[
+                go.Bar(
+                    x=data["Type de cellule"],
+                    y=data["Nombre d'images"],
+                    text=data["Nombre d'images"],
+                    marker_color=colors[
+                        : len(data)
+                    ],  # Applique les couleurs aux barres
+                    textposition="inside",
+                )
+            ]
+        )
 
         # Mettre à jour la mise en page pour ajuster la taille et mettre un fond transparent
         fig_bar.update_layout(
             width=450,
             height=400,
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
             title={
-                'text': 'Distribution des types de cellules',
-                'y':0.85,  # Ajustez la position en y si nécessaire
-                'x':0.5,  # Ajustez la position en x si nécessaire
-                'xanchor': 'center', 
-                'yanchor': 'top',
-                'font': {
-                    'size': 15  # Ajustez la taille de la police comme nécessaire
-                }
+                "text": "Distribution des types de cellules",
+                "y": 0.85,  # Ajustez la position en y si nécessaire
+                "x": 0.5,  # Ajustez la position en x si nécessaire
+                "xanchor": "center",
+                "yanchor": "top",
+                "font": {"size": 15},  # Ajustez la taille de la police comme nécessaire
             },
-            xaxis_title='Type de cellule',
-            yaxis_title='Nombre d\'images'
+            xaxis_title="Type de cellule",
+            yaxis_title="Nombre d'images",
         )
-        
-## GRAPHIQUE CAMEMBERT ##
+
+        ## GRAPHIQUE CAMEMBERT ##
         # Créer un graphique en camembert avec plotly.graph_objects
-        fig_pie = go.Figure(data=[go.Pie(
-            labels=data['Type de cellule'], 
-            values=data['Nombre d\'images'],
-            marker_colors=colors[:len(data)],  # Applique les couleurs aux segments
-            textinfo='percent+label'
-        )])
+        fig_pie = go.Figure(
+            data=[
+                go.Pie(
+                    labels=data["Type de cellule"],
+                    values=data["Nombre d'images"],
+                    marker_colors=colors[
+                        : len(data)
+                    ],  # Applique les couleurs aux segments
+                    textinfo="percent+label",
+                )
+            ]
+        )
 
         # Mettre à jour la mise en page pour ajuster la taille et mettre un fond transparent
         fig_pie.update_layout(
             width=450,
             height=400,
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
             title={
-                'text': 'Proportions des types de cellules',
-                'y':0.85,  # Ajustez la position en y si nécessaire
-                'x':0.5,  # Ajustez la position en x si nécessaire
-                'xanchor': 'center', 
-                'yanchor': 'top',
-                'font': {
-                    'size': 15  # Ajustez la taille de la police comme nécessaire
-                }
+                "text": "Proportions des types de cellules",
+                "y": 0.85,  # Ajustez la position en y si nécessaire
+                "x": 0.5,  # Ajustez la position en x si nécessaire
+                "xanchor": "center",
+                "yanchor": "top",
+                "font": {"size": 15},  # Ajustez la taille de la police comme nécessaire
             },
-            showlegend=False  # Ne pas afficher la légende
+            showlegend=False,  # Ne pas afficher la légende
         )
-        
+
         # Créer des colonnes pour afficher les graphiques côte à côte
         col1, col2 = st.columns(2)
 
@@ -220,147 +246,158 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         with col2:
             st.plotly_chart(fig_pie)
 
-# Echantillon d'image #
-        
-        st.write("Echantillon d'images par type de cellules :")
-        st.image('images/PBC_images.png')
+        # Echantillon d'image #
 
-##@@ GRAPHIQUE DES DIMENSIONS PAR CLASSE (HAUTEUR) @@##
+        st.write("Echantillon d'images par type de cellules :")
+        st.image("images/PBC_images.png")
+
+        ##@@ GRAPHIQUE DES DIMENSIONS PAR CLASSE (HAUTEUR) @@##
         import plotly.express as px
-        import plotly.subplots as sp   
-        
+        import plotly.subplots as sp
+
         # Utiliser le DataFrame existant df_data_PBC
         df_graph_dim_class = df_data_PBC
-        
+
         # Créer un dataframe avec les dimensions et les classes
-        df_graph_dim_class[['Largeur', 'Hauteur']] = df_graph_dim_class['Dimensions'].str.split('x', expand=True)
-        
+        df_graph_dim_class[["Largeur", "Hauteur"]] = df_graph_dim_class[
+            "Dimensions"
+        ].str.split("x", expand=True)
+
         # Créer un graphique d'histogramme pour les largeurs
-        fig_dimensions_largeur = px.histogram(df_graph_dim_class, x="Largeur", color="Classe",
-                                              labels={"Largeur": "Largeur des images"},
-                                              color_discrete_map=palette_couleurs,
-                                              title="Répartition des largeurs des images")
-        
+        fig_dimensions_largeur = px.histogram(
+            df_graph_dim_class,
+            x="Largeur",
+            color="Classe",
+            labels={"Largeur": "Largeur des images"},
+            color_discrete_map=palette_couleurs,
+            title="Répartition des largeurs des images",
+        )
+
         # Mettre à jour la mise en page pour ajuster la taille et mettre un fond transparent
         fig_dimensions_largeur.update_layout(
             width=325,  # Ajustez la largeur
             height=400,  # Ajustez la hauteur
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
             title={
-                'text': 'Répartition des largeurs des images',
-                'y': 0.9,
-                'x': 0.5,
-                'xanchor': 'center',
-                'yanchor': 'top',
-                'font': {
-                    'size': 15
-                }
+                "text": "Répartition des largeurs des images",
+                "y": 0.9,
+                "x": 0.5,
+                "xanchor": "center",
+                "yanchor": "top",
+                "font": {"size": 15},
             },
-            showlegend=False  # Ne pas afficher la légende
+            showlegend=False,  # Ne pas afficher la légende
         )
-        
+
         # Créer un graphique d'histogramme pour les hauteurs
-        fig_dimensions_hauteur = px.histogram(df_graph_dim_class, x="Hauteur", color="Classe",
-                                              labels={"Hauteur": "Hauteur des images"},
-                                              color_discrete_map=palette_couleurs,
-                                              title="Répartition des hauteurs des images")
-        
+        fig_dimensions_hauteur = px.histogram(
+            df_graph_dim_class,
+            x="Hauteur",
+            color="Classe",
+            labels={"Hauteur": "Hauteur des images"},
+            color_discrete_map=palette_couleurs,
+            title="Répartition des hauteurs des images",
+        )
+
         # Mettre à jour la mise en page pour ajuster la taille et mettre un fond transparent
         fig_dimensions_hauteur.update_layout(
             width=400,  # Ajustez la largeur
             height=400,  # Ajustez la hauteur
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
             title={
-                'text': 'Répartition des hauteurs des images',
-                'y': 0.9,
-                'x': 0.5,
-                'xanchor': 'center',
-                'yanchor': 'top',
-                'font': {
-                    'size': 15
-                }
+                "text": "Répartition des hauteurs des images",
+                "y": 0.9,
+                "x": 0.5,
+                "xanchor": "center",
+                "yanchor": "top",
+                "font": {"size": 15},
             },
-            showlegend=False  # Ne pas afficher la légende
+            showlegend=False,  # Ne pas afficher la légende
         )
         # Utiliser st.beta_columns pour afficher les graphiques côte à côte
         col1, col2 = st.columns(2)
-        
+
         # Afficher le graphique de la boîte à moustaches de la teinte dans la première colonne
         with col1:
             st.plotly_chart(fig_dimensions_largeur)
-        
+
         # Afficher le graphique de la boîte à moustaches de la luminosité dans la deuxième colonne
         with col2:
             st.plotly_chart(fig_dimensions_hauteur)
 
-##@@ BOÎTES À MOUSTACHES DE LA TEINTE ET DE LA LUMINOSITÉ PAR CLASSE @@##
-        
+        ##@@ BOÎTES À MOUSTACHES DE LA TEINTE ET DE LA LUMINOSITÉ PAR CLASSE @@##
+
         # Créer une figure pour la boîte à moustaches de la teinte par classe
-        fig_hue_box = px.box(df_data_PBC, x='Classe', y='Teinte', color='Classe',
-                             color_discrete_map=palette_couleurs,
-                             title="Boîtes à moustaches de la Teinte")
-        
+        fig_hue_box = px.box(
+            df_data_PBC,
+            x="Classe",
+            y="Teinte",
+            color="Classe",
+            color_discrete_map=palette_couleurs,
+            title="Boîtes à moustaches de la Teinte",
+        )
+
         # Mettre à jour la mise en page pour ajuster la taille et mettre un fond transparent
         fig_hue_box.update_layout(
             width=800,  # Ajustez la valeur comme nécessaire
             height=500,  # Ajustez la valeur comme nécessaire
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
             title={
-                'text': "Boîtes à moustaches de la Teinte",
-                'y': 0.9,
-                'x': 0.5,
-                'xanchor': 'center',
-                'yanchor': 'top',
-                'font': {
-                    'size': 15
-                }
+                "text": "Boîtes à moustaches de la Teinte",
+                "y": 0.9,
+                "x": 0.5,
+                "xanchor": "center",
+                "yanchor": "top",
+                "font": {"size": 15},
             },
-            showlegend=False  # Ne pas afficher la légende
+            showlegend=False,  # Ne pas afficher la légende
         )
         st.plotly_chart(fig_hue_box)
-        
+
         # Créer une figure pour la boîte à moustaches de la luminosité par classe
-        fig_brightness_box = px.box(df_data_PBC, x='Classe', y='Luminosité', color='Classe',
-                                   color_discrete_map=palette_couleurs,
-                                   title="Boîtes à moustaches de la Luminosité")
-        
+        fig_brightness_box = px.box(
+            df_data_PBC,
+            x="Classe",
+            y="Luminosité",
+            color="Classe",
+            color_discrete_map=palette_couleurs,
+            title="Boîtes à moustaches de la Luminosité",
+        )
+
         # Mettre à jour la mise en page pour ajuster la taille et mettre un fond transparent
         fig_brightness_box.update_layout(
             width=800,  # Ajustez la valeur comme nécessaire
             height=500,  # Ajustez la valeur comme nécessaire
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
             title={
-                'text': "Boîtes à moustaches de la Luminosité",
-                'y': 0.9,
-                'x': 0.5,
-                'xanchor': 'center',
-                'yanchor': 'top',
-                'font': {
-                    'size': 15
-                }
+                "text": "Boîtes à moustaches de la Luminosité",
+                "y": 0.9,
+                "x": 0.5,
+                "xanchor": "center",
+                "yanchor": "top",
+                "font": {"size": 15},
             },
-            showlegend=False  # Ne pas afficher la légende
+            showlegend=False,  # Ne pas afficher la légende
         )
         st.plotly_chart(fig_brightness_box)
 
-    
-######################################
-        # Leukemia Dataset #
-######################################      
+    ######################################
+    # Leukemia Dataset #
+    ######################################
 
     # Charger le jeu de données depuis le fichier CSV
     chemin_fichier_csv = "data/data_leukemia_dataset.csv"
-    df_data_leukemia_dataset = pd.read_csv(chemin_fichier_csv) 
+    df_data_leukemia_dataset = pd.read_csv(chemin_fichier_csv)
 
     with tab2:
         st.header("Leukemia Dataset")
-        
+
         st.write(
-            '''
+            """
              Le dataset contient des images de cellules sanguines de patients sains et de patients atteints de Leucémie Lymphoblastique Aiguë (ALL), avec des informations sur les centroïdes. 
              Il est utile pour tester la segmentation, la classification, et les méthodes de prétraitement des images.
              
@@ -371,19 +408,19 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
             - Classes : Patients sains et patients atteints de Leucémie Lymphoblastique Aiguë (ALL)
             
             Ce jeu de données contient des images de cellules sanguines provenant de patients sains et atteints de leucémie.
-            '''
-            )
+            """
+        )
 
         # Afficher les 5 premières lignes de df_data_leukemia_dataset
         st.write(
-            '''
+            """
             Afin de faciliter l'analyse, un dataset a été créé à partir des différentes informations des images dans les dossiers ALL_IDB1 et ALL_IDB2. 
             
             **data_leukemia_dataset.csv :**
-            '''
-            )
+            """
+        )
         st.write(df_data_leukemia_dataset)
-        
+
         # Définir le texte avec une couleur de fond transparente
         texte_formatte = """
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
@@ -395,56 +432,91 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         </p>
         </div>
         """
-        
+
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
 
-###@@@ GRAPHIQUES @@@###
+        ###@@@ GRAPHIQUES @@@###
 
         # Créer une nouvelle colonne pour différencier les patients sains et malades
-        df_data_leukemia_dataset['Statut patient'] = df_data_leukemia_dataset['Leucémie_ALL'].apply(lambda x: 'Malade' if x == 1 else 'Sain')
+        df_data_leukemia_dataset["Statut patient"] = df_data_leukemia_dataset[
+            "Leucémie_ALL"
+        ].apply(lambda x: "Malade" if x == 1 else "Sain")
 
-        st.write('')
-        
+        st.write("")
+
         # Afficher la distribution des classes en distinguant les patients sains et malades
-        fig1 = px.histogram(df_data_leukemia_dataset, x='Classe', color='Statut patient')
-        fig1.update_layout(title={'text': 'Distribution des classes ALL_IDB1 et ALL_IDB2 en distinguant les patients sains et malades', 'x':0.5, 'xanchor': 'center'})
+        fig1 = px.histogram(
+            df_data_leukemia_dataset, x="Classe", color="Statut patient"
+        )
+        fig1.update_layout(
+            title={
+                "text": "Distribution des classes ALL_IDB1 et ALL_IDB2 en distinguant les patients sains et malades",
+                "x": 0.5,
+                "xanchor": "center",
+            }
+        )
         st.plotly_chart(fig1)
-        
+
         # Afficher la distribution de la dimension pour les classes ALL_IDB1 et ALL_IDB2
-        fig2 = px.histogram(df_data_leukemia_dataset, x='Dimensions', color='Classe')
-        fig2.update_layout(title={'text': 'Distribution de la dimension pour les classes ALL_IDB1 et ALL_IDB2', 'x':0.5, 'xanchor': 'center'})
+        fig2 = px.histogram(df_data_leukemia_dataset, x="Dimensions", color="Classe")
+        fig2.update_layout(
+            title={
+                "text": "Distribution de la dimension pour les classes ALL_IDB1 et ALL_IDB2",
+                "x": 0.5,
+                "xanchor": "center",
+            }
+        )
         st.plotly_chart(fig2)
-        
+
         # Afficher la distribution de la résolution pour les classes ALL_IDB1 et ALL_IDB2
-        fig3 = px.histogram(df_data_leukemia_dataset, x='Résolution', color='Classe')
-        fig3.update_layout(title={'text': 'Distribution de la résolution pour les classes ALL_IDB1 et ALL_IDB2', 'x':0.5, 'xanchor': 'center'})
+        fig3 = px.histogram(df_data_leukemia_dataset, x="Résolution", color="Classe")
+        fig3.update_layout(
+            title={
+                "text": "Distribution de la résolution pour les classes ALL_IDB1 et ALL_IDB2",
+                "x": 0.5,
+                "xanchor": "center",
+            }
+        )
         st.plotly_chart(fig3)
-        
+
         # Ajouter une boîte à moustaches pour la luminosité
-        fig4 = px.box(df_data_leukemia_dataset, x='Classe', y='Luminosité', color='Classe')
-        fig4.update_layout(title={'text': 'Distribution de la luminosité pour les classes ALL_IDB1 et ALL_IDB2', 'x':0.5, 'xanchor': 'center'})
+        fig4 = px.box(
+            df_data_leukemia_dataset, x="Classe", y="Luminosité", color="Classe"
+        )
+        fig4.update_layout(
+            title={
+                "text": "Distribution de la luminosité pour les classes ALL_IDB1 et ALL_IDB2",
+                "x": 0.5,
+                "xanchor": "center",
+            }
+        )
         st.plotly_chart(fig4)
-        
+
         # Ajouter une boîte à moustaches pour la teinte
-        fig5 = px.box(df_data_leukemia_dataset, x='Classe', y='Teinte', color='Classe')
-        fig5.update_layout(title={'text': 'Distribution de la teinte pour les classes ALL_IDB1 et ALL_IDB2', 'x':0.5, 'xanchor': 'center'})
+        fig5 = px.box(df_data_leukemia_dataset, x="Classe", y="Teinte", color="Classe")
+        fig5.update_layout(
+            title={
+                "text": "Distribution de la teinte pour les classes ALL_IDB1 et ALL_IDB2",
+                "x": 0.5,
+                "xanchor": "center",
+            }
+        )
         st.plotly_chart(fig5)
 
-    
-######################################
-# Acute Promyelocytic Leukemia (APL) #
-######################################
-    
+    ######################################
+    # Acute Promyelocytic Leukemia (APL) #
+    ######################################
+
     # Charger le fichier CSV dans un DataFrame
     chemin_fichier_apl_csv = "data/data_APL_streamlit_4.csv"
     df_data_APL = pd.read_csv(chemin_fichier_apl_csv)
 
     with tab3:
         st.header("Acute Promyelocytic Leukemia (APL)")
-        
+
         st.write(
-            '''
+            """
             Le dataset est composé d'images de cellules sanguines classées de patients atteints de différentes formes de leucémie. 
             Certaines cellules n'ont pas été classées, introduisant de l'incertitude dans la variable cible.
             
@@ -456,17 +528,17 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
             - Origine : Cellules de 106 patients de l’Hôpital Johns Hopkins, atteints de Leucémie Myéloïde Aiguë (AML) ou de Leucémie Aiguë Promyélocytaire (APL)
             
             Ce jeu de données contient des images de cellules de patients atteints de deux types de leucémie. Les cellules sont classées dans des dossiers par catégorie, et il existe également un dossier pour les cellules non classées.
-            '''
-            )
-        
-            # Afficher df_data_APL
+            """
+        )
+
+        # Afficher df_data_APL
         st.write(
-            '''
+            """
             Afin de faciliter l'analyse, un dataset a été créé à partir des différentes informations disponibles à partir des images. 
             
             **data_APL.csv :**
-            '''
-            )
+            """
+        )
         st.write(df_data_APL)
 
         # Définir le texte avec une couleur de fond transparente
@@ -482,127 +554,172 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         </p>
         </div>
         """
-        
+
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
 
-###@@@ GRAPHIQUES @@@###
+        ###@@@ GRAPHIQUES @@@###
 
-# Répartition des classes
-        
+        # Répartition des classes
+
         # Charger les données
-        df_data_APL = pd.read_csv("data/data_APL_streamlit_4.csv") 
-        
+        df_data_APL = pd.read_csv("data/data_APL_streamlit_4.csv")
+
         # Créer un graphique de répartition des classes
         fig = px.histogram(df_data_APL, x="Classe", title="Répartition des classes")
-        
+
         # Personnalisation du graphique
-        fig.update_traces(marker=dict(color=px.colors.qualitative.Set3))  # Couleurs différentes pour chaque classe
-        fig.update_xaxes(categoryorder="total descending")  # Tri des classes par ordre décroissant
+        fig.update_traces(
+            marker=dict(color=px.colors.qualitative.Set3)
+        )  # Couleurs différentes pour chaque classe
+        fig.update_xaxes(
+            categoryorder="total descending"
+        )  # Tri des classes par ordre décroissant
         fig.update_xaxes(tickangle=45)
         fig.update_layout(height=600)
 
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
 
-# Echantillon d'images par type de cellules
+        # Echantillon d'images par type de cellules
 
         st.write("Echantillon d'images par type de cellules :")
-        st.image('images/APL_echantillon.png')
-        
-# Répartition des classes du Patient_00 au Patient_105
-        
+        st.image("images/APL_echantillon.png")
+
+        # Répartition des classes du Patient_00 au Patient_105
+
         # Extraire les numéros de patients pour le tri
-        df_data_APL['Patient_number'] = df_data_APL['Nom du patient'].str.extract('(\d+)').astype(int)
-        
+        df_data_APL["Patient_number"] = (
+            df_data_APL["Nom du patient"].str.extract("(\d+)").astype(int)
+        )
+
         # Créer un graphique à barres empilées vertical en utilisant la fonction count()
-        fig = px.bar(df_data_APL.groupby(['Nom du patient', 'Classe']).size().reset_index(name='Nombre d\'images'), 
-                     x="Nom du patient", y="Nombre d'images", color="Classe",
-                     title="Répartition des classes du Patient_00 au Patient_105", orientation='v')
-        
+        fig = px.bar(
+            df_data_APL.groupby(["Nom du patient", "Classe"])
+            .size()
+            .reset_index(name="Nombre d'images"),
+            x="Nom du patient",
+            y="Nombre d'images",
+            color="Classe",
+            title="Répartition des classes du Patient_00 au Patient_105",
+            orientation="v",
+        )
+
         # Personnaliser le graphique
         fig.update_layout(xaxis_title="Nom du patient", yaxis_title="Nombre d'images")
-        fig.update_traces(marker=dict(line=dict(width=0)))  # Supprimer les contours des barres
-        
+        fig.update_traces(
+            marker=dict(line=dict(width=0))
+        )  # Supprimer les contours des barres
+
         # Trier les patients en utilisant le numéro de patient
-        noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
-        noms_des_patients.sort(key=lambda x: int(x.split('_')[1]))  # Tri par numéro de patient
+        noms_des_patients = df_data_APL["Nom du patient"].unique().tolist()
+        noms_des_patients.sort(
+            key=lambda x: int(x.split("_")[1])
+        )  # Tri par numéro de patient
         fig.update_xaxes(categoryorder="array", categoryarray=noms_des_patients)
         fig.update_layout(height=650, width=1000)
-        
+
         # Faire pivoter les légendes de l'axe x à 45 degrés
         fig.update_xaxes(tickangle=45)
-        
+
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
 
-# Distribution des dimensions des images par classe
+        # Distribution des dimensions des images par classe
         # Créer un graphique d'histogramme de la dimension des images par classe
-        fig = px.histogram(df_data_APL, x="Dimension", color="Classe", title="Distribution des dimensions des images par classe")
-        
+        fig = px.histogram(
+            df_data_APL,
+            x="Dimension",
+            color="Classe",
+            title="Distribution des dimensions des images par classe",
+        )
+
         # Personnaliser le graphique
-        fig.update_layout(xaxis_title="Dimension de l'image", yaxis_title="Nombre d'images")
-        fig.update_xaxes(type="category", tickangle=45)  # Utiliser une échelle catégorielle pour la dimension
-        fig.update_traces(marker=dict(line=dict(width=0)))  # Supprimer les contours des barres
+        fig.update_layout(
+            xaxis_title="Dimension de l'image", yaxis_title="Nombre d'images"
+        )
+        fig.update_xaxes(
+            type="category", tickangle=45
+        )  # Utiliser une échelle catégorielle pour la dimension
+        fig.update_traces(
+            marker=dict(line=dict(width=0))
+        )  # Supprimer les contours des barres
         fig.update_layout(height=700, width=900)
 
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
 
-# Distribution des classes par luminosité et teinte
+        # Distribution des classes par luminosité et teinte
 
         # Créer un graphique de nuage de points 2D (scatter plot)
-        fig = px.scatter(df_data_APL, x="Luminosité", y="Teinte", color="Classe",
-                         title="Distribution des classes par luminosité et teinte")
-        
+        fig = px.scatter(
+            df_data_APL,
+            x="Luminosité",
+            y="Teinte",
+            color="Classe",
+            title="Distribution des classes par luminosité et teinte",
+        )
+
         # Personnaliser le graphique
         fig.update_layout(xaxis_title="Luminosité", yaxis_title="Teinte")
-        fig.update_traces(marker=dict(size=6), selector=dict(mode='markers'))
+        fig.update_traces(marker=dict(size=6), selector=dict(mode="markers"))
         fig.update_xaxes(tickangle=45)
         fig.update_layout(height=700, width=900)
         # Afficher le graphique
         st.plotly_chart(fig)
 
-# box plot pour la distribution des classes par luminosité et la teinte
+        # box plot pour la distribution des classes par luminosité et la teinte
 
         # Définir une séquence de couleurs personnalisée
-        couleurs_classes = px.colors.qualitative.Plotly[:len(df_data_APL['Classe'].unique())]
-        
+        couleurs_classes = px.colors.qualitative.Plotly[
+            : len(df_data_APL["Classe"].unique())
+        ]
+
         # Créer un box plot pour la distribution des classes par luminosité
-        fig_luminosite = px.box(df_data_APL, x="Classe", y="Luminosité", color="Classe", title="Distribution des classes par luminosité",
-                                color_discrete_sequence=couleurs_classes)
-        
+        fig_luminosite = px.box(
+            df_data_APL,
+            x="Classe",
+            y="Luminosité",
+            color="Classe",
+            title="Distribution des classes par luminosité",
+            color_discrete_sequence=couleurs_classes,
+        )
+
         # Personnaliser le graphique
         fig_luminosite.update_layout(yaxis_title="Luminosité")
         fig_luminosite.update_xaxes(tickangle=45)
         fig_luminosite.update_layout(height=800, width=900)
-        
+
         # Afficher le graphique de luminosité
         st.plotly_chart(fig_luminosite)
-        
+
         # Créer un box plot pour la distribution des classes par teinte
-        fig_teinte = px.box(df_data_APL, x="Classe", y="Teinte", color="Classe", title="Distribution des classes par teinte",
-                            color_discrete_sequence=couleurs_classes)
-        
+        fig_teinte = px.box(
+            df_data_APL,
+            x="Classe",
+            y="Teinte",
+            color="Classe",
+            title="Distribution des classes par teinte",
+            color_discrete_sequence=couleurs_classes,
+        )
+
         # Personnaliser le graphique
         fig_teinte.update_layout(yaxis_title="Teinte")
         fig_teinte.update_xaxes(tickangle=45)
         fig_teinte.update_layout(height=800, width=900)
-        
+
         # Afficher le graphique de teinte
         st.plotly_chart(fig_teinte)
 
-        
-######################################
-       # Nos Recommandations #
-######################################
+    ######################################
+    # Nos Recommandations #
+    ######################################
 
-    
     with tab4:
         st.header("Nos recommandations")
 
         st.write(
-            '''
+            """
             Le **dataset 1** contient des images de cellules sanguines normales provenant d'individus sains, 
             ce qui en fait une base de données de référence pour entraîner et tester des modèles d'apprentissage automatique 
             et d'apprentissage profond afin de reconnaître différents types de cellules sanguines normales.
@@ -620,8 +737,8 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
             - Manque de classement : pas de classification des cellules dans le dataset 2 ce qui rendra impossible la vérification de la performance de notre modèle sur cet ensemble de données. 
             De même pour une partie du dataset 3 (‘Unsigned slides’).
             - Différences entre les jeux de données : en termes de qualité, de format, de zoom sur les cellules, de conditions d’acquisition des images ou de représentativité des catégories de cellules.
-            '''
-            )
+            """
+        )
 
         # Définir le texte avec une couleur de fond transparente
         texte_formatte = """
@@ -637,32 +754,35 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         </p>
         </div>
         """
-    
+
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
 
 ## %%% PAGE MACHINE LEARNING %%% ##
 
-elif st.session_state['page'] == 'Machine learning':
+elif st.session_state["page"] == "Machine learning":
     st.title("Machine learning")
 
-    tab5, tab6 = st.tabs(["Extraction des caractéristiques", "Modèle de Machine learning"])
+    tab5, tab6 = st.tabs(
+        ["Extraction des caractéristiques", "Modèle de Machine learning"]
+    )
 
     with tab5:
         st.write(
-        '''
+            """
         l’enjeu de l’extraction des données en vue de leur utilisation pour un modèle de Machine Learning réside dans l’automatisation du processus pour chacun des datasets identifiés.
         
         Après de multiples itérations, et l’utilisation de différentes bibliothèques d’analyses d’images (OpenCV et skimage), 
         nous avons établi deux méthodologies qui, malgré leurs imperfections, sont suffisamment solides pour répondre aux besoins de notre modèle de Machine Learning. 
         
         Nous présentons ici la 2e méthode qui a extrait les caractéristiques les plus optimisées :
-        '''
-    )
-        
+        """
+        )
+
         # 1ère étape
         st.subheader("Préparation des données et segmentation initiale")
-        st.markdown("""
+        st.markdown(
+            """
         - Importation des bibliothèques nécessaires au traitement d'images, à la gestion de données et à la visualisation.
         - Extraction des chemins des images pour simplifier l'accès aux données.
         - Définition des classes cibles pour le dataset, en se concentrant sur les types de cellules sanguines d'intérêt.
@@ -671,16 +791,18 @@ elif st.session_state['page'] == 'Machine learning':
         - Amélioration de la segmentation par des opérations morphologiques telles que la fermeture et l'ouverture.
         
         Visualisation des étapes de segmentation initiale :
-        """)
+        """
+        )
 
-        st.image('images/M2_6.jpg')
-        st.image('images/M2_8.jpg')
-        st.image('images/M2_9.jpg')
-        st.image('images/M2_7.jpg')
-        
+        st.image("images/M2_6.jpg")
+        st.image("images/M2_8.jpg")
+        st.image("images/M2_9.jpg")
+        st.image("images/M2_7.jpg")
+
         # 2ème étape
         st.subheader("Extraction des caractéristiques à partir des boîtes encadrantes")
-        st.markdown("""
+        st.markdown(
+            """
         - Identification des boîtes encadrantes des cellules segmentées.
         - Segmentation des noyaux des cellules d'intérêt à partir des boîtes encadrantes.
         - Extraction des caractéristiques quantitatives des noyaux, telles que l'aire, le périmètre, l'excentricité, etc.
@@ -688,26 +810,30 @@ elif st.session_state['page'] == 'Machine learning':
         - Stockage des caractéristiques dans une structure de données optimale pour l'entraînement de modèles de machine learning.
         
         Visualisation des noyaux des cellules d'intérêt et des caractéristiques extraites à partir des boîtes encadrantes :
-        """)
+        """
+        )
 
-        st.image('images/M2_3.jpg')
-        
+        st.image("images/M2_3.jpg")
+
         # 3ème étape
         st.subheader("Traitement global et stockage des caractéristiques")
-        st.markdown("""
+        st.markdown(
+            """
         - Traitement de l'ensemble des images de la base de données, avec extraction systématique des caractéristiques de chaque noyau.
         - Conservation des informations sur les régions des noyaux d'intérêt identifiées par la segmentation.
         - Enregistrement de toutes les caractéristiques extraites dans un fichier CSV pour chaque dataset.
         - Concaténation des données en un seul dataset pour la création du modèle de machine learning.
         
         Visualisation des données traitées et enregistrées :
-        """)
+        """
+        )
 
-        st.image('images/M2_4.jpg')
+        st.image("images/M2_4.jpg")
 
         # Liste des variables retenues
         st.subheader("Liste des variables retenues")
-        st.markdown("""
+        st.markdown(
+            """
         - **Nom :** nom de l'image initiale.
         - **Numéro :** si plusieurs cellules sur l'image, numéro de la cellule analysée.
         - **Aire noyau :** surface occupée par le noyau sur l'image en pixels.
@@ -725,83 +851,99 @@ elif st.session_state['page'] == 'Machine learning':
         - **Classe :** type cellulaire.
 
         La variable cible est la “Classe” des cellules. 
-        """)
+        """
+        )
 
-    
         # Conclusion
         st.subheader("Conclusion")
-        st.markdown("""
+        st.markdown(
+            """
         - Suppression des images avec une mauvaise segmentation et des valeurs aberrantes.
         - Élimination des classes sous-représentées, des images non identifiées et des classes incompatibles.
         - Renommage ou regroupement de certaines classes pour harmoniser les datasets.
         - Enregistrement des données extraites dans un fichier CSV pour l'entraînement de modèles de machine learning.
         
         Ces étapes préparent les données de manière efficace pour une future classification des cellules sanguines.
-        """)
+        """
+        )
 
-        st.image('images/M2_5.jpg')
-        
+        st.image("images/M2_5.jpg")
+
     with tab6:
-        
         # Standardisation des données et séparation en ensembles d'entraînement et de test
         st.subheader("Standardisation des données et Séparation des ensembles")
-        st.markdown("""
+        st.markdown(
+            """
         Nous réalisons d'abord une standardisation des données pour que les algorithmes sensibles aux échelles n'en soient pas affectés. Ensuite, nous séparons les données en ensembles d'entraînement et de test pour évaluer la performance des algorithmes.
-        """)
-        
+        """
+        )
+
         # Résultats des algorithmes
         st.subheader("Résultats des Algorithmes")
-        
+
         # RandomForest
-        st.markdown("""
+        st.markdown(
+            """
         **RandomForest**
         
         Le premier algorithme testé est le RandomForest, pour lequel nous obtenons une accuracy de 0.70 sur l'ensemble de test. Le rapport de classification montre les performances par classe.
         
         *Note : Une optimisation des hyperparamètres avec GridSearchCV n'a pas permis d'améliorer ce score.*
-        """)
+        """
+        )
         # Insérer ici la représentation du rapport de classification pour RandomForest
-        
+
         # Commentaire sur les résultats de RandomForest
-        st.markdown("""
+        st.markdown(
+            """
         Nous observons que les classes sous-représentées sont très mal prédites, et un sur-échantillonnage avec SMOTE fait même baisser les performances de 2%. Parmi les classes moins bien prédites, on retrouve les cellules de type "erythroblast", "monocyte" et "ig", qui semblent présenter une variabilité accrue en termes de formes et tailles, ainsi que la classe "basophil", dont le noyau est difficilement reconnaissable par rapport au cytoplasme.
         
         Une autre raison de ces mauvaises classifications est la ressemblance morphologique entre certaines cellules. La classe "platelet" est la mieux prédite, car les cellules sont bien plus petites que les autres, ce qui permet de les différencier facilement.
-        """)
-        
+        """
+        )
+
         # XGBoost
-        st.markdown("""
+        st.markdown(
+            """
         **XGBoost**
         
         Avec XGBoost, nous obtenons une accuracy de 0.71 sur l'ensemble de test. Nous avons utilisé l'objectif 'multi:softmax' pour la classification multiclasse.
-        """)
+        """
+        )
         # Insérer ici la représentation des performances pour XGBoost
-        
+
         # KNN
-        st.markdown("""
+        st.markdown(
+            """
         **KNN**
         
         Avec l'algorithme KNN (avec n_neighbors=13), nous obtenons une accuracy de 0.68 sur l'ensemble de test.
-        """)
+        """
+        )
         # Insérer ici la représentation des performances pour KNN
-        
+
         # Commentaires sur les résultats de XGBoost et KNN
-        st.markdown("""
+        st.markdown(
+            """
         Avec XGBoost, on peut relever l'importance des features pour savoir si certaines peuvent ne pas être prises en compte. En essayant d'éliminer les features moins importantes, comme par exemple la hauteur et largeur du rectangle minimal, nous n'obtenons pas de meilleurs résultats. Nous avons également tenté d'introduire de nouvelles features, par exemple en multipliant des features déjà présentes entre elles, mais cela n'a pas été concluant.
         
         Nous obtenons des améliorations notables avec l'algorithme SVM après optimisation des hyperparamètres (C=100, gamma=0.01, kernel='rbf'). Nous atteignons une accuracy de 0.73 sur l'ensemble de test.
-        """)
+        """
+        )
         # Insérer ici la représentation du rapport de classification et de la matrice de classification pour SVM
-        
+
         # Commentaires sur les résultats de SVM
-        st.markdown("""
+        st.markdown(
+            """
         Parmi les classes mal prédites, on confond souvent les "erythroblast" avec les "lymphocytes", ce qui est problématique vu qu'ils appartiennent à deux lignées hématopoïétiques (respectivement myéloïde et lymphoïde) ou bien les "monocyte" et "basophil" avec les "ig" (moins surprenant car tous appartiennent à la lignée myéloïde).
         
         Les images montrent des ressemblances entre certaines photographies, ce qui peut expliquer ces confusions. Gardons à l'esprit que notre algorithme de segmentation des noyaux ne se concentre que sur la forme et la taille de ces derniers lorsqu'ils sont assez reconnaissables par rapport au cytoplasme. D'autres caractéristiques importantes comme l'aspect granuleux ou la couleur du noyau et du cytoplasme ne sont pas prises en compte et sont des limitations à l'obtention d'un score élevé.
-        """)
-        
+        """
+        )
+
         # Réseau de Neurones Dense avec Keras
-        st.markdown("""
+        st.markdown(
+            """
         **Réseau de Neurones Dense avec Keras**
         
         Les meilleurs scores sont atteints avec un réseau de neurones dense avec Keras. Nous avons réalisé un modèle séquentiel avec 3 couches :
@@ -812,69 +954,169 @@ elif st.session_state['page'] == 'Machine learning':
         L'optimiseur est 'adam' et la fonction de perte 'sparse_categorical_crossentropy'. Le modèle est entraîné sur 100 époques avec un batch_size=128. On obtient une accuracy de 0.73.
         
         En éliminant les cellules des 4 classes extrêmement sous-représentées, nous avons à présent 9 classes possibles et obtenons une accuracy de 0.75 sur les ensembles d'entraînement et de test.
-        """)
+        """
+        )
         # Insérer ici la représentation du rapport de classification et de la matrice de classification pour le Réseau de Neurones Dense
-        
+
         # Conclusion
         st.subheader("Conclusion")
-        st.markdown("""
+        st.markdown(
+            """
         Ces résultats montrent que la classification des cellules sanguines à partir de données de segmentation de noyaux est un défi complexe en raison de la variabilité morphologique et de la ressemblance entre certaines cellules. Malgré les limitations de l'algorithme de segmentation, certaines méthodes, comme le SVM et le réseau de neurones dense, permettent d'atteindre des performances acceptables.
         
         Il reste des possibilités d'amélioration en explorant de nouvelles caractéristiques et en développant des approches plus sophistiquées de segmentation et de classification.
-        """)
+        """
+        )
 
 
 ## %%% PAGE DEEP LEARNING %%% ##
 
-elif st.session_state['page'] == 'Deep learning':
+elif st.session_state["page"] == "Deep learning":
     st.title("Deep learning")
-    st.header('Objectif des résultats')
+    st.header("Objectif des résultats")
 
     st.write(
-        '''
+        """
         Les résultats du projet **CellVisionAI** sont encore en cours d'évaluation. Cependant, les premiers résultats sont prometteurs. L'outil est capable de reconnaître et de classifier avec précision les cellules du sang présentes dans les frottis sanguins.
-        '''
+        """
     )
+
 
 ## %%% PAGE DEEP LEARNING %%% ##
 
-elif st.session_state['page'] == 'Transfer learning':
+elif st.session_state["page"] == "Transfer learning":
     st.title("Transfer learning")
-    st.header('Objectif des résultats')
+    st.header("Objectif des résultats")
 
     st.write(
-        '''
+        """
         Les résultats du projet **CellVisionAI** sont encore en cours d'évaluation. Cependant, les premiers résultats sont prometteurs. L'outil est capable de reconnaître et de classifier avec précision les cellules du sang présentes dans les frottis sanguins.
-        '''
+        """
     )
+    tab1_dl, tab2_dl, tab3_dl, tab4_dl, tab5_dl = st.tabs(
+        ["Généralités", "Model from scratch", "MobileNet", "EfficientNet", "Prédiction"]
+    )
+
+    #### MobileNet ####
+    with tab3_dl:
+        st.header("Transfert Learning avec MobileNet")
+
+        st.write(
+            """
+            Description du model
+            """
+        )
+
+    #### EfficientNet ####
+    with tab4_dl:
+        st.header("Transfert Learning avec EfficientNet")
+
+        st.write(
+            """
+            Description du model
+            """
+        )
+
+    #### Prédiction ####
+    with tab5_dl:
+        st.header("Prédictions")
+
+        st.write(
+            """
+            Sélectionnez votre modèle, déposez une image et regardez la magie s'opérer.
+            """
+        )
+        choix = ["Model from scratch", "MobileNet", "EficientNet"]
+        option = st.selectbox("Choix du modèle", choix)
+        st.write("Le modèle choisi est :", option)
+        if option == "EfficientNet":
+            """Prédiction avec EfficientNet"""
+            uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
+
+            if uploaded_file is not None:
+                st.image(
+                    uploaded_file, caption="Uploaded Image.", use_column_width=True
+                )
+                st.write("")
+                st.write("Classifying...")
+
+                # Load the classifier and make prediction
+                model_path = (
+                    "Models/efficientnetv2_transfer_learning_b1_v4_fine_tuned.pth"
+                )
+                classifier = BloodCellClassifier(model_path)
+                prediction = classifier.predict(uploaded_file)
+
+                # Display the prediction
+                class_labels = {
+                    0: "Basophil",
+                    1: "Blast, no lineage spec",
+                    2: "Eosinophil",
+                    3: "Erythroblast",
+                    4: "Ig",
+                    5: "Lymphocyte",
+                    6: "Monocyte",
+                    7: "Neutrophil",
+                    8: "Platelet",
+                }
+
+                predicted_class_name = class_labels[prediction]
+                st.write(f"Prediction: {predicted_class_name}")
+
+                ##### Fin de la partie prédiction #####
+
+                # GradCAM visualization
+                st.write("Generating GradCAM visualization...")
+
+                # Convert image to torch.Tensor
+                image = Image.open(uploaded_file).convert("RGB")
+                transform = transforms.Compose(
+                    [
+                        transforms.Resize((366, 366)),
+                        transforms.ToTensor(),
+                    ]
+                )
+                input_image = transform(image).unsqueeze(0)
+                image_size = (366, 366)
+
+                # Get GradCAM
+                target_layer_name = "effnet.conv_head"
+                image_with_gradcam = generate_and_display_gradcam(
+                    classifier.model, input_image, target_layer_name, image_size
+                )
+                st.pyplot(image_with_gradcam)
+
+        elif option == "MobileNet":
+            """Prédiction avec MobileNet"""
+
 
 ## %%% PAGE DOCUMENTATION %%% ##
 
-elif st.session_state['page'] == 'Documentation':
+elif st.session_state["page"] == "Documentation":
     st.title("Documentation")
-    
+
     tab7, tab8, tab9 = st.tabs(["Datasets", "Bibliographie", "Crédits"])
 
     with tab7:
         st.write(
-            '''
+            """
             - [PBC Dataset Normal DIB - National Library of Medicine](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7182702/)
             - [Acute Promyelocytic Leukemia (APL) - Kaggle](https://www.kaggle.com/eugeneshenderov/acute-promyelocytic-leukemia-apl)
             - [Leukemia Dataset - Kaggle](https://www.kaggle.com/nikhilsharma00/leukemia-dataset)
-        '''
+        """
         )
-    
+
     with tab8:
         st.write(
-        '''
+            """
         - [Recognition of peripheral blood cell images using convolutional neural networks](https://www.sciencedirect.com/science/article/abs/pii/S0169260719303578?via%3Dihub)
         - [A deep learning model (ALNet) for the diagnosis of acute leukaemia lineage using peripheral blood cell images](https://www.sciencedirect.com/science/article/abs/pii/S0169260721000742?via%3Dihub)
-        '''
+        """
         )
-        
+
     with tab9:
         st.write(
-        '''
+            """
         Le logo CellVisionAI et les images d'illustrations ont été générées par DALL•E 3.
-        '''
+        """
         )
