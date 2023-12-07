@@ -603,25 +603,23 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 
         st.write(
             '''
-            - **Analyse Exploratoire des Données :**
-            Effectuer une analyse approfondie pour comprendre les limites potentielles et les caractéristiques spécifiques de chaque jeu de données.
-            
-            - **Nettoyage des Données :**
-            Pour le Dataset 3, bien que la majorité des données soient propres, une analyse détaillée des images peut révéler des problèmes, 
-            tels que la difficulté de reconnaissance des noyaux par les algorithmes, nécessitant l'élimination de certaines données.
-            
-            - **Prétraitement :**
-            Des fichiers de données au format CSV ont été créés pour simplifier l’analyse statistique des données, y compris le nombre de classes, 
-            le nombre d’images par classe, et les formats et dimensions des images.
-            
-            - **Gestion des Limitations :**
-            Les différences en termes de qualité, de format, et de représentativité des catégories de cellules entre les jeux de données peuvent poser des défis.
-            Une stratégie d'intégration et de normalisation doit être développée pour gérer ces différences.
-            Le manque de classification des cellules dans le Dataset 2 et les incertitudes dans le Dataset 3 nécessitent des stratégies spécifiques pour gérer et, si possible, minimiser ces limitations.
+            - Le dataset 1 contient des images de cellules sanguines normales provenant d'individus sains, 
+            ce qui en fait une base de données de référence pour entraîner et tester des modèles d'apprentissage automatique 
+            et d'apprentissage profond afin de reconnaître différents types de cellules sanguines normales.
 
-            - **Utilisation du dataset 1 et 2 :**
-            Nous avons besoin d'images annotées pour ce projet. Nous utiliserons les datasets 1 et 2 qui disposent d'images annotées. Le dataset nécessitera l'exclusion de près de 10 000 d'images (Unsigned slides) qui ne sont pas annotées.
-            '''
+            - Le dataset 2 propose des images de cellules sanguines de patients atteints de ALL, avec des informations sur les centroïdes. 
+            Il peut être utilisé pour tester la capacité de segmentation des algorithmes, ainsi que les méthodes de prétraitement des images. 
+            On pourrait penser à une classification des images en cellules sanguines normales et cellules anormales de patients atteints de Leucémie Lymphoblastique Aiguë (ALL).
+            
+            - Le dataset 3 est composé d'images de cellules sanguines classées de patients atteints de différentes formes de leucémie (AML ou APL). 
+            L'apprentissage en profondeur permettrait de différencier les cellules et diagnostiquer l'APL à partir de la morphologie cellulaire. 
+
+            
+            **Choix :**
+            - Utiliser principalement le dataset 1 pour un modèle de classification des cellules sanguines normales. Le dataset 3 viendrait compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, caractéristiques de patients atteints de leucémie.
+            - Dataset 2 sera mis de côté pour les raisons citées précédemment.
+            - Mettre en place des techniques de prétraitement d'images, de segmentation, d'apprentissage machine et d’apprentissage profond pour extraire des caractéristiques pertinentes à partir des images.
+           '''
             )
 
 ## %%% PAGE MACHINE LEARNING %%% ##
