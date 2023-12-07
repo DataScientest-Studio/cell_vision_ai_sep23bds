@@ -628,10 +628,10 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Choix</strong></p>
         <p>            
-        - Utiliser principalement le dataset 1 pour un modèle de classification des cellules sanguines normales. 
-        Le dataset 3 viendrait compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, 
+        - Utiliser principalement le dataset 1 (PBC Dataset Normal DIB) pour un modèle de classification des cellules sanguines normales. <br>
+        - Le dataset 3 (Acute Promyelocytic Leukemia (APL)) viendra compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, 
         caractéristiques de patients atteints de leucémie.<br>
-        - Dataset 2 sera mis de côté pour les raisons citées précédemment.<br>
+        - Exclusion du dataset 2 (Leukemia Dataset).<br>
         - Mettre en place des techniques de prétraitement d'images, de segmentation, d'apprentissage machine et d’apprentissage profond 
         pour extraire des caractéristiques pertinentes à partir des images.<br>
         </p>
