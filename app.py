@@ -831,7 +831,7 @@ elif st.session_state['page'] == 'Machine learning':
            macro avg       0.47      0.47      0.46      4543
         weighted avg       0.73      0.73      0.72      4543
         """
-        st.text(text)
+        st.code(text, language='text')
 
         st.image('images/ML_Keras.jpg')
         
