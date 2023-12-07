@@ -706,7 +706,7 @@ elif st.session_state['page'] == 'Machine learning':
         st.image('images/M2_4.jpg')
 
         # Liste des variables retenues
-        st.subheader("Liste des Variables Retenues")
+        st.subheader("Liste des variables retenues")
         st.markdown("""
         - **Nom :** nom de l'image initiale.
         - **Numéro :** si plusieurs cellules sur l'image, numéro de la cellule analysée.
