@@ -566,7 +566,7 @@ elif st.session_state['page'] == 'Analyse':
         
         # Personnaliser le graphique
         fig_luminosite.update_layout(yaxis_title="Luminosité")
-        fig.update_xaxes(tickangle=45)
+        fig_luminosite.update_xaxes(tickangle=45)
         fig_luminosite.update_layout(height=800, width=900)
         
         # Afficher le graphique de luminosité
@@ -578,11 +578,11 @@ elif st.session_state['page'] == 'Analyse':
         
         # Personnaliser le graphique
         fig_teinte.update_layout(yaxis_title="Teinte")
-        fig.update_xaxes(tickangle=45)
+        fig_teinte.update_xaxes(tickangle=45)
         fig_teinte.update_layout(height=800, width=900)
         
         # Afficher le graphique de teinte
-        st.plotly_chart(fig)
+        st.plotly_chart(fig_teinte)
 
     with tab4:
         st.header("Recommandations pour le traitement des données")
