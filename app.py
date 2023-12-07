@@ -723,8 +723,11 @@ elif st.session_state['page'] == 'Machine learning':
         - **Boîte encadrante :** coordonnées de la boîte encadrant le noyau.
         - **Centre :** 1 si la cellule recouvre le centre de l'image sinon 0 (plusieurs types cellulaires peuvent être présentes sur la même image, ce terme permet de repérer la cellule principale si c'est le cas).
         - **Classe :** type cellulaire.
+
+        La variable cible est la “Classe” des cellules. 
         """)
 
+    
         # Conclusion
         st.subheader("Conclusion")
         st.markdown("""
