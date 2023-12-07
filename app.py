@@ -876,13 +876,19 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 3 : Méthode Employée
         st.markdown("<h4>Méthode Employée</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. Nous configurons des checkpoints de sauvegarde périodique des modèles pendant l'apprentissage. Cela permet de conserver les meilleures versions du modèle. Les images utilisées sont normalisées avec le choix de définir la dimension sur la dimension moyenne de 256x256. Les classes sous représentées ne sont pas prises en compte. Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
+        Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. 
+        Nous configurons des checkpoints de sauvegarde périodique des modèles pendant l'apprentissage. 
+        Cela permet de conserver les meilleures versions du modèle. Les images utilisées sont normalisées avec le choix de définir la dimension sur la dimension moyenne de 256x256. 
+        Les classes sous représentées ne sont pas prises en compte. Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
         """)
+
+        st.image('images/CNN_files.png')
         
         # Étape 4 : Création du Modèle Initial
         st.markdown("<h4>Création du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous définissons l'architecture du modèle de réseau de neurones convolutif (CNN) en empilant différentes couches de convolution, de max-pooling et de couches entièrement connectées. Le modèle est capable d'apprendre à partir des données d'images en utilisant des opérations de convolution et d'autres opérations.
+        Nous définissons l'architecture du modèle de réseau de neurones convolutif (CNN) en empilant différentes couches de convolution, de max-pooling et de couches entièrement connectées. 
+        Le modèle est capable d'apprendre à partir des données d'images en utilisant des opérations de convolution et d'autres opérations.
         """)
         
         st.markdown("Architecture du Modèle CNN :")
@@ -892,15 +898,19 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 5 : Compilation du Modèle Initial
         st.markdown("<h4>Compilation du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam) et de la fonction de perte (categorical_crossentropy) qui mesure l'erreur, ainsi que les métriques à suivre, comme l’accuracy.
+        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam) 
+        et de la fonction de perte (categorical_crossentropy) qui mesure l'erreur, ainsi que les métriques à suivre, comme l’accuracy.
         """)
         
         # Étape 6 : Entraînement du Modèle
         st.markdown("<h4>Entraînement du Modèle</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Le modèle est entraîné sur un nombre limité d'époques en utilisant les données d'entraînement. Celui-ci est exposé aux données d'entraînement et évalué sur l'ensemble de validation pour mesurer ses performances.
+        Le modèle est entraîné sur un nombre limité d'époques en utilisant les données d'entraînement. Celui-ci est exposé aux données d'entraînement 
+        et évalué sur l'ensemble de validation pour mesurer ses performances.
         
-        Toutes les couches du modèle sont entraînables, ce qui signifie qu’il s'adapte aux données spécifiques à notre tâche. Le modèle est recompilé avec un taux d'apprentissage plus faible pour optimiser les résultats. Il est de nouveau entraîné sur un nombre supplémentaire d'époques. Le callback de sauvegarde des checkpoints enregistre les poids qui obtiennent la meilleure précision sur l'ensemble de validation.
+        Toutes les couches du modèle sont entraînables, ce qui signifie qu’il s'adapte aux données spécifiques à notre tâche. Le modèle est recompilé 
+        avec un taux d'apprentissage plus faible pour optimiser les résultats. Il est de nouveau entraîné sur un nombre supplémentaire d'époques. 
+        Le callback de sauvegarde des checkpoints enregistre les poids qui obtiennent la meilleure précision sur l'ensemble de validation.
         """)
         
         # Étape 7 : Précision Globale du Modèle
@@ -910,11 +920,16 @@ elif st.session_state['page'] == 'Deep learning':
         
         Test Accuracy: 0.8958
         """)
+
+        st.image('images/Accuracy_CNN_2.png')
         
         # Étape 8 : Carte d’Activation Grad-CAM
         st.markdown("<h4>Carte d’Activation Grad-CAM</h4>", unsafe_allow_html=True)
         
-        # Paramètres Grad-CAM ici si nécessaire
+        st.image('images/CNN_gradcam_1.png')
+
+        st.markdown("Avec d'autres paramètres :")
+        st.image('images/CNN_gradcam_2.png')
 
         texte_formatte = """
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
