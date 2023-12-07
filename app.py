@@ -68,21 +68,6 @@ if st.session_state['page'] == 'Accueil':
 elif st.session_state['page'] == 'Analyse':
     st.title("Analyse des jeux de données")
 
-    # Charger le fichier CSV dans un DataFrame
-    chemin_fichier_csv = "data/data_PBC.csv"
-    df_data_PBC = pd.read_csv(chemin_fichier_csv)
-
-    # Supprimer la colonne 'Résolution'
-    if 'Résolution' in df_data_PBC.columns:
-        df_data_PBC = df_data_PBC.drop(columns=['Résolution'])        
-
-    # Supprimer les entrées où la classe est 'im'
-    df_data_PBC = df_data_PBC[df_data_PBC['Classe'] != 'im']
-    
-    # Supprimer la colonne 'Chemin du fichier'
-    if 'Chemin du fichier' in df_data_PBC.columns:
-        df_data_PBC = df_data_PBC.drop(columns=['Chemin du fichier'])
-
     st.image('images/bandeau_analyse_5.jpg')
 
     tab1, tab2, tab3, tab4 = st.tabs(["PBC Dataset Normal DIB", "Leukemia Dataset", "Acute Promyelocytic Leukemia (APL)", "Nos recommandations"])
@@ -91,6 +76,10 @@ elif st.session_state['page'] == 'Analyse':
 ######################################
       # PBC Dataset Normal DIB #
 ######################################   
+    
+    # Charger le fichier CSV dans un DataFrame
+    chemin_fichier_csv = "data/data_PBC_1.csv"
+    df_data_PBC = pd.read_csv(chemin_fichier_csv)
     
     with tab1:
         st.header("PBC Dataset Normal DIB")
@@ -361,12 +350,12 @@ elif st.session_state['page'] == 'Analyse':
         # Leukemia Dataset #
 ######################################      
 
+    # Charger le jeu de données depuis le fichier CSV
+    chemin_fichier_csv = "data/data_leukemia_dataset.csv"
+    df_data_leukemia_dataset = pd.read_csv(chemin_fichier_csv) 
+
     with tab2:
         st.header("Leukemia Dataset")
-
-        # Charger le jeu de données depuis le fichier CSV
-        chemin_fichier_csv = "data/data_leukemia_dataset.csv"
-        df_data_leukemia_dataset = pd.read_csv(chemin_fichier_csv) 
         
         st.write(
             '''
