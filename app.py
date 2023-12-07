@@ -907,6 +907,7 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Précision Globale du Modèle</h4>", unsafe_allow_html=True)
         st.markdown("""
         Test Loss: 0.4041
+        
         Test Accuracy: 0.8958
         """)
         
