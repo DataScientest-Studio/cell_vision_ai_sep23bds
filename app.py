@@ -496,12 +496,11 @@ elif st.session_state['page'] == 'Analyse':
         # Personnalisation du graphique
         fig.update_traces(marker=dict(color=px.colors.qualitative.Set3))  # Couleurs différentes pour chaque classe
         fig.update_xaxes(categoryorder="total descending")  # Tri des classes par ordre décroissant
-        fig.update_layout(height=600)  # Réglage de la hauteur du graphique
-        
+        fig.update_xaxes(tickangle=45)
+        fig.update_layout(height=600)
+
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
-
-
 
     
     with tab4:
