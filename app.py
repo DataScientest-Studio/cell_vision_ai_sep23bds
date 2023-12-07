@@ -808,10 +808,9 @@ elif st.session_state['page'] == 'Machine learning':
         
         """)
 
-        # Texte à afficher
         text = """
-                              precision    recall  f1-score   support
-        
+                         precision    recall  f1-score   support
+                         
                    0       0.00      0.00      0.00        16
                    1       0.49      0.67      0.57       246
                    2       0.74      0.84      0.78       341
@@ -831,7 +830,19 @@ elif st.session_state['page'] == 'Machine learning':
            macro avg       0.47      0.47      0.46      4543
         weighted avg       0.73      0.73      0.72      4543
         """
-        st.text(text)
+
+        # Séparer le texte en lignes
+        lines = text.split("\n")
+        
+        # Extraire la ligne des noms de colonnes
+        header = lines[1]
+        
+        # Afficher les noms de colonnes en haut de chaque colonne
+        for i in range(len(header)):
+            st.text(header[i])
+        
+        # Afficher le reste du texte sans la ligne des noms de colonnes
+        st.text('\n'.join(lines[2:]))
 
         st.image('images/ML_Keras.jpg')
         
