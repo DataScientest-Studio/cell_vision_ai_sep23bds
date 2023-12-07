@@ -21,7 +21,7 @@ if st.sidebar.button('Machine learning'):
     st.session_state['page'] = 'Machine learning'
 if st.sidebar.button('Deep learning'):
     st.session_state['page'] = 'Deep learning'
-if st.sidebar.button('Transfer Learning'):
+if st.sidebar.button('Transfer learning'):
     st.session_state['page'] = 'Transfer learning'
 if st.sidebar.button('Documentation'):
     st.session_state['page'] = 'Documentation'
