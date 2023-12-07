@@ -464,6 +464,18 @@ elif st.session_state['page'] == 'Analyse':
         </p>
         </div>
         """
+
+         # Définir le texte avec une couleur de fond transparente
+        texte_formatte = """
+        <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
+        <p><strong>Analyse</strong></p>
+        <p>            
+        - Une limitation est l'absence de classification des cellules, rendant difficile la vérification de la performance des modèles.<br>
+        - Les coordonnées des centroïdes des cellules sont fournies pour les images ALL_IDB1.<br>
+        - Diversité des données pour construire un modèle robuste.
+        </p>
+        </div>
+        """
         
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
