@@ -861,9 +861,6 @@ elif st.session_state['page'] == 'Deep learning':
 
     with tab7:
         
-        # En-tête de l'application
-        st.title("Résumé du Projet de Deep Learning sur la Classification Cellulaire")
-        
         # Étapes du projet
         st.header("Étapes du Projet")
         st.markdown("""
