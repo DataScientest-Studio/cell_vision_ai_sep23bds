@@ -860,18 +860,18 @@ elif st.session_state['page'] == 'Deep learning':
     tab7, tab8 = st.tabs(["Modèle de Deep learning", "Application"])
 
     with tab7:
-    st.write(
-    '''
-    blabla
-    '''
-    )
+        st.write(
+        '''
+        blabla
+        '''
+        )
         
     with tab8:
-    st.write(
-    '''
-    blabla
-    '''
-    )
+        st.write(
+        '''
+        blabla
+        '''
+        )
 
 ## %%% PAGE DEEP LEARNING %%% ##
 
@@ -881,18 +881,18 @@ elif st.session_state['page'] == 'Transfer learning':
     tab9, tab10 = st.tabs(["Modèle de Transfer learning", "Application"])
 
     with tab9:
-    st.write(
-    '''
-    blabla
-    '''
-    )
+        st.write(
+        '''
+        blabla
+        '''
+        )
         
     with tab10:
-    st.write(
-    '''
-    blabla
-    '''
-    )
+        st.write(
+        '''
+        blabla
+        '''
+        )
 
 ## %%% PAGE DOCUMENTATION %%% ##
 
