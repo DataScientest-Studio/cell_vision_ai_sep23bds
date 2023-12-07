@@ -359,11 +359,7 @@ elif st.session_state['page'] == 'Analyse':
 
         # Charger le jeu de données depuis le fichier CSV
         chemin_fichier_csv = "data/data_leukemia_dataset.csv"
-        df_data_leukemia_dataset = pd.read_csv(chemin_fichier_csv)
-        
-        # Supprimer la colonne 'Résolution'
-        if 'Résolution' in df_data_leukemia_dataset.columns:
-            df_data_leukemia_dataset = df_data_leukemia_dataset.drop(columns=['Résolution'])    
+        df_data_leukemia_dataset = pd.read_csv(chemin_fichier_csv) 
         
         st.write(
             '''
