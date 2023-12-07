@@ -807,6 +807,7 @@ elif st.session_state['page'] == 'Machine learning':
         Classes mal prédites : "erythroblast" confondue avec "lymphocyte", "monocyte" et "basophil" confondus avec "ig".
         
         """)
+        st.write("")
         
         # conclusion
         texte_formatte = """
