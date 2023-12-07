@@ -517,7 +517,7 @@ elif st.session_state['page'] == 'Analyse':
         noms_des_patients = df_data_APL['Nom du patient'].unique().tolist()
         noms_des_patients.sort()
         fig.update_xaxes(tickvals=noms_des_patients, ticktext=[f"Patient_{str(p).zfill(2)}" for p in noms_des_patients])
-        fig.update_layout(height=600, width=1000)
+        fig.update_layout(height=500, width=1100)
         
         # Faire pivoter les légendes de l'axe x à 45 degrés
         fig.update_xaxes(tickangle=45)
