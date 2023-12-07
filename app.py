@@ -744,10 +744,10 @@ elif st.session_state['page'] == 'Machine learning':
     with tab6:
 
         # Titre
-        st.title("Analyse des Algorithmes de Classification")
+        st.header("Analyse des Algorithmes de Classification")
         
         # Standardisation des données et séparation en ensembles d'entraînement et de test
-        st.header("Standardisation des Données et Séparation en Ensembles")
+        st.write("**Première étape**")
         st.markdown("""
         - Standardisation des données pour préparer les algorithmes sensibles aux échelles.
         - Séparation des données en ensembles d'entraînement et de test.
