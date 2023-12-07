@@ -137,7 +137,14 @@ elif st.session_state['page'] == 'Analyse':
         # Grouper par type de cellule et compter le nombre d'images
         data = df_data_PBC['Classe'].value_counts().reset_index()
         data.columns = ['Type de cellule', 'Nombre d\'images']
-        
+
+        # Supprimer les entrées où la classe est 'im'
+        df_data_PBC = df_data_PBC[df_data_PBC['Classe'] != 'im']
+
+        # Supprimer la colonne 'Chemin du fichier'
+        if 'Chemin du fichier' in df_data_PBC.columns:
+            df_data_PBC = df_data_PBC.drop(columns=['Chemin du fichier'])
+            
         # Couleurs personnalisées pour les classes
         colors = ['#5f74f4', '#de5e45', '#57c89a', '#a16cf0', '#f7a460', '#5dcdf2', '#ee7193', '#c1e58d']
 
