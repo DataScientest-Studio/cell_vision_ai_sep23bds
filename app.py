@@ -646,7 +646,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 elif st.session_state['page'] == 'Machine learning':
     st.title("Machine learning")
 
-    tab5, tab6 = st.tabs(["Extraction des caractéristiques", "Modèle de Machine learning"])
+    tab5, tab6 = st.tabs(["Extraction des caractéristiques", "Modèles de Machine learning"])
 
     with tab5:
         st.write(
