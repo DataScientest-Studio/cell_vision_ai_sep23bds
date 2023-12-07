@@ -646,7 +646,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 elif st.session_state['page'] == 'Machine learning':
     st.title("Machine learning")
 
-    tab5, tab6 = st.tabs(["Extraction features", "Modèle Machine learning"])
+    tab5, tab6 = st.tabs(["Extraction des caractéristiques", "Modèle de Machine learning"])
 
     with tab5:
         st.write(
@@ -656,10 +656,60 @@ elif st.session_state['page'] == 'Machine learning':
         Après de multiples itérations, et l’utilisation de différentes bibliothèques d’analyses d’images (OpenCV et skimage), 
         nous avons établi deux méthodologies qui, malgré leurs imperfections, sont suffisamment solides pour répondre aux besoins de notre modèle de Machine Learning. 
         
-        Nous présentons ici la 2e méthode qui a extrait les features les plus optimisées :
+        Nous présentons ici la 2e méthode qui a extrait les caractéristiques les plus optimisées :
         '''
     )
-    
+
+        # Méthode 2 de sélection des noyaux des cellules
+        st.header("Méthode 2 de sélection des noyaux des cellules")
+        
+        # 1ère étape
+        st.subheader("1ère étape - Préparation des données et degmentation initiale")
+        st.markdown("""
+        - Importation des bibliothèques nécessaires au traitement d'images, à la gestion de données et à la visualisation.
+        - Extraction des chemins des images pour simplifier l'accès aux données.
+        - Définition des classes cibles pour le dataset, en se concentrant sur les types de cellules sanguines d'intérêt.
+        - Segmentation initiale des cellules basée sur l'espace couleur LAB, en utilisant le canal b pour distinguer les cellules du fond.
+        - Utilisation de la méthode d'Otsu pour choisir automatiquement le seuil de segmentation.
+        - Amélioration de la segmentation par des opérations morphologiques telles que la fermeture et l'ouverture.
+        
+        Visualisation des étapes de segmentation initiale.
+        """)
+        
+        # 2ème étape
+        st.subheader("2ème étape - Extraction des caractéristiques à partir des boîtes encadrantes")
+        st.markdown("""
+        - Identification des boîtes encadrantes des cellules segmentées.
+        - Segmentation des noyaux des cellules d'intérêt à partir des boîtes encadrantes.
+        - Extraction des caractéristiques quantitatives des noyaux, telles que l'aire, le périmètre, l'excentricité, etc.
+        - Analyse individuelle de chaque cellule pour calculer ces caractéristiques.
+        - Stockage des caractéristiques dans une structure de données optimale pour l'entraînement de modèles de machine learning.
+        
+        Visualisation des noyaux des cellules d'intérêt et des caractéristiques extraites à partir des boîtes encadrantes.
+        """)
+        
+        # 3ème étape
+        st.subheader("3ème étape - Traitement global et stockage des caractéristiques")
+        st.markdown("""
+        - Traitement de l'ensemble des images de la base de données, avec extraction systématique des caractéristiques de chaque noyau.
+        - Conservation des informations sur les régions des noyaux d'intérêt identifiées par la segmentation.
+        - Enregistrement de toutes les caractéristiques extraites dans un fichier CSV pour chaque dataset.
+        - Concaténation des données en un seul dataset pour la création du modèle de machine learning.
+        
+        Visualisation des données traitées et enregistrées.
+        """)
+        
+        # Conclusion
+        st.subheader("Conclusion")
+        st.markdown("""
+        - Suppression des images avec une mauvaise segmentation et des valeurs aberrantes.
+        - Élimination des classes sous-représentées, des images non identifiées et des classes incompatibles.
+        - Renommage ou regroupement de certaines classes pour harmoniser les datasets.
+        - Enregistrement des données extraites dans un fichier CSV pour l'entraînement de modèles de machine learning.
+        
+        Ces étapes préparent les données de manière efficace pour une future classification des cellules sanguines.
+        """)
+
     with tab6:
         st.write(
         '''
