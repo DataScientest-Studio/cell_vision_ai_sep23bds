@@ -886,6 +886,8 @@ elif st.session_state['page'] == 'Deep learning':
         """)
         
         st.markdown("Architecture du Modèle CNN :")
+
+        st.image('images/CNN_neuronal_architecture.jpg')
         
         # Texte du modèle
         model_summary = """
