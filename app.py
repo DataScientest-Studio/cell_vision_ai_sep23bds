@@ -74,7 +74,7 @@ elif st.session_state['page'] == 'Analyse':
 
     st.image('images/bandeau_analyse_5.jpg')
 
-    tab1, tab2, tab3, tab4 = st.tabs(["PBC Dataset Normal DIB", "Leukemia Dataset", "Acute Promyelocytic Leukemia (APL)", "Recommandations"])
+    tab1, tab2, tab3, tab4 = st.tabs(["PBC Dataset Normal DIB", "Leukemia Dataset", "Acute Promyelocytic Leukemia (APL)", "Nos recommandations"])
 
     
 ######################################
@@ -610,6 +610,9 @@ elif st.session_state['page'] == 'Analyse':
             Les différences en termes de qualité, de format, et de représentativité des catégories de cellules entre les jeux de données peuvent poser des défis.
             Une stratégie d'intégration et de normalisation doit être développée pour gérer ces différences.
             Le manque de classification des cellules dans le Dataset 2 et les incertitudes dans le Dataset 3 nécessitent des stratégies spécifiques pour gérer et, si possible, minimiser ces limitations.
+
+            - ** Utilisation du dataset 1 et 2 :**
+            Nous avons besoin d'images annotées pour ce projet. Nous utiliserons les datasets 1 et 2 qui disposent d'images annotées. Le dataset nécessitera l'exclusion de près de 10 000 d'images (Unsigned slides) qui ne sont pas annotées.
             '''
             )
 
