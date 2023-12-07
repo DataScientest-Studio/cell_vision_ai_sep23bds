@@ -860,11 +860,72 @@ elif st.session_state['page'] == 'Deep learning':
     tab7, tab8 = st.tabs(["Modèle de Deep learning", "Application"])
 
     with tab7:
-        st.write(
-        '''
-        blabla
-        '''
-        )
+        
+        # En-tête de l'application
+        st.title("Résumé du Projet de Deep Learning sur la Classification Cellulaire")
+        
+        # Étapes du projet
+        st.header("Étapes du Projet")
+        st.markdown("""
+        1. **Problème Initial**: La performance des algorithmes est limitée par notre segmentation des noyaux. Par conséquent, nous choisissons de nous tourner pleinement vers le Deep Learning qui permettra d’analyser les images pour y relever automatiquement la zone d’intérêt et ainsi améliorer la classification de nos cellules. Nous utilisons les images du dataset 1 PBC et du dataset 3 APL (images classées dans les dossiers ‘Signed’ et qui ne sont pas sous-représentées) rassemblées en un seul dataset.
+        
+        2. **Choix du Modèle**: Après s’être documentés sur le sujet, nous avons décidé de réaliser un modèle CNN “from scratch” dont l’architecture est la suivante (décrivez l'architecture ici).
+        
+        3. **Méthode Employée**: Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. Nous configurons des checkpoints de sauvegarde périodique des modèles pendant l'apprentissage. Cela permet de conserver les meilleures versions du modèle. Les images utilisées sont normalisées avec le choix de définir la dimension sur la dimension moyenne de 256x256. Les classes sous représentées ne sont pas prises en compte. Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
+        """)
+        
+        # Modèle CNN Initial
+        st.header("Modèle CNN Initial")
+        st.markdown("""
+        Création du modèle initial : 
+        Nous définissons l'architecture du modèle de réseau de neurones convolutif (CNN) en empilant différentes couches de convolution, de max-pooling et de couches entièrement connectées.. Le modèle est capable d'apprendre à partir des données d'images en utilisant des opérations de convolution et d'autres opérations.
+        
+        Compilation du modèle initial : 
+        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam) et de la fonction de perte (categorical_crossentropy) qui mesure l'erreur, ainsi que les métriques à suivre, comme l’accuracy. 
+        """)
+        
+        # Entraînement du Modèle
+        st.header("Entraînement du Modèle")
+        st.markdown("""
+        Le modèle est entraîné sur un nombre limité d'époques en utilisant les données d'entraînement. Celui-ci est exposé aux données d'entraînement et évalué sur l'ensemble de validation pour mesurer ses performances.
+        
+        Toutes les couches du modèle sont entraînables, ce qui signifie qu’il s'adapte aux données spécifiques à notre tâche. Le modèle est recompilé avec un taux d'apprentissage plus faible pour optimiser les résultats. Il est de nouveau entraîné sur un nombre supplémentaire d'époques. Le callback de sauvegarde des checkpoints enregistre les poids qui obtiennent la meilleure précision sur l'ensemble de validation.
+        """)
+        
+        # Précision Globale du Modèle
+        st.header("Précision Globale du Modèle")
+        st.markdown("""
+        Test Loss: 0.4041
+        Test Accuracy: 0.8958
+        """)
+        
+        # Carte d’Activation Grad-CAM
+        st.header("Carte d’Activation Grad-CAM")
+        
+        # Ajoutez des paramètres Grad-CAM ici si nécessaire
+        
+        st.markdown("""
+        Analyse :
+        Le modèle CNN présente une très bonne performance globale, avec une accuracy de 0.8959 lors de l'évaluation sur l'ensemble de données de test. Cette performance élevée indique que le modèle est capable de classifier avec précision la majorité des échantillons du jeu de données de test. De plus, la perte de test, évaluée à 0,4041, est relativement faible, ce qui suggère que le modèle généralise bien à partir des données d'entraînement vers de nouvelles données.
+        
+        La matrice de confusion fournit des informations plus détaillées sur la performance du modèle pour chaque classe. Par exemple, pour la classe Basophil (127 échantillons), le modèle a correctement identifié 115 échantillons, mais s'est trompé pour 12 d'entre eux.
+        
+        Analyse de la précision et du rappel par classe :
+        - Basophil : Le modèle atteint une précision correcte et un rappel élevé d'environ 91%, ce qui indique une bonne capacité à distinguer cette classe.
+        - Blast, no lineage spec : Cette classe présente une précision de 81% et un rappel de 87%, montrant une performance raisonnable mais avec quelques erreurs.
+        - Eosinophil : Le modèle excelle dans la prédiction des cellules de cette classe.
+        - Erythroblast : Très bonne performance.
+        - Ig : La précision à 78% et le rappel à 77% signifient que cette classe peut être plus difficile à prédire avec précision.
+        - Monocyte : Bons résultats mais un peu plus faibles que pour les autres classes car de fortes variations morphologiques sont présentes dans cette classe.
+        - Neutrophil : Excellentes prédictions.
+        - Platelet : Excellente performance.
+        - Lymphocyte : Excellente performance.
+        
+        Dans l'ensemble, le modèle CNN présente une performance globale solide sur l'ensemble de données de test, avec des performances efficaces pour plusieurs classes. Cependant, certaines classes pourraient bénéficier d'une attention particulière pour améliorer leur précision, en particulier la classe "Ig". 
+        """)
+        
+        # Exécutez l'application Streamlit
+
         
     with tab8:
         st.write(
