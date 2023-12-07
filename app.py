@@ -651,7 +651,7 @@ elif st.session_state['page'] == 'Machine learning':
     with tab5:
         st.write(
         '''
-        l’enjeu de l’extraction des données en vue de leur utilisation pour un modèle de Machine Learning réside dans l’automatisation du processus pour chacun des datasets identifiés.
+        L’enjeu de l’extraction des données en vue de leur utilisation pour un modèle de Machine Learning réside dans l’automatisation du processus pour chacun des datasets identifiés.
         
         Après de multiples itérations, et l’utilisation de différentes bibliothèques d’analyses d’images (OpenCV et skimage), 
         nous avons établi deux méthodologies qui, malgré leurs imperfections, sont suffisamment solides pour répondre aux besoins de notre modèle de Machine Learning. 
