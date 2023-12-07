@@ -463,20 +463,6 @@ elif st.session_state['page'] == 'Analyse':
         </p>
         </div>
         """
-
-         # Définir le texte avec une couleur de fond transparente
-        texte_formatte = """
-        <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
-        <p><strong>Analyse</strong></p>
-        <p>            
-        - Les conditions d'acquisition des images semblent similaires à celles du Dataset 1.<br>
-        - Plus de 15 000 images sont classées (Signed slides) selon le type de cellules, mais environ 10 000 images (Unsigned slides) ne sont pas classées.<br>
-        - Certains types de cellules, tels que les "smudge cells", contiennent de nombreux outliers et pourraient ne pas être utiles pour l'analyse.<br>
-        - Des variations de taille plus importantes sont observées par rapport au Dataset 1, sans dépendance apparente avec les classes de cellules.<br>
-        - Un fichier master.csv contient les diagnostics et quelques informations sur les patients. Il y a une répartition équilibrée des données entre les sexes et les tranches d'âge,avec une prédominance masculine conforme à la prévalence de la maladie.
-        </p>
-        </div>
-        """
         
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
