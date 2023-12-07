@@ -840,8 +840,11 @@ weighted avg       0.73      0.73      0.72      4543
         # Extraire les données (à partir de la deuxième ligne)
         data_keras = [line.split() for line in lines[2:]]
         
-        # Afficher les données dans un tableau avec les noms de colonnes en haut
-        st.table(data_keras, columns=columns)
+       # Créer un DataFrame pandas
+        df_keras = pd.DataFrame(data_keras, columns=columns)
+        
+        # Afficher le DataFrame dans Streamlit
+        st.dataframe(df_keras)
 
         st.image('images/ML_Keras.jpg')
         
