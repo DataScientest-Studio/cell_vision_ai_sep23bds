@@ -1016,9 +1016,7 @@ elif st.session_state['page'] == 'Deep learning':
 elif st.session_state['page'] == 'Transfer learning':
     st.title("Transfer learning")
     
-    tab1_dl, tab2_dl, tab3_dl, tab4_dl, tab5_dl = st.tabs(
-        ["Généralités", "Model from scratch", "MobileNet", "EfficientNet", "Prédiction"]
-    )
+    tab1_dl, tab2_dl, tab3_dl, tab4_dl, tab5_dl = st.tabs(["Généralités", "Model from scratch", "MobileNet", "EfficientNet", "Prédiction"])
     
     #### MobileNet ####
     with tab3_dl:
