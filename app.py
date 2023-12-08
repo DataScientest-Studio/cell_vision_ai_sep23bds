@@ -1012,7 +1012,7 @@ elif st.session_state['page'] == 'Deep learning':
 elif st.session_state['page'] == 'Transfer learning':
     st.title("Transfer learning")
     
-    tab9, tab10, tab11 = st.tabs(["Généralités", "Mobilnet_v2", "EfficientNet"])
+    tab9, tab10, tab11, tab12 = st.tabs(["Généralités", "Mobilnet_v2", "EfficientNet", "Conclusion"])
 
     with tab9:
         st.write("""
@@ -1066,6 +1066,7 @@ elif st.session_state['page'] == 'Transfer learning':
         - Des résultats très performants sont obtenus.
         """)
         
+    with tab12:   
         # Conclusion et Défis des Modèles de Transfer Learning
         st.markdown("<h4>Conclusion et Défis des Modèles de Transfer Learning :</h4>", unsafe_allow_html=True)
         st.write("""
