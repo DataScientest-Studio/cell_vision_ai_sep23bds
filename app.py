@@ -1079,7 +1079,7 @@ elif st.session_state['page'] == 'Transfer learning':
 
         st.write(
             """
-            ! Les modèles sont trop lourds pour être utilisés via GitHub, cela reste donc une démonstration fictive. Cela fonctionne en local. !
+            ! Les modèles sont trop lourds pour être utilisés via GitHub, cela reste donc une démonstration fictive. Cela fonctionne en local !
             
             Sélectionnez votre modèle, déposez une image et regardez la magie s'opérer.
             """
