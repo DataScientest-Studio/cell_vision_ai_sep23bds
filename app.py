@@ -1015,32 +1015,42 @@ elif st.session_state['page'] == 'Transfer learning':
     tab9, tab10, tab11 = st.tabs(["Généralités", "Mobilnet_v2", "EfficientNet"])
 
     with tab9:
-        st.write("- Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.")
-        st.write("- Les modèles pré-entraînés ont des caractéristiques générales utiles pour de nouvelles tâches.")
-        st.write("- La reconnaissance et l’analyse d’images étant au cœur de leur modélisation, nous devrions trouver des modèles adaptés à notre projet.")
+        st.write("""
+        - Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.
+        - Les modèles pré-entraînés ont des caractéristiques générales utiles pour de nouvelles tâches.
+        - La reconnaissance et l’analyse d’images étant au cœur de leur modélisation, nous devrions trouver des modèles adaptés à notre projet.
+        """)
 
     with tab10:
-        st.write("MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.")
-        st.write("Il est efficace en termes de calcul et peut être ajusté à nos besoins.")
-        st.write("Le modèle est pré-entraîné sur une base de données diverses.")
+        st.write("""
+        MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.
+        Il est efficace en termes de calcul et peut être ajusté à nos besoins.
+        "Le modèle est pré-entraîné sur une base de données diverses.
+        """)
 
         # Méthode du Modèle MobileNetV2
         st.markdown("<h4>Méthode du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("Les images sont normalisées et les classes d'intérêt sont sélectionnées.")
-        st.write("Un générateur de données avec augmentation est créé.")
-        st.write("Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.")
-        st.write("Des couches personnalisées sont ajoutées, et le modèle est compilé.")
+        st.write("""
+        Les images sont normalisées et les classes d'intérêt sont sélectionnées.
+        Un générateur de données avec augmentation est créé.
+        Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.
+        Des couches personnalisées sont ajoutées, et le modèle est compilé.
+        """)
         
         # Résultats du Modèle MobileNetV2
         st.markdown("<h4>Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("L'entraînement atteint une précision de validation de 0.9146.")
-        st.write("L'accuracy sur l'ensemble de test est de 0.92.")
-        st.write("Des matrices de classification et des Grad-CAM sont présentées.")
+        st.write("""
+        L'entraînement atteint une précision de validation de 0.9146.
+        L'accuracy sur l'ensemble de test est de 0.92.
+        Des matrices de classification et des Grad-CAM sont présentées.
+        """)
         
         # Analyse des Résultats du Modèle MobileNetV2
         st.markdown("<h4>Analyse des Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("Le modèle atteint une précision globale élevée, mais les performances varient entre les classes.")
-        st.write("Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.")
+        st.write("""
+        Le modèle atteint une précision globale élevée, mais les performances varient entre les classes.
+        Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.
+        """)
 
     with tab11:
         # Modèle EfficientNetV2
