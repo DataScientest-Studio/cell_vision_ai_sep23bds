@@ -1015,14 +1015,14 @@ elif st.session_state['page'] == 'Transfer learning':
     tab9, tab10, tab11, tab12, tab13 = st.tabs(["Généralités", "Mobilnet_v2", "EfficientNet", "Conclusion", "Application"])
 
     with tab9:
-        st.write("""
+        st.markdown("""
         - Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.
         - Les modèles pré-entraînés ont des caractéristiques générales utiles pour de nouvelles tâches.
         - La reconnaissance et l’analyse d’images étant au cœur de leur modélisation, nous devrions trouver des modèles adaptés à notre projet.
         """)
 
     with tab10:
-        st.write("""
+        st.markdown("""
         - MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.
         - Il est efficace en termes de calcul et peut être ajusté à nos besoins.
         - Le modèle est pré-entraîné sur une base de données diverses.
@@ -1030,7 +1030,7 @@ elif st.session_state['page'] == 'Transfer learning':
 
         # Méthode du Modèle MobileNetV2
         st.markdown("<h4>Méthode du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("""
+        st.markdown("""
         - Les images sont normalisées et les classes d'intérêt sont sélectionnées.
         - Un générateur de données avec augmentation est créé.
         - Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.
@@ -1039,7 +1039,7 @@ elif st.session_state['page'] == 'Transfer learning':
         
         # Résultats du Modèle MobileNetV2
         st.markdown("<h4>Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("""
+        st.markdown("""
         - L'entraînement atteint une précision de validation de 0.9146.
         - L'accuracy sur l'ensemble de test est de 0.92.
         - Des matrices de classification et des Grad-CAM sont présentées.
@@ -1047,21 +1047,21 @@ elif st.session_state['page'] == 'Transfer learning':
         
         # Analyse des Résultats du Modèle MobileNetV2
         st.markdown("<h4>Analyse des Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("""
+        st.markdown("""
         - Le modèle atteint une précision globale élevée, mais les performances varient entre les classes.
         - Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.
         """)
 
     with tab11:
         # Modèle EfficientNetV2
-        st.write("EfficientNetV2 est choisi et donne de bons résultats.")
-        st.write("""
+        st.markdown("EfficientNetV2 est choisi et donne de bons résultats.")
+        st.markdown("""
         - L'augmentation des données est légère pour réduire le temps d'entraînement.
         """)
         
         # Méthode du Modèle EfficientNetV2
         st.markdown("<h4>Méthode du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("""
+        st.markdown("""
         - L'entraînement est effectué sur les datasets PBC et APL.
         - Des résultats très performants sont obtenus.
         """)
