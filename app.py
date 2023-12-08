@@ -2,9 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from PIL import Image
-# from torchvision import transforms
-# from Streamlit_utils.EfficientNet_model_utils import BloodCellClassifier
-# from Streamlit_utils.EfficientNet_gradcam_utils import generate_and_display_gradcam
 
 # Initialisation de l'état de la session
 if 'page' not in st.session_state:
@@ -859,23 +856,11 @@ elif st.session_state['page'] == 'Machine learning':
     
 elif st.session_state['page'] == 'Deep learning':
     st.title("Deep learning")
-    
-    tab1_dl, tab2_dl, tab3_dl, tab4_dl, tab5_dl = st.tabs(["Généralités", "Model from scratch", "MobileNet", "EfficientNet", "Prédiction"])
 
-    #### Généralités ####
-    with tab1_dl:
-        st.header("Généralités")
-    
-        st.write(
-            """
-            Description
-            """
-        )
-    
-    #### Model from scratch ####
-    with tab2_dl:
-        st.header("Model from scratch")
-    
+    tab7, tab8 = st.tabs(["Modèle de Deep learning", "Application"])
+
+    with tab7:
+
         # Étape 1 : Problème Initial
         st.markdown("<h4>Problème Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
@@ -1015,100 +1000,34 @@ elif st.session_state['page'] == 'Deep learning':
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
         
-    #### MobileNet ####
-    with tab3_dl:
-        st.header("Transfert Learning avec MobileNet")
-    
+    with tab8:
         st.write(
-            """
-            Description du model
-            """
+        '''
+        blabla
+        '''
         )
+
+## %%% PAGE DEEP LEARNING %%% ##
+
+elif st.session_state['page'] == 'Transfer learning':
+    st.title("Transfer learning")
     
-    #### EfficientNet ####
-    with tab4_dl:
-        st.header("Transfert Learning avec EfficientNet")
-    
+    tab9, tab10 = st.tabs(["Modèle de Transfer learning", "Application"])
+
+    with tab9:
         st.write(
-            """
-            Description du model
-            """
+        '''
+        blabla
+        '''
         )
-    
-    #### Prédiction ####
-    with tab5_dl:
-        st.header("Prédictions")
-    
+        
+    with tab10:
         st.write(
-            """
-            Sélectionnez votre modèle, déposez une image et regardez la magie s'opérer.
-            """
+        '''
+        blabla
+        '''
         )
-        choix = ["Model from scratch", "MobileNet", "EfficientNet"]
-        option = st.selectbox("Choix du modèle", choix)
-        st.write("Le modèle choisi est :", option)
-        if option == "EfficientNet":
-            """Prédiction avec EfficientNet"""
-            st.write("La prédiciton n'est pas opérationnelle sur le streamlit en ligne car les modèles sont trop volumineux pour être déposés sur GitHub")
-            
-            # uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
-    
-            # if uploaded_file is not None:
-            #     st.image(
-            #         uploaded_file, caption="Uploaded Image.", use_column_width=True
-            #     )
-            #     st.write("")
-            #     st.write("Classifying...")
-    
-            #     # Load the classifier and make prediction
-            #     model_path = (
-            #         "Models/efficientnetv2_transfer_learning_b1_v4_fine_tuned.pth"
-            #     )
-            #     classifier = BloodCellClassifier(model_path)
-            #     prediction = classifier.predict(uploaded_file)
-    
-            #     # Display the prediction
-            #     class_labels = {
-            #         0: "Basophil",
-            #         1: "Blast, no lineage spec",
-            #         2: "Eosinophil",
-            #         3: "Erythroblast",
-            #         4: "Ig",
-            #         5: "Lymphocyte",
-            #         6: "Monocyte",
-            #         7: "Neutrophil",
-            #         8: "Platelet",
-            #     }
-    
-            #     predicted_class_name = class_labels[prediction]
-            #     st.write(f"Prediction: {predicted_class_name}")
-    
-            #     ##### Fin de la partie prédiction #####
-    
-            #     # GradCAM visualization
-            #     st.write("Generating GradCAM visualization...")
-    
-            #     # Convert image to torch.Tensor
-            #     image = Image.open(uploaded_file).convert("RGB")
-            #     transform = transforms.Compose(
-            #         [
-            #             transforms.Resize((366, 366)),
-            #             transforms.ToTensor(),
-            #         ]
-            #     )
-            #     input_image = transform(image).unsqueeze(0)
-            #     image_size = (366, 366)
-    
-            #     # Get GradCAM
-            #     target_layer_name = "effnet.conv_head"
-            #     image_with_gradcam = generate_and_display_gradcam(
-            #         classifier.model, input_image, target_layer_name, image_size
-            #     )
-            #     st.pyplot(image_with_gradcam)
-    
-        elif option == "MobileNet":
-            """Prédiction avec MobileNet"""
-            st.write("La prédiciton n'est pas opérationnelle sur le streamlit en ligne car les modèles sont trop volumineux pour être déposés sur GitHub")
+
 ## %%% PAGE DOCUMENTATION %%% ##
 
 elif st.session_state['page'] == 'Documentation':
