@@ -1023,9 +1023,9 @@ elif st.session_state['page'] == 'Transfer learning':
 
     with tab10:
         st.write("""
-        MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.
-        Il est efficace en termes de calcul et peut être ajusté à nos besoins.
-        "Le modèle est pré-entraîné sur une base de données diverses.
+        - MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.
+        - Il est efficace en termes de calcul et peut être ajusté à nos besoins.
+        - Le modèle est pré-entraîné sur une base de données diverses.
         """)
 
         # Méthode du Modèle MobileNetV2
