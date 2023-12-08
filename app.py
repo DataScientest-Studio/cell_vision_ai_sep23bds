@@ -870,11 +870,23 @@ elif st.session_state['page'] == 'Machine learning':
     
 elif st.session_state['page'] == 'Deep learning':
     st.title("Deep learning")
+    
+    tab1_dl, tab2_dl, tab3_dl, tab4_dl, tab5_dl = st.tabs(["Généralités", "Model from scratch", "MobileNet", "EfficientNet", "Prédiction"])
 
-    tab7, tab8 = st.tabs(["Modèle de Deep learning", "Application"])
-
-    with tab7:
-
+    #### Généralités ####
+    with tab1_dl:
+        st.header("Généralités")
+    
+        st.write(
+            """
+            Description
+            """
+        )
+    
+    #### Model from scratch ####
+    with tab2_dl:
+        st.header("Model from scratch")
+    
         # Étape 1 : Problème Initial
         st.markdown("<h4>Problème Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
@@ -1013,40 +1025,6 @@ elif st.session_state['page'] == 'Deep learning':
         
         # Afficher le texte formaté avec le fond transparent
         st.markdown(texte_formatte, unsafe_allow_html=True)
-        
-    with tab8:
-        st.write(
-        '''
-        blabla
-        '''
-        )
-
-## %%% PAGE DEEP LEARNING %%% ##
-
-elif st.session_state['page'] == 'Transfer learning':
-    st.title("Transfer learning")
-    
-    tab1_dl, tab2_dl, tab3_dl, tab4_dl, tab5_dl = st.tabs(["Généralités", "Model from scratch", "MobileNet", "EfficientNet", "Prédiction"])
-
-    #### Généralités ####
-    with tab1_dl:
-        st.header("Généralités")
-    
-        st.write(
-            """
-            Description
-            """
-        )
-    
-    #### Model from scratch ####
-    with tab2_dl:
-        st.header("Model from scratch")
-    
-        st.write(
-            """
-            Description
-            """
-        )
         
     #### MobileNet ####
     with tab3_dl:
