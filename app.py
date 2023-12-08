@@ -3,8 +3,8 @@ import pandas as pd
 import plotly.graph_objects as go
 from PIL import Image
 # from torchvision import transforms
-from Streamlit_utils.EfficientNet_model_utils import BloodCellClassifier
-from Streamlit_utils.EfficientNet_gradcam_utils import generate_and_display_gradcam
+# from Streamlit_utils.EfficientNet_model_utils import BloodCellClassifier
+# from Streamlit_utils.EfficientNet_gradcam_utils import generate_and_display_gradcam
 
 # Initialisation de l'état de la session
 if 'page' not in st.session_state:
