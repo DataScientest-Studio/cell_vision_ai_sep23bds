@@ -1,14 +1,3 @@
-# Configuration de l'authentification avec pydrive
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-
-# Configuration de l'authentification
-gauth = GoogleAuth()
-gauth.LocalWebserverAuth()  # Ouvre une fenêtre de connexion dans le navigateur
-
-# Création d'une instance du client Google Drive
-drive = GoogleDrive(gauth)
-
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
