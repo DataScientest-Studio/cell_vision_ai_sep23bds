@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from PIL import Image
-from torchvision import transforms
+import torch
+import torchvision
 from Streamlit_utils.EfficientNet_model_utils import BloodCellClassifier
 from Streamlit_utils.EfficientNet_gradcam_utils import generate_and_display_gradcam
 
