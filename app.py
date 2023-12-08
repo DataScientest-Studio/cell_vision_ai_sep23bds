@@ -1084,65 +1084,65 @@ elif st.session_state['page'] == 'Transfer learning':
             Sélectionnez votre modèle, déposez une image et regardez la magie s'opérer.
             """
         )
-        choix = ["Model from scratch", "MobileNet", "EficientNet"]
+        choix = ["Model from scratch", "MobileNet", "EfficientNet"]
         option = st.selectbox("Choix du modèle", choix)
         st.write("Le modèle choisi est :", option)
         if option == "EfficientNet":
             """Prédiction avec EfficientNet"""
-            uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
+            # uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
 
-            if uploaded_file is not None:
-                st.image(
-                    uploaded_file, caption="Uploaded Image.", use_column_width=True
-                )
-                st.write("")
-                st.write("Classifying...")
+            # if uploaded_file is not None:
+            #     st.image(
+            #         uploaded_file, caption="Uploaded Image.", use_column_width=True
+            #     )
+            #     st.write("")
+            #     st.write("Classifying...")
 
-                # Load the classifier and make prediction
-                model_path = (
-                    "Models/efficientnetv2_transfer_learning_b1_v4_fine_tuned.pth"
-                )
-                classifier = BloodCellClassifier(model_path)
-                prediction = classifier.predict(uploaded_file)
+            #     # Load the classifier and make prediction
+            #     model_path = (
+            #         "Models/efficientnetv2_transfer_learning_b1_v4_fine_tuned.pth"
+            #     )
+            #     classifier = BloodCellClassifier(model_path)
+            #     prediction = classifier.predict(uploaded_file)
 
-                # Display the prediction
-                class_labels = {
-                    0: "Basophil",
-                    1: "Blast, no lineage spec",
-                    2: "Eosinophil",
-                    3: "Erythroblast",
-                    4: "Ig",
-                    5: "Lymphocyte",
-                    6: "Monocyte",
-                    7: "Neutrophil",
-                    8: "Platelet",
-                }
+            #     # Display the prediction
+            #     class_labels = {
+            #         0: "Basophil",
+            #         1: "Blast, no lineage spec",
+            #         2: "Eosinophil",
+            #         3: "Erythroblast",
+            #         4: "Ig",
+            #         5: "Lymphocyte",
+            #         6: "Monocyte",
+            #         7: "Neutrophil",
+            #         8: "Platelet",
+            #     }
 
-                predicted_class_name = class_labels[prediction]
-                st.write(f"Prediction: {predicted_class_name}")
+            #     predicted_class_name = class_labels[prediction]
+            #     st.write(f"Prediction: {predicted_class_name}")
 
-                ##### Fin de la partie prédiction #####
+            #     ##### Fin de la partie prédiction #####
 
-                # GradCAM visualization
-                st.write("Generating GradCAM visualization...")
+            #     # GradCAM visualization
+            #     st.write("Generating GradCAM visualization...")
 
-                # Convert image to torch.Tensor
-                image = Image.open(uploaded_file).convert("RGB")
-                transform = transforms.Compose(
-                    [
-                        transforms.Resize((366, 366)),
-                        transforms.ToTensor(),
-                    ]
-                )
-                input_image = transform(image).unsqueeze(0)
-                image_size = (366, 366)
+            #     # Convert image to torch.Tensor
+            #     image = Image.open(uploaded_file).convert("RGB")
+            #     transform = transforms.Compose(
+            #         [
+            #             transforms.Resize((366, 366)),
+            #             transforms.ToTensor(),
+            #         ]
+            #     )
+            #     input_image = transform(image).unsqueeze(0)
+            #     image_size = (366, 366)
 
-                # Get GradCAM
-                target_layer_name = "effnet.conv_head"
-                image_with_gradcam = generate_and_display_gradcam(
-                    classifier.model, input_image, target_layer_name, image_size
-                )
-                st.pyplot(image_with_gradcam)
+            #     # Get GradCAM
+            #     target_layer_name = "effnet.conv_head"
+            #     image_with_gradcam = generate_and_display_gradcam(
+            #         classifier.model, input_image, target_layer_name, image_size
+            #     )
+            #     st.pyplot(image_with_gradcam)
 
         elif option == "MobileNet":
             """Prédiction avec MobileNet"""
