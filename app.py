@@ -865,22 +865,16 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Problème Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
         La performance des algorithmes est limitée par notre segmentation des noyaux. Par conséquent, nous choisissons de nous tourner pleinement vers le Deep Learning qui permettra d’analyser les images pour y relever automatiquement la zone d’intérêt et ainsi améliorer la classification de nos cellules. Nous utilisons les images du dataset 1 PBC et du dataset 3 APL (images classées dans les dossiers ‘Signed’ et qui ne sont pas sous-représentées) rassemblées en un seul dataset.
+        Nous avons décidé de réaliser un modèle CNN “from scratch”.
         """)
         
-        # Étape 2 : Choix du Modèle
-        st.markdown("<h4>Choix du Modèle</h4>", unsafe_allow_html=True)
-        st.markdown("""
-        Après s’être documentés sur le sujet, nous avons décidé de réaliser un modèle CNN “from scratch” dont l’architecture est la suivante (décrivez l'architecture ici).
-        """)
-        
-        # Étape 3 : Méthode Employée
+        # Étape 2 : Méthode Employée
         st.markdown("<h4>Méthode Employée</h4>", unsafe_allow_html=True)
         st.markdown("""
         Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. 
-        Nous configurons des checkpoints de sauvegarde périodique des modèles pendant l'apprentissage. 
-        Cela permet de conserver les meilleures versions du modèle. Les images utilisées sont normalisées avec le choix de définir la dimension sur la dimension moyenne de 256x256. 
-        Les classes sous représentées ne sont pas prises en compte. 
-        
+        Nous configurons des checkpoints de sauvegarde périodique des poids pendant l'apprentissage pour conserver les meilleures versions du modèle. 
+        Les images utilisées sont normalisées avec le choix de définir la dimension sur 256x256. On a utilisé un générateur d'images pour charger, 
+        augmenter et pré-traiter les données d'entraînement, de validation et de test. (on a 3 répertoires spécifiques).
         Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
         """)
 
@@ -890,7 +884,6 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Création du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
         Nous définissons l'architecture du modèle de réseau de neurones convolutif (CNN) en empilant différentes couches de convolution, de max-pooling et de couches entièrement connectées. 
-        Le modèle est capable d'apprendre à partir des données d'images en utilisant des opérations de convolution et d'autres opérations.
         """)
         
         st.markdown("Architecture du Modèle CNN :")
@@ -900,19 +893,14 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 5 : Compilation du Modèle Initial
         st.markdown("<h4>Compilation du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam) 
+        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam avec un faible taus d'apprentissage) 
         et de la fonction de perte (categorical_crossentropy) qui mesure l'erreur, ainsi que les métriques à suivre, comme l’accuracy.
         """)
         
         # Étape 6 : Entraînement du Modèle
         st.markdown("<h4>Entraînement du Modèle</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Le modèle est entraîné sur un nombre limité d'époques en utilisant les données d'entraînement. Celui-ci est exposé aux données d'entraînement 
-        et évalué sur l'ensemble de validation pour mesurer ses performances.
-        
-        Toutes les couches du modèle sont entraînables, ce qui signifie qu’il s'adapte aux données spécifiques à notre tâche. Le modèle est recompilé 
-        avec un taux d'apprentissage plus faible pour optimiser les résultats. Il est de nouveau entraîné sur un nombre supplémentaire d'époques. 
-        Le callback de sauvegarde des checkpoints enregistre les poids qui obtiennent la meilleure précision sur l'ensemble de validation.
+        Le modèle est entraîné sur un nombre limité d'époques en utilisant les données d'entraînement. Il est évalué sur l'ensemble de validation pour mesurer ses performances.
         """)
         
         # Étape 7 : Précision Globale du Modèle
@@ -1017,8 +1005,6 @@ elif st.session_state['page'] == 'Transfer learning':
     with tab9:
         st.markdown("""
         - Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.
-        - Les modèles pré-entraînés ont des caractéristiques générales utiles pour de nouvelles tâches.
-        - La reconnaissance et l’analyse d’images étant au cœur de leur modélisation, nous devrions trouver des modèles adaptés à notre projet.
         """)
 
     with tab10:
