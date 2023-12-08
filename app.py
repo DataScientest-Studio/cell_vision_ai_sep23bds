@@ -1013,7 +1013,27 @@ elif st.session_state['page'] == 'Transfer learning':
     st.title("Transfer learning")
     
     tab1_dl, tab2_dl, tab3_dl, tab4_dl, tab5_dl = st.tabs(["Généralités", "Model from scratch", "MobileNet", "EfficientNet", "Prédiction"])
+
+    #### Généralités ####
+    with tab1_dl:
+        st.header("Généralités")
     
+        st.write(
+            """
+            Description
+            """
+        )
+    
+    #### Model from scratch ####
+    with tab2_dl:
+        st.header("Model from scratch")
+    
+        st.write(
+            """
+            Description
+            """
+        )
+        
     #### MobileNet ####
     with tab3_dl:
         st.header("Transfert Learning avec MobileNet")
