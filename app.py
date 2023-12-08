@@ -1031,41 +1031,47 @@ elif st.session_state['page'] == 'Transfer learning':
         # Méthode du Modèle MobileNetV2
         st.markdown("<h4>Méthode du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
         st.write("""
-        Les images sont normalisées et les classes d'intérêt sont sélectionnées.
-        Un générateur de données avec augmentation est créé.
-        Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.
-        Des couches personnalisées sont ajoutées, et le modèle est compilé.
+        - Les images sont normalisées et les classes d'intérêt sont sélectionnées.
+        - Un générateur de données avec augmentation est créé.
+        - Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.
+        - Des couches personnalisées sont ajoutées, et le modèle est compilé.
         """)
         
         # Résultats du Modèle MobileNetV2
         st.markdown("<h4>Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
         st.write("""
-        L'entraînement atteint une précision de validation de 0.9146.
-        L'accuracy sur l'ensemble de test est de 0.92.
-        Des matrices de classification et des Grad-CAM sont présentées.
+        - L'entraînement atteint une précision de validation de 0.9146.
+        - L'accuracy sur l'ensemble de test est de 0.92.
+        - Des matrices de classification et des Grad-CAM sont présentées.
         """)
         
         # Analyse des Résultats du Modèle MobileNetV2
         st.markdown("<h4>Analyse des Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
         st.write("""
-        Le modèle atteint une précision globale élevée, mais les performances varient entre les classes.
-        Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.
+        - Le modèle atteint une précision globale élevée, mais les performances varient entre les classes.
+        - Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.
         """)
 
     with tab11:
         # Modèle EfficientNetV2
         st.write("EfficientNetV2 est choisi et donne de bons résultats.")
-        st.write("L'augmentation des données est légère pour réduire le temps d'entraînement.")
+        st.write("""
+        - L'augmentation des données est légère pour réduire le temps d'entraînement.
+        """)
         
         # Méthode du Modèle EfficientNetV2
         st.markdown("<h4>Méthode du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
-        st.write("L'entraînement est effectué sur les datasets PBC et APL.")
-        st.write("Des résultats très performants sont obtenus.")
+        st.write("""
+        - L'entraînement est effectué sur les datasets PBC et APL.
+        - Des résultats très performants sont obtenus.
+        """)
         
         # Conclusion et Défis des Modèles de Transfer Learning
         st.markdown("<h4>Conclusion et Défis des Modèles de Transfer Learning :</h4>", unsafe_allow_html=True)
-        st.write("MobileNetV2 et EfficientNetV2 sont efficaces pour la classification de cellules sanguines.")
-        st.write("Le choix du modèle et les spécificités de chaque classe influencent les performances.")
+        st.write("""
+        - MobileNetV2 et EfficientNetV2 sont efficaces pour la classification de cellules sanguines.
+        - Le choix du modèle et les spécificités de chaque classe influencent les performances.
+        """)
 
 ## %%% PAGE DOCUMENTATION %%% ##
 
