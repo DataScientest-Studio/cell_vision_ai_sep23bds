@@ -1012,21 +1012,50 @@ elif st.session_state['page'] == 'Deep learning':
 elif st.session_state['page'] == 'Transfer learning':
     st.title("Transfer learning")
     
-    tab9, tab10 = st.tabs(["Modèle de Transfer learning", "Application"])
+    tab9, tab10, tab11 = st.tabs(["Généralités", "Mobilnet_v2", "EfficientNet"])
 
     with tab9:
-        st.write(
-        '''
-        blabla
-        '''
-        )
-        
+        st.write("- Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.")
+        st.write("- Les modèles pré-entraînés ont des caractéristiques générales utiles pour de nouvelles tâches.")
+        st.write("- La reconnaissance et l’analyse d’images étant au cœur de leur modélisation, nous devrions trouver des modèles adaptés à notre projet.")
+
     with tab10:
-        st.write(
-        '''
-        blabla
-        '''
-        )
+        st.write("MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.")
+        st.write("Il est efficace en termes de calcul et peut être ajusté à nos besoins.")
+        st.write("Le modèle est pré-entraîné sur une base de données diverses.")
+
+        # Méthode du Modèle MobileNetV2
+        st.markdown("<h4>Méthode du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
+        st.write("Les images sont normalisées et les classes d'intérêt sont sélectionnées.")
+        st.write("Un générateur de données avec augmentation est créé.")
+        st.write("Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.")
+        st.write("Des couches personnalisées sont ajoutées, et le modèle est compilé.")
+        
+        # Résultats du Modèle MobileNetV2
+        st.markdown("<h4>Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
+        st.write("L'entraînement atteint une précision de validation de 0.9146.")
+        st.write("L'accuracy sur l'ensemble de test est de 0.92.")
+        st.write("Des matrices de classification et des Grad-CAM sont présentées.")
+        
+        # Analyse des Résultats du Modèle MobileNetV2
+        st.markdown("<h4>Analyse des Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
+        st.write("Le modèle atteint une précision globale élevée, mais les performances varient entre les classes.")
+        st.write("Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.")
+
+    with tab11:
+        # Modèle EfficientNetV2
+        st.write("EfficientNetV2 est choisi et donne de bons résultats.")
+        st.write("L'augmentation des données est légère pour réduire le temps d'entraînement.")
+        
+        # Méthode du Modèle EfficientNetV2
+        st.markdown("<h4>Méthode du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
+        st.write("L'entraînement est effectué sur les datasets PBC et APL.")
+        st.write("Des résultats très performants sont obtenus.")
+        
+        # Conclusion et Défis des Modèles de Transfer Learning
+        st.markdown("<h4>Conclusion et Défis des Modèles de Transfer Learning :</h4>", unsafe_allow_html=True)
+        st.write("MobileNetV2 et EfficientNetV2 sont efficaces pour la classification de cellules sanguines.")
+        st.write("Le choix du modèle et les spécificités de chaque classe influencent les performances.")
 
 ## %%% PAGE DOCUMENTATION %%% ##
 
