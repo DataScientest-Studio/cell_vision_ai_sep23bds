@@ -1071,7 +1071,8 @@ elif st.session_state['page'] == 'Transfer learning':
         st.write("Le modèle choisi est :", option)
         if option == "EfficientNet":
             """Prédiction avec EfficientNet"""
-            uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
+            st.write("La prédiciton n'est pas opérationnelle sur le streamlit en ligne car les modèles sont trop volumineux pour être déposés sur GitHub")
+            """uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
     
             if uploaded_file is not None:
                 st.image(
@@ -1124,11 +1125,11 @@ elif st.session_state['page'] == 'Transfer learning':
                 image_with_gradcam = generate_and_display_gradcam(
                     classifier.model, input_image, target_layer_name, image_size
                 )
-                st.pyplot(image_with_gradcam)
+                st.pyplot(image_with_gradcam)"""
     
         elif option == "MobileNet":
             """Prédiction avec MobileNet"""
-
+            st.write("La prédiciton n'est pas opérationnelle sur le streamlit en ligne car les modèles sont trop volumineux pour être déposés sur GitHub")
 ## %%% PAGE DOCUMENTATION %%% ##
 
 elif st.session_state['page'] == 'Documentation':
