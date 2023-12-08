@@ -10,7 +10,9 @@ Structure du dépôt :
 ```bash
 ├── data (contient les dataframes répertoriant les images traîtées et leurs propriétés)
 ├── images (images utiles au streamlit)
-├── model (modèles de ML utilisés)
+├── model
+│   ├── ML
+│   └── DL
 ├── notebooks
 │   ├── DataViz
 │   └── ML
