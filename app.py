@@ -1044,7 +1044,7 @@ elif st.session_state['page'] == 'Deep learning':
             Sélectionnez votre modèle, déposez une image et regardez la magie s'opérer.
             """
         )
-        choix = ["Model from scratch", "MobileNet", "EficientNet"]
+        choix = ["Model from scratch", "MobileNet", "EfficientNet"]
         option = st.selectbox("Choix du modèle", choix)
         st.write("Le modèle choisi est :", option)
         if option == "EfficientNet":
