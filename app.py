@@ -3,12 +3,6 @@ import pandas as pd
 import plotly.graph_objects as go
 from PIL import Image
 
-import torch
-import torchvision
-from Streamlit_utils.EfficientNet_model_utils import BloodCellClassifier
-from Streamlit_utils.EfficientNet_gradcam_utils import generate_and_display_gradcam
-from torchvision import transforms
-
 # Initialisation de l'état de la session
 if 'page' not in st.session_state:
     st.session_state['page'] = 'Accueil'
