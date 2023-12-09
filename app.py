@@ -972,37 +972,12 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("Avec d'autres paramètres :")
         st.image('images/CNN_gradcam_2.jpg')
 
-        texte_formatte = """
-        <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
-        <p><h4>Résumé des Performances du Modèle CNN</h4></p>
-        
-        <h5>Précision Globale</h5>
-        <p>Le modèle CNN présente une précision globale de <strong>0.8959</strong> lors de l'évaluation sur l'ensemble de données de test, indiquant une performance élevée.</p>
-    
-        <h5>Matrice de Confusion</h5>
-        <p>La matrice de confusion montre le nombre de prédictions correctes et incorrectes pour chaque classe.</p>
-    
-        <h5>Performances par Classe</h5>
-        <ul>
-            <li>Basophil : Précision de 91%, Rappel élevé.</li>
-            <li>Blast, no lineage spec : Précision de 81%, Rappel de 87%.</li>
-            <li>Eosinophil : Excellente performance.</li>
-            <li>Erythroblast : Très bonne performance.</li>
-            <li>Ig : Précision de 78%, Rappel de 77%.</li>
-            <li>Monocyte : Bons résultats, légèrement inférieurs.</li>
-            <li>Neutrophil : Excellentes prédictions.</li>
-            <li>Platelet : Excellente performance.</li>
-            <li>Lymphocyte : Excellente performance.</li>
-        </ul>
-    
-        <p>Globalement, le modèle CNN présente des performances solides sur l'ensemble de données de test, avec des performances efficaces pour plusieurs classes. Cependant, certaines classes pourraient nécessiter une amélioration de la précision, en particulier la classe 'Ig'.</p>
-
-        </div>
-        """
-        # En-tête de l'application
-        
-        # Afficher le texte formaté avec le fond transparent
-        st.markdown(texte_formatte, unsafe_allow_html=True)
+        # Analyse des Résultats du CNN
+        st.markdown("<h4>Analyse des Résultats du Modèle CNN :</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - Le modèle CNN présente des performances solides sur l'ensemble de données de test, avec des performances efficaces pour plusieurs classes. 
+        - L'accuracy est moins bonnes pour les classes "blast, no lineage spec", "ig" (classes de cellules immatures) et pour "monocyte" (classe présentant de fortes variations morphologiques).
+        """)
         
     with tab8:
         st.markdown("""
