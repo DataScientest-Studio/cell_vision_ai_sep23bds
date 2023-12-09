@@ -960,9 +960,6 @@ elif st.session_state['page'] == 'Deep learning':
         <h5>Précision Globale</h5>
         <p>Le modèle CNN présente une précision globale de <strong>0.8959</strong> lors de l'évaluation sur l'ensemble de données de test, indiquant une performance élevée.</p>
     
-        <h5>Perte de Test</h5>
-        <p>La perte de test est évaluée à <strong>0.4041</strong>, ce qui suggère que le modèle généralise bien à partir des données d'entraînement vers de nouvelles données.</p>
-    
         <h5>Matrice de Confusion</h5>
         <p>La matrice de confusion révèle que le modèle a une bonne capacité à distinguer plusieurs classes, avec des précisions et des rappels élevés pour de nombreuses classes.</p>
     
