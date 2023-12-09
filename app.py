@@ -1206,7 +1206,7 @@ elif st.session_state['page'] == 'Interprétations et perspectives':
 
         st.markdown("<h4>Bilan</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - Objectif 1 : Nous avons ainsi réussi à classifier des cellules du sang avec précision. 
+        - Objectif 1 : Nous avons réussi à classifier des cellules du sang avec précision. 
         - Objectif 2 : Nous pouvons faciliter le diagnostic de la leucémie en détectant les cellules de type "blast" lorsqu'elles sont en grand nombre.
         """)
         
