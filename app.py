@@ -890,8 +890,7 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Problème Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
         La performance des algorithmes est limitée par notre segmentation des noyaux. Par conséquent, nous choisissons de nous tourner pleinement vers le Deep Learning 
-        qui permettra d’analyser les images pour y relever automatiquement la zone d’intérêt et ainsi améliorer la classification de nos cellules. 
-        Nous avons décidé de réaliser un modèle CNN “from scratch”.
+        qui permettra d’améliorer la classification de nos cellules. Nous décidons de réaliser un modèle CNN “from scratch”.
         """)
         
         # Étape 2 : Méthode Employée
