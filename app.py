@@ -787,6 +787,32 @@ elif st.session_state['page'] == 'Machine learning':
         Classes mal prédites : "erythroblast" confondue avec "lymphocyte", "monocyte" et "basophil" confondus avec "ig".
         
         """)
+
+        text = """
+    ----------------------  precision    recall  f1-score   support
+                  basophil       0.46      0.49      0.47       334
+    blast, no lineage spec       0.68      0.84      0.75       518
+                eosinophil       0.79      0.80      0.80       935
+              erythroblast       0.66      0.47      0.55       548
+         giant thrombocyte       0.00      0.00      0.00        13
+                        ig       0.66      0.59      0.62       904
+                lymphocyte       0.67      0.87      0.76      1021
+       lymphocyte, variant       0.00      0.00      0.00        96
+                  monocyte       0.62      0.57      0.60       597
+                neutrophil       0.86      0.87      0.86      1295
+              plasma cells       0.00      0.00      0.00         7
+                  platelet       0.86      0.81      0.84       707
+               promonocyte       0.00      0.00      0.00         6
+
+                  accuracy                           0.73      6981
+                 macro avg       0.48      0.49      0.48      6981
+              weighted avg       0.71      0.73      0.72      6981
+        """
+        
+        st.text(text)
+        st.image('images/ML_SVM.png')
+        
+        st.write("")
         
         # Résultats du réseau de neurones avec Keras
         st.markdown("<h4>Réseau de Neurones avec Keras</h4>", unsafe_allow_html=True)
