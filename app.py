@@ -825,7 +825,7 @@ elif st.session_state['page'] == 'Machine learning':
         
         st.text(text)
 
-        st.image('images/ML_Keras.png')
+        st.image('images/ML_keras.png')
         
         st.write("")
         
