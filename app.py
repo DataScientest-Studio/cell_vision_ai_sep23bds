@@ -1116,8 +1116,8 @@ elif st.session_state['page'] == 'Deep learning':
          # Analyse des Résultats
         st.markdown("<h4>Analyse des Résultats du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - La précision globale est la plus élevée avec ce modèle (les autres modèles avaient de moins bonnes performances et/ou nécessitaient trop de ressources computationnelles). 
         - Les classes les moins bien prédites sont toujours les mêmes.
+        - La précision globale est la plus élevée avec ce modèle (les autres modèles avaient de moins bonnes performances et/ou nécessitaient trop de ressources computationnelles). 
         """)
         
     with tab10 : 
