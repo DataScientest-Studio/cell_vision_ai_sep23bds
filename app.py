@@ -21,6 +21,8 @@ if st.sidebar.button('Machine learning'):
     st.session_state['page'] = 'Machine learning'
 if st.sidebar.button('Deep learning'):
     st.session_state['page'] = 'Deep learning'
+if st.sidebar.button("Interprétations et perspectives"):
+    st.session_state['page'] = 'Interprétations et perspectives'
 if st.sidebar.button('Documentation'):
     st.session_state['page'] = 'Documentation'
 
@@ -1191,6 +1193,59 @@ elif st.session_state['page'] == 'Deep learning':
             """Prédiction avec MobileNet"""
         elif option == "CNN from scratch":
             """Prédiction avec CNN"""
+
+
+## %%%PAGE PERSPECTIVES%%% ##
+
+elif st.session_state['page'] == 'Interprétations et perspectives':
+    st.title("Interprétations et perspectives")
+
+    tab11, tab12 = st.tabs(["Interprétations", "Améliorations possibles"])
+
+    with tab11:
+
+        st.markdown("<h4>Bilan</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - Objectif 1 : Nous avons ainsi réussi à classifier des cellules du sang avec précision. 
+        - Objectif 2 : Nous pouvons faciliter le diagnostic de la leucémie en détectant les cellules de type "blast" lorsqu'elles sont en grand nombre.
+        """)
+        
+        st.markdown("<h4>Verrou scientifique</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        Le principal verrou scientifique du problème est la variabilité intrinsèque des cellules sanguines qui peut rendre la classification complexe :
+        """)
+        st.markdown("""
+        - Des granules cytoplasmiques peuvent être relargués lors de réactions inflammatoires pour les basophiles, éosinophiles et neutrophiles.
+        - Les érythroblastes, selon leurs stades de différenciation vont présenter un profil de coloration très variable voire opposé.
+        - Le terme ‘ig’ (ou ‘immature granulocytes’) regroupe les derniers précurseurs situés entre les blastes myéloïdes et les formes totalement différenciés (basophiles, neutrophiles et éosinophiles). 
+        C’est donc une classe qui peut être homogène visuellement, mais avec les facteurs de transcription et des marqueurs de surface potentiellement distincts.
+        - La classe ‘blast, no specific lineage’ est ambigüe. Elle va regrouper deux populations très différentes qui seront peut-être semblables visuellement mais dont les profils de marqueurs cellulaires seront très différents (voir schéma ci-dessous).
+        """)
+
+        st.image('images/Voies_hematopoiese.png')
+        
+    with tab12:
+        st.markdown("<h4>Pour le Machine Learning</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - Recueillir davantage d’images de cellules obtenues avec des conditions d’acquisition similaires.
+        - Améliorer l’algorithme de segmentation des noyaux (par exemple en diminuant l’entropie du set d’image).
+        - Réussir à identifier le cytoplasme des cellules (tâche extrêmement complexe).
+        - Relever davantage de “features” qui permettraient de différencier certaines classes de cellules (densité et structure des noyaux, présence de nucléole comme ci-dessous) :
+        """)
+        st.image('images/nucleole.png')
+        
+        st.markdown("<h4>Pour le Deep Learning</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - Obtenir davantage d’images de cellules anormales de patients malades qui pourraient compléter les classes éliminées qui étaient extrêmement sous-représentées 
+        et qui auraient pu aider dans le diagnostic de la maladie (comme des thrombocytes géants).
+        - Nettoyer nos datasets afin de réduire les biais (vérifier la présence d’une seule cellule sur l’image ou bien réussir à l’isoler avant de la traiter).
+        - Tester davantage de modèles de transfer learning (versions plus complexes/complètes des modèles essayés durant ce projet ou nouveaux modèles).
+        - Allouer davantage de ressources computationnelles pour tester des algorithmes de deep learning spécifiques. 
+        """)
+        
+
+
+
 ## %%% PAGE DOCUMENTATION %%% ##
 
 elif st.session_state['page'] == 'Documentation':
