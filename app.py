@@ -722,8 +722,8 @@ elif st.session_state['page'] == 'Machine learning':
         - **Centre :** 1 si la cellule recouvre le centre de l'image sinon 0 (plusieurs types cellulaires peuvent être présentes sur la même image, ce terme permet de repérer la cellule principale si c'est le cas).
         - **Classe :** type cellulaire.
 
-        **La variable cible est la “Classe” des cellules. **
-        **Les "features" retenues sont toutes les autres variables à l'exception de "Numéro", "Boîte encadrante" et "Centre".**
+        **La variable cible est la “Classe” des cellules.
+        Les "features" retenues sont toutes les autres variables à l'exception de "Numéro", "Boîte encadrante" et "Centre".**
         """)
 
     
@@ -816,7 +816,7 @@ elif st.session_state['page'] == 'Machine learning':
         st.write("")
         
         # Résultats du réseau de neurones avec Keras
-        st.markdown("<h4>Réseau de Neurones avec Keras</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Réseau de Neurones avec Keras (premier pas vers le Deep Learning)</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,73.
         - Augmentation de l'accuracy à **0,75** en éliminant les cellules des 4 classes extrêmement sous-représentées.
