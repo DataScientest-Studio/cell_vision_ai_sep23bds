@@ -995,7 +995,7 @@ elif st.session_state['page'] == 'Deep learning':
         # Méthode du Modèle MobileNetV2
         st.markdown("<h4>Méthode du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - Les images des 9 classes d'intérêt sont redimmensionnées en 224x224, pré-traitées avec la fonction de prétraitement de MobileNetV2 et augmentées avec un générateur de données.
+        - Les images des 9 classes d'intérêt sont redimensionnées en 224x224, pré-traitées avec la fonction de prétraitement de MobileNetV2 et augmentées avec un générateur de données.
         - Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.
         - Des couches personnalisées sont ajoutées (voir l'architecture du modèle ci-dessous)
         - Le modèle est compilé comme précédemment et entraîné sur 7 époques.
