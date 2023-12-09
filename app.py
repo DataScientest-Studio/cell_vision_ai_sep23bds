@@ -1049,7 +1049,19 @@ elif st.session_state['page'] == 'Deep learning':
         st.text(text)
         
         st.markdown("")
-
+        # Charger les images
+        image1 = Image.open('images/MobileNetV2_accuracy.png')
+        image2 = Image.open('images/MobileNetV2_mc.png')
+        
+        # Afficher les images côte à côte dans deux colonnes
+        col1, col2 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
+        
+        with col1:
+            st.image(image1, caption="Accuracy d'entraînement et de validation", use_column_width=True)
+        
+        with col2:
+            st.image(image2, caption="Matrice de confusion", use_column_width=True)
+            
         # Charger les images
         image3 = Image.open('images/MobileNet_GC1.png')
         image4 = Image.open('images/MobileNet_GC2.png')
@@ -1060,7 +1072,7 @@ elif st.session_state['page'] == 'Deep learning':
         with col3:
             st.image(image3, caption="Bonnes prédictions", use_column_width=True)
         
-        with col2:
+        with col4:
             st.image(image4, caption="Mauvaises prédictions", use_column_width=True)
         
         
