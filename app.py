@@ -723,6 +723,7 @@ elif st.session_state['page'] == 'Machine learning':
         - **Classe :** type cellulaire.
 
         La variable cible est la “Classe” des cellules. 
+        Les "features" retenues sont toutes les autres variables à l'exception de "Numéro", "Boîte encadrante", et "Centre".
         """)
 
     
