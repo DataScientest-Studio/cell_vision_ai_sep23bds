@@ -857,7 +857,7 @@ elif st.session_state['page'] == 'Machine learning':
 elif st.session_state['page'] == 'Deep learning':
     st.title("Deep learning")
 
-    tab7, tab8 = st.tabs(["Modèle de Deep learning", "Application"])
+    tab7, tab8, tab9, tab10 = st.tabs(["Modèle CNN 'from scratch'", "MobileNetV2", "EfficientNetV2", "Application"])
 
     with tab7:
 
@@ -961,7 +961,7 @@ elif st.session_state['page'] == 'Deep learning':
         <p>Le modèle CNN présente une précision globale de <strong>0.8959</strong> lors de l'évaluation sur l'ensemble de données de test, indiquant une performance élevée.</p>
     
         <h5>Matrice de Confusion</h5>
-        <p>La matrice de confusion révèle que le modèle a une bonne capacité à distinguer plusieurs classes, avec des précisions et des rappels élevés pour de nombreuses classes.</p>
+        <p>La matrice de confusion montre le nombre de prédictions correctes et incorrectes pour chaque classe.</p>
     
         <h5>Performances par Classe</h5>
         <ul>
@@ -986,26 +986,9 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown(texte_formatte, unsafe_allow_html=True)
         
     with tab8:
-        st.write(
-        '''
-        blabla
-        '''
-        )
-
-## %%% PAGE DEEP LEARNING %%% ##
-
-elif st.session_state['page'] == 'Transfer learning':
-    st.title("Transfer learning")
-    
-    tab9, tab10, tab11, tab12, tab13 = st.tabs(["Généralités", "Mobilnet_v2", "EfficientNet", "Conclusion", "Application"])
-
-    with tab9:
         st.markdown("""
         - Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.
-        """)
-
-    with tab10:
-        st.markdown("""
+        
         - MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.
         - Il est efficace en termes de calcul et peut être ajusté à nos besoins.
         - Le modèle est pré-entraîné sur une base de données diverses.
@@ -1035,7 +1018,7 @@ elif st.session_state['page'] == 'Transfer learning':
         - Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.
         """)
 
-    with tab11:
+    with tab9:
         # Modèle EfficientNetV2
         st.markdown("EfficientNetV2 est choisi et donne de bons résultats.")
         st.markdown("""
@@ -1049,15 +1032,7 @@ elif st.session_state['page'] == 'Transfer learning':
         - Des résultats très performants sont obtenus.
         """)
         
-    with tab12:   
-        # Conclusion et Défis des Modèles de Transfer Learning
-        st.markdown("<h4>Conclusion et Défis des Modèles de Transfer Learning :</h4>", unsafe_allow_html=True)
-        st.write("""
-        - MobileNetV2 et EfficientNetV2 sont efficaces pour la classification de cellules sanguines.
-        - Le choix du modèle et les spécificités de chaque classe influencent les performances.
-        """)
-
-    with tab13:   
+    with tab10 : 
         st.header("Prédictions")
 
         st.write(
