@@ -890,11 +890,11 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 2 : Méthode Employée
         st.markdown("<h4>Méthode Employée</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. 
-        Nous configurons des checkpoints de sauvegarde périodique des poids pendant l'apprentissage pour conserver les meilleures versions du modèle. 
-        Les images utilisées sont normalisées avec le choix de définir la dimension sur 256x256. On a utilisé un générateur d'images pour charger, 
+        - Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. 
+        - Nous configurons des checkpoints de sauvegarde périodique des poids pendant l'apprentissage pour conserver les meilleures versions du modèle. 
+        - Les images utilisées sont normalisées avec le choix de définir la dimension sur 256x256. On a utilisé un générateur d'images pour charger, 
         augmenter et pré-traiter les données d'entraînement, de validation et de test. (on a 3 répertoires spécifiques).
-        Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
+        - Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
         """)
 
         st.image('images/CNN_files.png')
@@ -912,14 +912,14 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 5 : Compilation du Modèle Initial
         st.markdown("<h4>Compilation du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam avec un faible taux d'apprentissage) 
+        Nous compilons le modèle en incluant le choix de l'optimiseur (dans ce cas, Adam avec un faible taux d'apprentissage) 
         et de la fonction de perte (categorical_crossentropy) qui mesure l'erreur, ainsi que les métriques à suivre, comme l’accuracy.
         """)
         
         # Étape 6 : Entraînement du Modèle
         st.markdown("<h4>Entraînement du Modèle</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Le modèle est entraîné sur un nombre limité d'époques en utilisant les données d'entraînement. Il est évalué sur l'ensemble de validation pour mesurer ses performances.
+        Le modèle est entraîné sur 25 époques. Il est évalué sur l'ensemble de validation pour mesurer ses performances.
         """)
         
         # Étape 7 : Précision Globale du Modèle
@@ -1017,7 +1017,8 @@ elif st.session_state['page'] == 'Deep learning':
         - Les images sont normalisées et les classes d'intérêt sont sélectionnées.
         - Un générateur de données avec augmentation est créé.
         - Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.
-        - Des couches personnalisées sont ajoutées, et le modèle est compilé.
+        - Des couches personnalisées sont ajoutées (voir l'architecture du modèle ci-dessous)
+        - Le modèle est compilé comme précédemment et entraîné sur 7 époques.
         """)
         
         st.image('images/MobileNetV2_architecture.png')
@@ -1085,8 +1086,8 @@ elif st.session_state['page'] == 'Deep learning':
 
     with tab9:
         # Modèle EfficientNetV2
-        st.markdown("EfficientNetV2 (version B1) est choisi et donne de bons résultats.")
         st.markdown("""
+        - La version B1 de EfficientNetV2 est choisie (disponible dans la librairie 'timm').
         - L'augmentation des données est légère pour réduire le temps d'entraînement.
         """)
         
@@ -1094,6 +1095,7 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Méthode du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
         st.markdown("""
         - L'accuracy sur l'ensemble de test est de 0.94 sans dégeler les couches et 0.95 en dégelant quelques couches.
+        - Les zones chaudes sur les Grad-CAM se resserrent davantage sur les cellules avec le fine-tuning.
         - Un rapport de classification et des Grad-CAM sont présentés.
         """)
 
@@ -1131,6 +1133,13 @@ elif st.session_state['page'] == 'Deep learning':
         with col2:
             st.image(image2, caption="Grad-CAM", use_column_width=True)
             
+         # Analyse des Résultats
+        st.markdown("<h4>Analyse des Résultats du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - La précision globale est la plus élevée avec ce modèle (les autres modèles avaient de moins bonnes performances et/ou nécessitaient trop de ressources computationnelles). 
+        - Les classes les moins bien prédites sont toujours les mêmes.
+        - 
+        """)
         
     with tab10 : 
         st.header("Prédictions")
