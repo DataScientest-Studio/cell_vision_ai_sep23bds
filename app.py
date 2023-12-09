@@ -1097,7 +1097,7 @@ elif st.session_state['page'] == 'Deep learning':
         - Un rapport de classification et des Grad-CAM sont présentés.
         """)
 
-            text = """
+        text = """
         ----------------------- precision    recall  f1-score   support
                       basophil       1.00      0.92      0.96       113
         blast, no lineage spec       0.95      0.85      0.90       229
