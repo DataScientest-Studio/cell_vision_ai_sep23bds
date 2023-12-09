@@ -898,8 +898,8 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Méthode Employée</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. 
-        - Nous configurons des checkpoints de sauvegarde périodique des poids pendant l'apprentissage pour conserver les meilleures versions du modèle pour obtenir les 9 classes d'intérêt. 
-        - Nous utilisons les préfixes des images du dataset 1 PBC et du dataset 3 APL (images classées dans les dossiers ‘Signed’ et qui ne sont pas sous-représentées).
+        - Nous configurons des checkpoints de sauvegarde périodique des poids pendant l'apprentissage pour conserver les meilleures versions du modèle. 
+        - Nous utilisons les préfixes des images du dataset 1 PBC et du dataset 3 APL (images classées dans les dossiers ‘Signed’ et qui ne sont pas sous-représentées) pour obtenir les 9 classes d'intérêt.
         Les images sont normalisées avec le choix de définir la dimension sur 256x256. On a utilisé un générateur d'images pour charger, 
         augmenter et pré-traiter les données d'entraînement, de validation et de test.
         """)
