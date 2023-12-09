@@ -807,7 +807,7 @@ elif st.session_state['page'] == 'Machine learning':
         """)
 
         text = """
-      --------------------  precision    recall  f1-score   support
+    ----------------------  precision    recall  f1-score   support
                   basophil       0.60      0.44      0.51       247
     blast, no lineage spec       0.74      0.77      0.76       366
                 eosinophil       0.78      0.86      0.82       628
