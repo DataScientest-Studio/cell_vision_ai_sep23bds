@@ -21,8 +21,6 @@ if st.sidebar.button('Machine learning'):
     st.session_state['page'] = 'Machine learning'
 if st.sidebar.button('Deep learning'):
     st.session_state['page'] = 'Deep learning'
-if st.sidebar.button('Transfer learning'):
-    st.session_state['page'] = 'Transfer learning'
 if st.sidebar.button('Documentation'):
     st.session_state['page'] = 'Documentation'
 
@@ -987,8 +985,7 @@ elif st.session_state['page'] == 'Deep learning':
         
     with tab8:
         st.markdown("""
-        - Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.
-        
+        Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.
         - MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.
         - Il est efficace en termes de calcul et peut être ajusté à nos besoins.
         - Le modèle est pré-entraîné sur une base de données diverses.
