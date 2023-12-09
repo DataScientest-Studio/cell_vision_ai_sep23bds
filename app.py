@@ -912,7 +912,7 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 5 : Compilation du Modèle Initial
         st.markdown("<h4>Compilation du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam avec un faible taus d'apprentissage) 
+        Nous compilons le modèle en spécifiant comment il doit être entraîné. Cela inclut le choix de l'optimiseur (dans ce cas, Adam avec un faible taux d'apprentissage) 
         et de la fonction de perte (categorical_crossentropy) qui mesure l'erreur, ainsi que les métriques à suivre, comme l’accuracy.
         """)
         
@@ -959,10 +959,10 @@ elif st.session_state['page'] == 'Deep learning':
         col1, col2 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
         
         with col1:
-            st.image(image1, caption="Image 1", use_column_width=True)
+            st.image(image1, caption="Accuracy d'entraînement et de validation", use_column_width=True)
         
         with col2:
-            st.image(image2, caption="Image 2", use_column_width=True)
+            st.image(image2, caption="Matrice de confusion", use_column_width=True)
         
         # Étape 8 : Carte d’Activation Grad-CAM
         st.markdown("<h4>Carte d’Activation Grad-CAM</h4>", unsafe_allow_html=True)
@@ -1027,8 +1027,44 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("""
         - L'entraînement atteint une précision de validation de 0.9146.
         - L'accuracy sur l'ensemble de test est de 0.92.
-        - Des matrices de classification et des Grad-CAM sont présentées.
+        - Un rapport de classification, une matrice de confusion et des Grad-CAM sont présentées.
         """)
+        text = """
+        ----------------------- precision    recall  f1-score   support
+                      basophil       0.92      0.90      0.91       113
+        blast, no lineage spec       0.83      0.90      0.86       229
+                    eosinophil       1.00      0.95      0.98       287
+                  erythroblast       0.96      0.94      0.95       176
+                            ig       0.86      0.78      0.82       317
+                    lymphocyte       0.94      0.94      0.94       368
+                      monocyte       0.86      0.84      0.85       217
+                    neutrophil       0.91      0.97      0.94       436
+                      platelet       0.99      1.00      0.99       211
+
+                      accuracy                           0.92      2354
+                     macro avg       0.92      0.91      0.92      2354
+                  weighted avg       0.92      0.92      0.92      2354
+        """
+        
+        st.text(text)
+        
+        st.markdown("")
+
+        # Charger les images
+        image1 = Image.open('images/MobileNetV2_accuracy.png')
+        image2 = Image.open('images/MobileNetV2_mc.png')
+        
+        # Afficher les images côte à côte dans deux colonnes
+        col1, col2 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
+        
+        with col1:
+            st.image(image1, caption="Accuracy d'entraînement et de validation", use_column_width=True)
+        
+        with col2:
+            st.image(image2, caption="Matrice de confusion", use_column_width=True)
+        
+        
+        st.markdown("<h4>Grad-CAM d'images bien prédites et mal prédites</h4>", unsafe_allow_html=True)
         
         # Analyse des Résultats du Modèle MobileNetV2
         st.markdown("<h4>Analyse des Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
