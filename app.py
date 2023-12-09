@@ -1118,7 +1118,6 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("""
         - La précision globale est la plus élevée avec ce modèle (les autres modèles avaient de moins bonnes performances et/ou nécessitaient trop de ressources computationnelles). 
         - Les classes les moins bien prédites sont toujours les mêmes.
-        - 
         """)
         
     with tab10 : 
