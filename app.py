@@ -889,7 +889,8 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 1 : Problème Initial
         st.markdown("<h4>Problème Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
-        La performance des algorithmes est limitée par notre segmentation des noyaux. Par conséquent, nous choisissons de nous tourner pleinement vers le Deep Learning qui permettra d’analyser les images pour y relever automatiquement la zone d’intérêt et ainsi améliorer la classification de nos cellules. Nous utilisons les images du dataset 1 PBC et du dataset 3 APL (images classées dans les dossiers ‘Signed’ et qui ne sont pas sous-représentées) rassemblées en un seul dataset.
+        La performance des algorithmes est limitée par notre segmentation des noyaux. Par conséquent, nous choisissons de nous tourner pleinement vers le Deep Learning 
+        qui permettra d’analyser les images pour y relever automatiquement la zone d’intérêt et ainsi améliorer la classification de nos cellules. 
         Nous avons décidé de réaliser un modèle CNN “from scratch”.
         """)
         
@@ -897,10 +898,10 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Méthode Employée</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Nous importons les bibliothèques TensorFlow et les modules nécessaires pour construire le modèle et effectuer l'apprentissage. 
-        - Nous configurons des checkpoints de sauvegarde périodique des poids pendant l'apprentissage pour conserver les meilleures versions du modèle. 
-        - Les images utilisées sont normalisées avec le choix de définir la dimension sur 256x256. On a utilisé un générateur d'images pour charger, 
-        augmenter et pré-traiter les données d'entraînement, de validation et de test. (on a 3 répertoires spécifiques).
-        - Les préfixes des images sont utilisés pour les regrouper selon les 9 classes d’intérêt.
+        - Nous configurons des checkpoints de sauvegarde périodique des poids pendant l'apprentissage pour conserver les meilleures versions du modèle pour obtenir les 9 classes d'intérêt. 
+        - Nous utilisons les préfixes des images du dataset 1 PBC et du dataset 3 APL (images classées dans les dossiers ‘Signed’ et qui ne sont pas sous-représentées).
+        Les images sont normalisées avec le choix de définir la dimension sur 256x256. On a utilisé un générateur d'images pour charger, 
+        augmenter et pré-traiter les données d'entraînement, de validation et de test.
         """)
 
         st.image('images/CNN_files.png')
