@@ -57,7 +57,10 @@ if st.session_state['page'] == 'Accueil':
     faciliter le diagnostic de la leucémie en détectant des leucocytes anormaux.
     '''
     )
-
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
     st.write(
     '''
     **Projet réalisé par Wilfried Condemine, Michael Deroche, Claudia Mattei et Charles Sallard**.
