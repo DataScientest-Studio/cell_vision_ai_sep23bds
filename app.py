@@ -1009,7 +1009,6 @@ elif st.session_state['page'] == 'Deep learning':
         Le transfer learning permet d'utiliser des modèles pré-entraînés pour améliorer l'efficacité de l'entraînement de modèles de classification.
         - MobileNetV2 est choisi pour sa capacité à extraire des caractéristiques d'images.
         - Il est efficace en termes de calcul et peut être ajusté à nos besoins.
-        - Le modèle est pré-entraîné sur une base de données diverses.
         """)
 
         # Méthode du Modèle MobileNetV2
@@ -1020,6 +1019,8 @@ elif st.session_state['page'] == 'Deep learning':
         - Les poids du modèle de base sont figés, et quelques couches sont 'décongelées' pour le fine-tuning.
         - Des couches personnalisées sont ajoutées, et le modèle est compilé.
         """)
+        
+        st.image('images/MobileNetV2_architecture.png')
         
         # Résultats du Modèle MobileNetV2
         st.markdown("<h4>Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
