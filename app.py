@@ -723,7 +723,7 @@ elif st.session_state['page'] == 'Machine learning':
         - **Classe :** type cellulaire.
 
         La variable cible est la “Classe” des cellules. 
-        Les "features" retenues sont toutes les autres variables à l'exception de "Numéro", "Boîte encadrante", et "Centre".
+        Les "features" retenues sont toutes les autres variables à l'exception de "Numéro", "Boîte encadrante" et "Centre".
         """)
 
     
@@ -755,14 +755,14 @@ elif st.session_state['page'] == 'Machine learning':
         # Résultats de l'algorithme KNN
         st.markdown("<h4>K-Nearest Neighbors (KNN)</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - Accuracy sur l'ensemble de test : 0,68.
+        - Accuracy sur l'ensemble de test : **0,68**.
         
         """)
         
         # Résultats de l'algorithme RandomForest
         st.markdown("<h4>RandomForest</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - Accuracy sur l'ensemble de test : 0,70.
+        - Accuracy sur l'ensemble de test : **0,70**.
         - Rapport de classification pour chaque classe.
         
         Optimisation des hyperparamètres avec GridSearchCV, mais pas d'amélioration significative.
@@ -775,14 +775,14 @@ elif st.session_state['page'] == 'Machine learning':
         # Résultats de l'algorithme XGBoost
         st.markdown("<h4>XGBoost</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - Accuracy sur l'ensemble de test : 0,71.
+        - Accuracy sur l'ensemble de test : **0,71**.
         
         """)
         
         # Résultats de l'algorithme SVM
         st.markdown("<h4>Support Vector Machine (SVM)</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - Accuracy sur l'ensemble de test : 0,73 (après optimisation des hyperparamètres : C=100, gamma=0,01, kernel='rbf').
+        - Accuracy sur l'ensemble de test : **0,73** (après optimisation des hyperparamètres : C=100, gamma=0,01, kernel='rbf').
         - Pas de sur-apprentissage (accuracy sur l'ensemble d'entraînement : 0,72).
         
         Classes mal prédites : "erythroblast" confondue avec "lymphocyte", "monocyte" et "basophil" confondus avec "ig".
@@ -819,7 +819,7 @@ elif st.session_state['page'] == 'Machine learning':
         st.markdown("<h4>Réseau de Neurones avec Keras</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,73.
-        - Augmentation de l'accuracy à 0,75 en éliminant les cellules des 4 classes extrêmement sous-représentées.
+        - Augmentation de l'accuracy à **0,75** en éliminant les cellules des 4 classes extrêmement sous-représentées.
         
         Meilleurs scores obtenus avec un réseau de neurones dense avec Keras. Architecture du modèle :
         - Couche Dense à 64 neurones, fonction d'activation 'relu'.
@@ -928,7 +928,7 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("""
         Test Loss: 0.4041
         
-        Test Accuracy: 0.8958
+        Test Accuracy: **0.8958**
         """)
 
         text = """
@@ -1003,7 +1003,7 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("<h4>Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
         st.markdown("""
         - L'entraînement atteint une précision de validation de 0.9146.
-        - L'accuracy sur l'ensemble de test est de 0.92.
+        - L'accuracy sur l'ensemble de test est de **0.92**.
         - Un rapport de classification, une matrice de confusion et des Grad-CAM sont présentés.
         """)
         text = """
@@ -1070,7 +1070,7 @@ elif st.session_state['page'] == 'Deep learning':
         # Méthode du Modèle EfficientNetV2
         st.markdown("<h4>Méthode du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - L'accuracy sur l'ensemble de test est de 0.94 sans dégeler les couches et 0.95 en dégelant quelques couches.
+        - L'accuracy sur l'ensemble de test est de 0.94 sans dégeler les couches et **0.95** en dégelant quelques couches.
         - Les zones chaudes sur les Grad-CAM se resserrent davantage sur les cellules avec le fine-tuning.
         - Un rapport de classification et des Grad-CAM sont présentés.
         """)
