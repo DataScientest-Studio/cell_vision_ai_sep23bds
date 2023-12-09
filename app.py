@@ -1267,12 +1267,16 @@ elif st.session_state['page'] == 'Documentation':
         '''
         - [Recognition of peripheral blood cell images using convolutional neural networks](https://www.sciencedirect.com/science/article/abs/pii/S0169260719303578?via%3Dihub)
         - [A deep learning model (ALNet) for the diagnosis of acute leukaemia lineage using peripheral blood cell images](https://www.sciencedirect.com/science/article/abs/pii/S0169260721000742?via%3Dihub)
+        - [CellaVision DM96](https://www.sysmex.com/US/en/products/hematology/cellimageanalysis/documents/brochure_dm96.pdf)
         '''
         )
         
     with tab9:
         st.write(
         '''
-        Le logo CellVisionAI et les images d'illustrations ont été générées par DALL•E 3.
+        - Le logo CellVisionAI et certaines images d'illustrations ont été générées par DALL•E 3.
+
+        - Les images de la dernière partie ont été tirées de la thèse suivante :
+        A nucleolar targeting signal in PML-I addresses PML to nucleolar caps in stressed or senescent cells, Wilfried Condemine, Yuki Takahashi, Morgane Le Bras, Hugues de Thé, J Cell Sci (2007) 120 (18): 3219–3227.2007.
         '''
         )
