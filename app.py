@@ -1027,7 +1027,7 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("""
         - L'entraînement atteint une précision de validation de 0.9146.
         - L'accuracy sur l'ensemble de test est de 0.92.
-        - Un rapport de classification, une matrice de confusion et des Grad-CAM sont présentées.
+        - Un rapport de classification, une matrice de confusion et des Grad-CAM sont présentés.
         """)
         text = """
         ----------------------- precision    recall  f1-score   support
@@ -1079,13 +1079,13 @@ elif st.session_state['page'] == 'Deep learning':
         # Analyse des Résultats du Modèle MobileNetV2
         st.markdown("<h4>Analyse des Résultats du Modèle MobileNetV2 :</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - Le modèle atteint une précision globale élevée, mais les performances varient entre les classes.
+        - Le modèle atteint une précision globale élevée et les résultats les moins bons sont sur les classes "blast, no lineage spec", "ig" et "monocyte".
         - Les Grad-CAM montrent que le modèle se concentre sur les zones pertinentes.
         """)
 
     with tab9:
         # Modèle EfficientNetV2
-        st.markdown("EfficientNetV2 est choisi et donne de bons résultats.")
+        st.markdown("EfficientNetV2 (version B1) est choisi et donne de bons résultats.")
         st.markdown("""
         - L'augmentation des données est légère pour réduire le temps d'entraînement.
         """)
@@ -1093,9 +1093,44 @@ elif st.session_state['page'] == 'Deep learning':
         # Méthode du Modèle EfficientNetV2
         st.markdown("<h4>Méthode du Modèle EfficientNetV2 :</h4>", unsafe_allow_html=True)
         st.markdown("""
-        - L'entraînement est effectué sur les datasets PBC et APL.
-        - Des résultats très performants sont obtenus.
+        - L'accuracy sur l'ensemble de test est de 0.94 sans dégeler les couches et 0.95 en dégelant quelques couches.
+        - Un rapport de classification et des Grad-CAM sont présentés.
         """)
+
+            text = """
+        ----------------------- precision    recall  f1-score   support
+                      basophil       1.00      0.92      0.96       113
+        blast, no lineage spec       0.95      0.85      0.90       229
+                    eosinophil       1.00      0.99      0.99       287
+                  erythroblast       0.97      0.98      0.97       176
+                            ig       0.87      0.94      0.90       317
+                    lymphocyte       0.95      0.98      0.97       368
+                      monocyte       0.88      0.94      0.91       217
+                    neutrophil       0.98      0.94      0.96       436
+                      platelet       1.00      1.00      1.00       211
+
+                      accuracy                           0.95      2354
+                     macro avg       0.96      0.95      0.95      2354
+                  weighted avg       0.95      0.95      0.95      2354
+        
+        """
+        
+        st.text(text)
+        
+        st.markdown("")
+        # Charger les images
+        image1 = Image.open('images/EfficientNet_accuracy.png')
+        image2 = Image.open('images/EfficientNet_GC.png')
+        
+        # Afficher les images côte à côte dans deux colonnes
+        col1, col2 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
+        
+        with col1:
+            st.image(image1, caption="Accuracy d'entraînement et de validation", use_column_width=True)
+        
+        with col2:
+            st.image(image2, caption="Grad-CAM", use_column_width=True)
+            
         
     with tab10 : 
         st.header("Prédictions")
@@ -1104,10 +1139,10 @@ elif st.session_state['page'] == 'Deep learning':
             """
             ! Les modèles sont trop lourds pour être utilisés via GitHub, cela reste donc une démonstration fictive. Cela fonctionne en local !
             
-            Sélectionnez votre modèle, déposez une image et regardez la magie s'opérer.
+            Sélectionnez votre modèle, déposez une image et regardez la magie opérer.
             """
         )
-        choix = ["Model from scratch", "MobileNet", "EfficientNet"]
+        choix = ["CNN from scratch", "MobileNet", "EfficientNet"]
         option = st.selectbox("Choix du modèle", choix)
         st.write("Le modèle choisi est :", option)
         if option == "EfficientNet":
@@ -1169,6 +1204,8 @@ elif st.session_state['page'] == 'Deep learning':
 
         elif option == "MobileNet":
             """Prédiction avec MobileNet"""
+        elif option == "CNN from scratch":
+            """Prédiction avec CNN"""
 ## %%% PAGE DOCUMENTATION %%% ##
 
 elif st.session_state['page'] == 'Documentation':
