@@ -792,7 +792,7 @@ elif st.session_state['page'] == 'Machine learning':
         st.markdown("<h4>Réseau de Neurones avec Keras</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Accuracy sur l'ensemble de test : 0,73.
-        - Augmentation de l'accuracy en éliminant les cellules des 4 classes extrêmement sous-représentées.
+        - Augmentation de l'accuracy à 0,75 en éliminant les cellules des 4 classes extrêmement sous-représentées.
         
         Meilleurs scores obtenus avec un réseau de neurones dense avec Keras. Architecture du modèle :
         - Couche Dense à 64 neurones, fonction d'activation 'relu'.
@@ -807,30 +807,25 @@ elif st.session_state['page'] == 'Machine learning':
         """)
 
         text = """
-        ----------------------- precision    recall  f1-score   support
-              band neutrophils       0.00      0.00      0.00        16
-                      basophil       0.49      0.67      0.57       246
-        blast, no lineage spec       0.74      0.84      0.78       341
-                    eosinophil       0.79      0.86      0.82       623
-                  erythroblast       0.69      0.53      0.60       363
-             giant thrombocyte       0.00      0.00      0.00         6
-                            ig       0.67      0.52      0.59       556
-                    lymphocyte       0.68      0.87      0.76       655
-           lymphocyte, variant       0.12      0.02      0.03        58
-                      monocyte       0.62      0.56      0.59       408
-                    neutrophil       0.87      0.87      0.87       842
-                  plasma cells       0.00      0.00      0.00         4
-                      platelet       0.91      0.79      0.85       421
-                   promonocyte       0.00      0.00      0.00         4
-        
-                      accuracy                           0.73      4543
-                     macro avg       0.47      0.47      0.46      4543
-                  weighted avg       0.73      0.73      0.72      4543
+      --------------------  precision    recall  f1-score   support
+                  basophil       0.60      0.44      0.51       247
+    blast, no lineage spec       0.74      0.77      0.76       366
+                eosinophil       0.78      0.86      0.82       628
+              erythroblast       0.70      0.57      0.63       366
+                        ig       0.65      0.61      0.63       574
+                lymphocyte       0.73      0.81      0.77       654
+                  monocyte       0.59      0.66      0.62       413
+                neutrophil       0.87      0.86      0.87       857
+                  platelet       0.89      0.86      0.87       463
+
+                  accuracy                           0.75      4568
+                 macro avg       0.73      0.71      0.72      4568
+              weighted avg       0.75      0.75      0.75      4568
         """
         
         st.text(text)
 
-        st.image('images/ML_Keras.jpg')
+        st.image('images/ML_Keras.png')
         
         st.write("")
         
