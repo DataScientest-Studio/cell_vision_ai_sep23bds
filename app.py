@@ -502,7 +502,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 
         # Echantillon d'images par type de cellules
 
-        st.write("Echantillon d'images par type de cellules :")
+        st.write("**Echantillon d'images par type de cellules :**")
         st.image('images/APL_echantillon.png')
         
         # Créer un graphique de répartition des classes
