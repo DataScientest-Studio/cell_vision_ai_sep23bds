@@ -997,6 +997,8 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("""
         - Le modèle CNN présente des performances solides sur l'ensemble de données de test, avec des performances efficaces pour plusieurs classes. 
         - L'accuracy est moins bonnes pour les classes "blast, no lineage spec", "ig" (classes de cellules immatures) et pour "monocyte" (classe présentant de fortes variations morphologiques).
+        - Les Grad-CAM indiquent que le modèle se concentre sur le contour des noyaux mais peut parfois s’intéresser aux hématies (ce qui n’est pas nécessaire). 
+        Sur les images mal prédites, on peut observer plusieurs cellules ou bien des cellules qui sont déformées, très proches des hématies ou présentant des similitudes avec d’autres classes.
         """)
         
     with tab8:
@@ -1132,6 +1134,7 @@ elif st.session_state['page'] == 'Deep learning':
         st.markdown("""
         - Les classes les moins bien prédites sont toujours les mêmes.
         - La précision globale est la plus élevée avec ce modèle (les autres modèles avaient de moins bonnes performances et/ou nécessitaient trop de ressources computationnelles). 
+        - Les Grad-CAM montrent que les zones chaudes sont bien resserrées autour des cellules d'intérêt.
         """)
         
     with tab10 : 
