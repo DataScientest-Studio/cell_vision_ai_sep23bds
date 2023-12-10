@@ -121,7 +121,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <p><strong>Analyse</strong></p>
         <p>            
         - Diversité de propriétés entre les classes (forme, taille du noyau ou cytoplasme différentes) ce qui permettra de pouvoir classer les cellules.<br>
-        - Diversité morphologique présente au sein de chaque classe (défi pour la classification).
+        - Diversité morphologique présente au sein de chaque classe (défi pour la classification).<br>
         - Fond des images (basé sur la taille des hématies) indiquant que le zoom utilisé pour capturer les cellules est le même.<BR>
         - Distribution des images entre les classes équilibrée et adaptée à une utilisation dans des tâches d'analyse ou de modélisation.<BR>
         - Nécessité de normaliser la luminosité, la teinte et la taille des images.
