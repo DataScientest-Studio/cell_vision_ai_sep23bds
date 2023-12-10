@@ -225,7 +225,9 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 
 # Echantillon d'image #
         
-        st.write("**Echantillon d'images par type de cellules :**")
+        st.write("""
+        **Echantillon d'images par type de cellules :**
+        """)
         st.image('images/PBC_images.png')
 
 ##@@ GRAPHIQUE DES DIMENSIONS PAR CLASSE (HAUTEUR) @@##
