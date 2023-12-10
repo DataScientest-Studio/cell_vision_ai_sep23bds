@@ -921,7 +921,7 @@ elif st.session_state['page'] == 'Deep learning':
         
         st.markdown("Architecture du Modèle CNN :")
 
-        st.image('images/CNN_neuronal_architecture.jpg')
+        st.image('images/CNN_architecture.png')
         
         # Étape 5 : Compilation du Modèle Initial
         st.markdown("<h4>Compilation du Modèle Initial</h4>", unsafe_allow_html=True)
