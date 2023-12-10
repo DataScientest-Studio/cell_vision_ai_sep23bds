@@ -978,13 +978,19 @@ elif st.session_state['page'] == 'Deep learning':
         with col2:
             st.image(image2, caption="Matrice de confusion", use_column_width=True)
         
-        # Étape 8 : Carte d’Activation Grad-CAM
-        st.markdown("<h4>Carte d’Activation Grad-CAM</h4>", unsafe_allow_html=True)
         
-        st.image('images/CNN_gradcam_1.jpg')
-
-        st.markdown("Avec d'autres paramètres :")
-        st.image('images/CNN_gradcam_2.jpg')
+         # Charger les images
+        image3 = Image.open('images/CNN_GC1.png')
+        image4 = Image.open('images/CNN_GC2.png')
+        
+        # Afficher les images côte à côte dans deux colonnes
+        col3, col4 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
+        
+        with col3:
+            st.image(image3, caption="Grad-CAM d'images bien prédites", use_column_width=True)
+        
+        with col4:
+            st.image(image4, caption="Grad-CAM d'images mal prédites", use_column_width=True)
 
         # Analyse des Résultats du CNN
         st.markdown("<h4>Analyse des Résultats du Modèle CNN :</h4>", unsafe_allow_html=True)
@@ -1059,10 +1065,10 @@ elif st.session_state['page'] == 'Deep learning':
         col3, col4 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
         
         with col3:
-            st.image(image3, caption="Bonnes prédictions", use_column_width=True)
+            st.image(image3, caption="Grad-CAM d'images bien prédites", use_column_width=True)
         
         with col4:
-            st.image(image4, caption="Mauvaises prédictions", use_column_width=True)
+            st.image(image4, caption="Grad-CAM d'images mal prédites", use_column_width=True)
         
         
         # Analyse des Résultats du Modèle MobileNetV2
