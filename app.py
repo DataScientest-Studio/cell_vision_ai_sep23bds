@@ -967,7 +967,7 @@ elif st.session_state['page'] == 'Deep learning':
 
         # Charger les images
         image1 = Image.open('images/Accuracy_CNN_2.png')
-        image2 = Image.open('images/CNN_mc.jpg')
+        image2 = Image.open('images/CNN_mc.png')
         
         # Afficher les images côte à côte dans deux colonnes
         col1, col2 = st.columns(2)  # Utilisation de st.columns au lieu de st.beta_columns
