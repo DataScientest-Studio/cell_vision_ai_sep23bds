@@ -494,7 +494,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 ###@@@ GRAPHIQUES @@@###
 
 # Répartition des classes
-        
+        st.write("")
         # Charger les données
         df_data_APL = pd.read_csv("data/data_APL_streamlit_4.csv") 
 
