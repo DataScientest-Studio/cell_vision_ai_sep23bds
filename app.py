@@ -393,10 +393,10 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         texte_formatte = """
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Analyse</strong></p>
-        <p>            
+        <p>     
+        - Pas les mêmes conditions d'acquisition que pour le dataset 1.
         - Absence de classification des cellules, rendant impossible la vérification de la performance des modèles.<br>
         - Coordonnées des centroïdes des blastes fournies pour les images ALL_IDB1 (plusieurs cellules sur une image).<br>
-        - Pas les mêmes conditions d'acquisition que dans le dataset 1.
         </p>
         </div>
         """
