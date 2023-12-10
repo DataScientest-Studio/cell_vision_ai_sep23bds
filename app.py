@@ -482,7 +482,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         - Certains types de cellules, tels que les 'smudge cells' ou 'arifact' peuvent entraîner des biais.<br>
         - Classes ‘Prolymphocyte’ et ‘Thrombocyte aggregation’ sous-représentées, classes d’images non identifiées (‘Unidentified’ et ‘Young Unidentified’).<br>
         - Variations de taille plus importantes par rapport au dataset 1, sans dépendance apparente avec les classes de cellules.<br>
-        - Fichier master.csv contient les diagnostics et quelques informations sur les patients (répartition équilibrée des données 
+        - Fichier master.csv contenant les diagnostics et informations sur les patients indiquant une répartition équilibrée des données 
         selon les sexes et les tranches d'âge, avec une prédominance masculine conforme à la prévalence de la maladie).
         </p>
         </div>
