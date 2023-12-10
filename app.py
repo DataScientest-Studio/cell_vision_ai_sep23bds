@@ -479,8 +479,8 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <p>            
         - Conditions d'acquisition des images similaires à celles du dataset 1.<br>
         - Plus de 15 000 images classées (Signed slides) selon le type de cellules, mais environ 10 000 images (Unsigned slides) non classées.<br>
-        - Certains types de cellules, tels que les "smudge cells" ou "arifact" peuvent entraîner des biais.<br>
-        - Classes ‘Prolymphocyte’ et ‘Thrombocyte aggregation’ sous-représentées, classes d’images non identifiées (‘Unidentified’ et ‘Young Unidentified’).
+        - Certains types de cellules, tels que les 'smudge cells' ou 'arifact' peuvent entraîner des biais.<br>
+        - Classes ‘Prolymphocyte’ et ‘Thrombocyte aggregation’ sous-représentées, classes d’images non identifiées (‘Unidentified’ et ‘Young Unidentified’).<br>
         - Variations de taille plus importantes par rapport au dataset 1, sans dépendance apparente avec les classes de cellules.<br>
         - Fichier master.csv contient les diagnostics et quelques informations sur les patients (répartition équilibrée des données 
         selon les sexes et les tranches d'âge, avec une prédominance masculine conforme à la prévalence de la maladie).
