@@ -916,7 +916,7 @@ elif st.session_state['page'] == 'Deep learning':
         # Étape 4 : Création du Modèle Initial
         st.markdown("<h4>Création du Modèle Initial</h4>", unsafe_allow_html=True)
         st.markdown("""
-        Nous définissons l'architecture du modèle de réseau de neurones convolutif (CNN) en empilant différentes couches de convolution, de max-pooling et de couches entièrement connectées. 
+        Nous définissons l'architecture du modèle de réseau de neurones convolutif (CNN) en empilant différentes couches de convolution suivies de max-pooling et des couches entièrement connectées. 
         """)
         
         st.markdown("Architecture du Modèle CNN :")
