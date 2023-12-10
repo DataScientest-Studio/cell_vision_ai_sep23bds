@@ -8,7 +8,7 @@ Le but de ce projet est de reconnaître et classifier des cellules du sang grâc
 
 Structure du dépôt :
 ```bash
-├── data (contient les dataframes répertoriant les images traîtées et leurs propriétés)
+├── data (contient les dataframes répertoriant les images traîtées et leurs informations)
 ├── images (images utiles au streamlit)
 ├── model
 │   ├── ML
