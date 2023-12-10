@@ -394,7 +394,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Analyse</strong></p>
         <p>     
-        - Pas les mêmes conditions d'acquisition que pour le dataset 1.
+        - Pas les mêmes conditions d'acquisition que pour le dataset 1.<br>
         - Absence de classification des cellules, rendant impossible la vérification de la performance des modèles.<br>
         - Coordonnées des centroïdes des blastes fournies pour les images ALL_IDB1 (plusieurs cellules sur une image).<br>
         </p>
