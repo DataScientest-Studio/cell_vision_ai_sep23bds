@@ -40,15 +40,13 @@ pip install -r requirements.txt
 
 ## Streamlit App
 
-**Add explanations on how to use the app.**
+L'application app.py peut être déployée ainsi via Streamlit Sharing :
+- Allez sur [https://www.streamlit.io/sharing] et connectez-vous ou créez un compte Streamlit Sharing.
+- Assurez-vous que votre application Streamlit est sur GitHub. Si ce n'est pas le cas, poussez votre application sur GitHub.
+- Sur la page Streamlit Sharing, cliquez sur "New app" et suivez les instructions.
+- Sélectionnez le référentiel que vous souhaitez déployer.
+- Spécifiez le chemin vers votre application Streamlit et le fichier principal à exécuter.
+- Appuyez sur le bouton "Deploy" pour lancer le déploiement de votre application.
+- Votre application est maitenant en ligne (utiliser l'URL que vous avez spécifiée).
 
-To run the app (be careful with the paths of the files in the app):
-
-```shell
-conda create --name my-awesome-streamlit python=3.9
-conda activate my-awesome-streamlit
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-The app should then be available at [localhost:8501](http://localhost:8501).
+L'URL de notre application est la suivante : [https://ai-cellvision.streamlit.app/]
