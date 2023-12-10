@@ -120,10 +120,10 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Analyse</strong></p>
         <p>            
-        - Diversité des formes et des tailles des cellules dans les images.<br>
-        - Diversité de propriétés entre les classes nous permettra de pouvoir classer les cellules.<br>
-        - Le fond des images (basé sur la taille des hématies) semble indiquer que le zoom utilisé pour capturer les cellules est le même.<BR>
-        - Distribution équilibrée des images entre les classes (dataset adapté à une utilisation dans des tâches d'analyse ou de modélisation).<BR>
+        - Diversité de propriétés entre les classes (forme, taille du noyau ou cytoplasme différentes) ce qui permettra de pouvoir classer les cellules.<br>
+        - Diversité morphologique présente au sein de chaque classe (défi pour la classification).
+        - Fond des images (basé sur la taille des hématies) indiquant que le zoom utilisé pour capturer les cellules est le même.<BR>
+        - Distribution des images entre les classes équilibrée et adaptée à une utilisation dans des tâches d'analyse ou de modélisation.<BR>
         - Nécessité de normaliser la luminosité, la teinte et la taille des images.
         </p>
         </div>
@@ -392,9 +392,9 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Analyse</strong></p>
         <p>            
-        - Une limitation est l'absence de classification des cellules, rendant difficile la vérification de la performance des modèles.<br>
-        - Les coordonnées des centroïdes des cellules sont fournies pour les images ALL_IDB1.<br>
-        - Diversité des données pour construire un modèle robuste.
+        - Absence de classification des cellules, rendant difficile la vérification de la performance des modèles.<br>
+        - Coordonnées des centroïdes des blasts fournies pour les images ALL_IDB1 (plusieurs cellules sur une image).<br>
+        - Pas les mêmes conditions d'acquisition que dans le dataset 1.
         </p>
         </div>
         """
@@ -477,11 +477,13 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Analyse</strong></p>
         <p>            
-        - Les conditions d'acquisition des images semblent similaires à celles du Dataset 1.<br>
-        - Plus de 15 000 images sont classées (Signed slides) selon le type de cellules, mais environ 10 000 images (Unsigned slides) ne sont pas classées.<br>
-        - Certains types de cellules, tels que les "smudge cells", contiennent de nombreux outliers et pourraient ne pas être utiles pour l'analyse.<br>
-        - Des variations de taille plus importantes sont observées par rapport au Dataset 1, sans dépendance apparente avec les classes de cellules.<br>
-        - Un fichier master.csv contient les diagnostics et quelques informations sur les patients. Il y a une répartition équilibrée des données entre les sexes et les tranches d'âge,avec une prédominance masculine conforme à la prévalence de la maladie.
+        - Conditions d'acquisition des images similaires à celles du dataset 1.<br>
+        - Plus de 15 000 images classées (Signed slides) selon le type de cellules, mais environ 10 000 images (Unsigned slides) non classées.<br>
+        - Certains types de cellules, tels que les "smudge cells" ou "arifact" peuvent entraîner des biais.<br>
+        - Classes ‘Prolymphocyte’ et ‘Thrombocyte aggregation’ sous-représentées, classes d’images non identifiées (‘Unidentified’ et ‘Young Unidentified’).
+        - Variations de taille plus importantes par rapport au dataset 1, sans dépendance apparente avec les classes de cellules.<br>
+        - Fichier master.csv contient les diagnostics et quelques informations sur les patients (répartition équilibrée des données 
+        selon les sexes et les tranches d'âge, avec une prédominance masculine conforme à la prévalence de la maladie).
         </p>
         </div>
         """
@@ -631,10 +633,9 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         <div style="background-color: #F0F0F5; padding: 20px; border-radius: 0px;">
         <p><strong>Choix</strong></p>
         <p>            
-        - Utiliser principalement le dataset 1 (PBC Dataset Normal DIB) pour un modèle de classification des cellules sanguines normales. <br>
-        - Le dataset 3 (Acute Promyelocytic Leukemia (APL)) viendra compléter cette base de données avec les cellules ‘Signed’ et permettrait éventuellement d’identifier des cellules sanguines anormales, 
-        caractéristiques de patients atteints de leucémie.<br>
-        - Exclusion du dataset 2 (Leukemia Dataset).<br>
+        - Utiliser principalement le dataset 1 (PBC) pour un modèle de classification des cellules sanguines normales. <br>
+        - Compléter la base de données avec  les cellules ‘Signed’ du dataset 3 (APL) pour identifier des cellules sanguines anormales, caractéristiques de patients atteints de leucémie.<br>
+        - Exclure du dataset 2 (Leukemia Dataset).<br>
         - Mettre en place des techniques de prétraitement d'images, de segmentation, d'apprentissage machine et d’apprentissage profond 
         pour extraire des caractéristiques pertinentes à partir des images.<br>
         </p>
