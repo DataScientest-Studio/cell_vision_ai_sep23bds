@@ -410,7 +410,6 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         st.image('images/ALL_IDB1_random_im.png')
         st.write("**Images random de ALL_IDB2 :**")
         st.image('images/ALL_IDB2_random_im.png')
-        
         # Créer une nouvelle colonne pour différencier les patients sains et malades
         df_data_leukemia_dataset['Statut patient'] = df_data_leukemia_dataset['Leucémie_ALL'].apply(lambda x: 'Malade' if x == 1 else 'Sain')
 
