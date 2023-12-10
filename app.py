@@ -1230,7 +1230,7 @@ elif st.session_state['page'] == 'Interprétations et perspectives':
         st.markdown("<h4>Pour le Machine Learning</h4>", unsafe_allow_html=True)
         st.markdown("""
         - Recueillir davantage d’images de cellules obtenues avec des conditions d’acquisition similaires.
-        - Améliorer l’algorithme de segmentation des noyaux (par exemple en diminuant l’entropie du set d’image).
+        - Améliorer l’algorithme de segmentation des noyaux (par exemple en diminuant l’entropie du set d’images).
         - Réussir à identifier le cytoplasme des cellules (tâche extrêmement complexe).
         - Relever davantage de “features” qui permettraient de différencier certaines classes de cellules (densité et structure des noyaux, présence de nucléole comme ci-dessous) :
         """)
