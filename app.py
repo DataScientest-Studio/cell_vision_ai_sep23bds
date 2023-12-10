@@ -497,6 +497,11 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         
         # Charger les données
         df_data_APL = pd.read_csv("data/data_APL_streamlit_4.csv") 
+
+        # Echantillon d'images par type de cellules
+
+        st.write("Echantillon d'images par type de cellules :")
+        st.image('images/APL_echantillon.png')
         
         # Créer un graphique de répartition des classes
         fig = px.histogram(df_data_APL, x="Classe", title="Répartition des classes")
@@ -510,10 +515,6 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
         # Afficher le graphique dans Streamlit
         st.plotly_chart(fig)
 
-# Echantillon d'images par type de cellules
-
-        st.write("Echantillon d'images par type de cellules :")
-        st.image('images/APL_echantillon.png')
         
 # Répartition des classes du Patient_00 au Patient_105
         
