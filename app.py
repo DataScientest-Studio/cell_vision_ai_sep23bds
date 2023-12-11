@@ -65,6 +65,7 @@ if st.session_state['page'] == 'Accueil':
     '''
     **Projet réalisé par Wilfried Condemine, Michael Deroche, Claudia Mattei et Charles Sallard**.
     (Promotion sept23_DS Datascientest)
+    GitHub associé : [https://github.com/DataScientest-Studio/cell_vision_ai_sep23bds]
     '''
     )
 
