@@ -1220,11 +1220,13 @@ elif st.session_state['page'] == 'Deep learning':
             """Prédiction avec CNN"""
 
 
-## %%%PAGE PERSPECTIVES%%% ##
+## %%% PAGE PERSPECTIVES %%% ##
 
 elif st.session_state['page'] == 'Interprétations et perspectives':
     st.title("Interprétations et perspectives")
 
+    st.image('images/bandeau_analyse_5.jpg')
+    
     tab11, tab12 = st.tabs(["Interprétations", "Améliorations possibles"])
 
     with tab11:
