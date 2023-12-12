@@ -660,7 +660,7 @@ elif st.session_state['page'] == 'Machine learning':
     st.title("Machine learning")
 
     st.image("images/Bandeau_ML.jpg")
-    
+
     tab5, tab6 = st.tabs(["Extraction des caractéristiques", "Modèles de Machine learning"])
 
     with tab5:
@@ -894,6 +894,8 @@ elif st.session_state['page'] == 'Machine learning':
 elif st.session_state['page'] == 'Deep learning':
     st.title("Deep learning")
 
+    st.image("images/Bandeau_DL.jpg")
+    
     tab7, tab8, tab9, tab10 = st.tabs(["Modèle CNN 'from scratch'", "MobileNetV2", "EfficientNetV2", "Application"])
 
     with tab7:
