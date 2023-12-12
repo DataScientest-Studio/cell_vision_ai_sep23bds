@@ -70,6 +70,7 @@ if st.session_state['page'] == 'Accueil':
     st.write("""
     **GitHub associé : [https://github.com/DataScientest-Studio/cell_vision_ai_sep23bds]**
     """)
+    
 ## %%% PAGE ANALYSE DES JEUX DE DONNEES %%% ##
 
 elif st.session_state['page'] == 'Analyse des jeux de données':
@@ -659,7 +660,7 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 elif st.session_state['page'] == 'Machine learning':
     st.title("Machine learning")
 
-    st.image("images/Bandeau_ML.jpg")
+    st.image('images/bandeau_analyse_5.jpg')
 
     tab5, tab6 = st.tabs(["Extraction des caractéristiques", "Modèles de Machine learning"])
 
@@ -894,7 +895,7 @@ elif st.session_state['page'] == 'Machine learning':
 elif st.session_state['page'] == 'Deep learning':
     st.title("Deep learning")
 
-    st.image("images/Bandeau_DL.jpg")
+    st.image('images/bandeau_analyse_5.jpg')
     
     tab7, tab8, tab9, tab10 = st.tabs(["Modèle CNN 'from scratch'", "MobileNetV2", "EfficientNetV2", "Application"])
 
