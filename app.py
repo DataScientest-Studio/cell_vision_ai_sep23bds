@@ -70,7 +70,7 @@ if st.session_state['page'] == 'Accueil':
     st.write("""
     **GitHub associé : [https://github.com/DataScientest-Studio/cell_vision_ai_sep23bds]**
     """)
-## %%% PAGE PROJET %%% ##
+## %%% PAGE ANALYSE DES JEUX DE DONNEES %%% ##
 
 elif st.session_state['page'] == 'Analyse des jeux de données':
     st.title("Analyse des jeux de données")
@@ -659,6 +659,8 @@ elif st.session_state['page'] == 'Analyse des jeux de données':
 elif st.session_state['page'] == 'Machine learning':
     st.title("Machine learning")
 
+    st.image("images/Bandeau_ML.jpg")
+    
     tab5, tab6 = st.tabs(["Extraction des caractéristiques", "Modèles de Machine learning"])
 
     with tab5:
